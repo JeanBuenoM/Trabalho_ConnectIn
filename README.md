@@ -11,7 +11,7 @@ Documento de Visão e Requisitos — Entrega 1
 - [1. Identificação do projeto](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Entrega_1/Identifica%C3%A7%C3%A3o.md)
 - [2. Contexto e problema](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Entrega_1/Contexto_e_Problema.md)
 - [3. Objetivos](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Entrega_1/Objetivos.md)
-- [4. Público-alvo e perfis de usuário](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/P%C3%BAblico-alvo.md)
+- [4. Público-alvo e perfis de usuário](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Entrega_1/P%C3%BAblico-alvo.md)
 - [5. Escopo](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Escopo.md)
 - [6. Requisitos Funcionais](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Requisitos_Funcionais.md)
 - [7. Requisitos Não Funcionais](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Requisitos_N%C3%A3o_Funcionais.md)
