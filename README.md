@@ -12,7 +12,7 @@ Documento de Visão e Requisitos — Entrega 1
 - [2. Contexto e problema](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Contexto_e_Problema.md)
 - [3. Objetivos](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Objetivos.md)
 - [4. Público-alvo e perfis de usuário](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/P%C3%BAblico-alvo.md)
-- [5. Escopo](docs/Escopo.md)
+- [5. Escopo](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Escopo.md)
 - [6. Requisitos Funcionais](docs/Requisitos%20Funcionais.md)
 - [7. Requisitos Não Funcionais](docs/Requisitos%20Não%20Funcionais.md)
 - [8. Regras de Negócio](docs/Regras%20de%20Negócio.md)
