@@ -15,7 +15,7 @@ Documento de Visão e Requisitos — Entrega 1
 - [5. Escopo](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Escopo.md)
 - [6. Requisitos Funcionais](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Requisitos_Funcionais.md)
 - [7. Requisitos Não Funcionais](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Requisitos_N%C3%A3o_Funcionais.md)
-- [8. Regras de Negócio](docs/Regras%20de%20Negócio.md)
+- [8. Regras de Negócio](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/Regras_de_Neg%C3%B3cio.md)
 
 ---
 
