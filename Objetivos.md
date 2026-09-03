@@ -11,4 +11,4 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 
 ---
 
-[⬅ Voltar ao README](../README.md)
+[⬅ Voltar ao README](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/README.md)
