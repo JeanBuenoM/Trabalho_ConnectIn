@@ -10,4 +10,4 @@ O que motivou a criação deste projeto foi a necessidade de tornar o processo d
 
 ---
 
-[⬅ Voltar ao README](../README.md)
+[⬅ Voltar ao README](https://github.com/JeanBuenoM/Trabalho-Imers-o-Profissional/blob/main/README.md)
