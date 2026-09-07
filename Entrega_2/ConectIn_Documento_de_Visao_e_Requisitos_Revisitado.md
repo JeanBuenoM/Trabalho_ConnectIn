@@ -83,7 +83,7 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 
 **Candidatos (profissionais e estudantes):**
 - Criar e editar seu perfil profissional/acadêmico;
-- Cadastrar e atualizar o currículo (quando aplicável — ver Regra de Negócio RN04 revisada);
+- Cadastrar e atualizar o currículo (quando aplicável,  ver Regra de Negócio RN04 revisada);
 - Pesquisar vagas e oportunidades;
 - Filtrar vagas de acordo com suas qualificações e interesses;
 - Visualizar informações das vagas e oportunidades disponíveis;
@@ -129,7 +129,7 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 | RF01 | O sistema deve permitir o cadastro de estudantes com dados pessoais e acadêmicos. |
 | RF02 | O sistema deve permitir o cadastro de empresas com dados institucionais. |
 | RF03 | O sistema deve permitir que empresas publiquem vagas (estágio, emprego, projeto acadêmico), informando título, descrição, requisitos e prazo para o fechamento das inscrições. |
-| RF04 | O sistema deve permitir que estudantes pesquisem vagas por filtros (área de atuação, modalidade, tipo de vaga). *(Revisado: filtro de localização removido desta entrega — ver seção de Escopo.)* |
+| RF04 | O sistema deve permitir que estudantes pesquisem vagas por filtros (área de atuação, modalidade, tipo de vaga). *(Revisado: filtro de localização removido desta entrega, ver seção de Escopo.)* |
 | RF05 | O sistema deve permitir que estudantes cadastrem e anexem seus currículos ao perfil, de forma opcional para oportunidades acadêmicas *(ver RN04 revisado)*. |
 | RF06 | O sistema deve permitir que estudantes se candidatem às vagas publicadas. |
 | RF07 | O sistema deve permitir que empresas visualizem e avaliem as inscrições recebidas para suas vagas. |
@@ -163,7 +163,7 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 | RN01 | Uma vaga não pode ser publicada sem uma data de encerramento das inscrições. |
 | RN02 | Um estudante só pode se candidatar a uma vaga cujo prazo de inscrição ainda esteja em aberto. |
 | RN03 | Toda vaga publicada deve pertencer a pelo menos uma área de atuação, usada para filtros de busca. |
-| RN04 | **(Revisado)** O upload de currículo é obrigatório para se candidatar a vagas de emprego profissionais/CLT. Para oportunidades acadêmicas (estágio e projetos acadêmicos), o upload de currículo é opcional: o candidato pode, em seu lugar, marcar em seu perfil que não possui experiência profissional e está em busca de uma oportunidade inicial — informação que fica visível em espaço dedicado do perfil, no lugar do currículo. |
+| RN04 | **(Revisado)** O upload de currículo é obrigatório para se candidatar a vagas de emprego profissionais/CLT. Para oportunidades acadêmicas (estágio e projetos acadêmicos), o upload de currículo é opcional: o candidato pode, em seu lugar, marcar em seu perfil que não possui experiência profissional e está em busca de uma oportunidade inicial, informação que fica visível em espaço dedicado do perfil, no lugar do currículo. |
 | RN05 | Um estudante só pode editar seu próprio perfil e currículo, estando autenticado em sua conta. |
 
 [⬆ Voltar ao índice](#índice)
