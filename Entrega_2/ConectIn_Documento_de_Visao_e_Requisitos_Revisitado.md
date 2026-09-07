@@ -73,7 +73,7 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 
 **Público-alvo:** Estudantes e profissionais em busca de oportunidades acadêmicas ou de carreira (empregados/candidatos), empresas e instituições de ensino que oferecem essas oportunidades (empregadores).
 
-**Revisão:** a versão anterior restringia o público-alvo a "empregados e empregadores", o que contrariava a proposta original do projeto descrita na própria seção de Identificação como uma plataforma que também atende ao meio acadêmico (estágios, programas e projetos acadêmicos). A definição foi ampliada para refletir isso.
+(**Revisão:**) a versão anterior restringia o público-alvo a "empregados e empregadores", o que contrariava a proposta original do projeto descrita na própria seção de Identificação como uma plataforma que também atende ao meio acadêmico (estágios, programas e projetos acadêmicos). A definição foi ampliada para refletir isso.
 
 **Necessidades:** Busca por um software de fácil acesso, simples e intuitivo, que facilite a interação entre candidatos — sejam profissionais ou estudantes buscando oportunidades acadêmicas — e as organizações que oferecem essas oportunidades.
 
