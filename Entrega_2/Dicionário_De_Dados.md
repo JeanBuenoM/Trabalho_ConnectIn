@@ -1,6 +1,6 @@
 # 8. Dicionário de Dados
 
-## 8.1 Tabela: usuario
+## Tabela: usuario
 
 Armazena os dados comuns a qualquer pessoa cadastrada no sistema.
 
@@ -13,7 +13,7 @@ Armazena os dados comuns a qualquer pessoa cadastrada no sistema.
 | tipo_usuario | ENUM('candidato','empregador') | — | Sim | — | Define o tipo de perfil associado |
 | data_cadastro | DATETIME | — | Sim | — | Data e hora de criação da conta |
 
-## 8.2 Tabela: candidato
+## Tabela: candidato
 
 Dados específicos de candidatos (estudantes e profissionais).
 
@@ -25,7 +25,7 @@ Dados específicos de candidatos (estudantes e profissionais).
 | area_interesse | VARCHAR | 100 | Não | — | Área de interesse profissional/acadêmica |
 | sem_experiencia | BOOLEAN | — | Sim (default FALSE) | — | Indica se o candidato sinalizou ausência de experiência profissional (RF11) |
 
-## 8.3 Tabela: empregador
+## Tabela: empregador
 
 Dados específicos de empresas e instituições de ensino.
 
@@ -36,7 +36,7 @@ Dados específicos de empresas e instituições de ensino.
 | cnpj_ou_codigo | VARCHAR | 30 | Sim | — | CNPJ (empresa) ou código institucional (instituição de ensino) |
 | tipo_instituicao | ENUM('empresa','instituicao_ensino') | — | Sim | — | Classifica o empregador |
 
-## 8.4 Tabela: curriculo
+## Tabela: curriculo
 
 Currículo vinculado a um candidato (relação opcional, conforme RN04 revisada).
 
@@ -49,7 +49,7 @@ Currículo vinculado a um candidato (relação opcional, conforme RN04 revisada)
 | habilidades | TEXT | — | Não | — | Lista de habilidades do candidato |
 | data_atualizacao | DATETIME | — | Sim | — | Data da última atualização do currículo |
 
-## 8.5 Tabela: vaga
+## Tabela: vaga
 
 Oportunidades publicadas pelos empregadores.
 
@@ -65,7 +65,7 @@ Oportunidades publicadas pelos empregadores.
 | data_publicacao | DATETIME | — | Sim | — | Data de publicação da vaga |
 | status | ENUM('aberta','encerrada') | — | Sim (default 'aberta') | — | Situação atual da vaga |
 
-## 8.6 Tabela: area_atuacao
+## Tabela: area_atuacao
 
 Áreas usadas para classificar vagas e alimentar os filtros de busca (RN03).
 
@@ -74,7 +74,7 @@ Oportunidades publicadas pelos empregadores.
 | id_area | INT | — | Sim | PK | Identificador único da área |
 | nome | VARCHAR | 100 | Sim | UNIQUE | Nome da área de atuação (ex.: Tecnologia, Administração) |
 
-## 8.7 Tabela: vaga_area (tabela associativa)
+## Tabela: vaga_area (tabela associativa)
 
 Resolve o relacionamento muitos-para-muitos entre vaga e area_atuacao.
 
@@ -83,7 +83,7 @@ Resolve o relacionamento muitos-para-muitos entre vaga e area_atuacao.
 | id_vaga | INT | — | Sim | PK, FK (vaga) | Vaga associada |
 | id_area | INT | — | Sim | PK, FK (area_atuacao) | Área de atuação associada |
 
-## 8.8 Tabela: candidatura
+## Tabela: candidatura
 
 Registra a inscrição de um candidato em uma vaga.
 
@@ -96,7 +96,7 @@ Registra a inscrição de um candidato em uma vaga.
 | status | ENUM('analise','aprovado','reprovado') | — | Sim (default 'analise') | — | Situação da candidatura |
 | — | — | — | — | UNIQUE (id_candidato, id_vaga) | Impede candidatura duplicada do mesmo candidato na mesma vaga |
 
-## 8.9 Tabela: notificacao
+## Tabela: notificação
 
 Mensagens enviadas aos usuários (candidatos e empregadores).
 
