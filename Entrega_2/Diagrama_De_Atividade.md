@@ -1,8 +1,6 @@
 # 4. Diagrama de Atividades / Fluxo de Processo
 
-Os diagramas completos estão disponíveis no arquivo **ConectIn_Diagramas_Entrega2.pdf** (páginas 3 e 4). A seguir, a descrição textual dos dois processos centrais modelados.
-
-## 4.1 Processo 1 — Candidatar-se a uma vaga
+## Processo 1 — Candidatar-se a uma vaga
 
 **Início:** Candidato pesquisa/filtra vagas disponíveis (RF04).
 
@@ -21,7 +19,7 @@ Os diagramas completos estão disponíveis no arquivo **ConectIn_Diagramas_Entre
 
 **Fim:** Candidatura registrada e empregador notificado.
 
-## 4.2 Processo 2 — Publicar uma vaga
+## Processo 2 — Publicar uma vaga
 
 **Início:** Empregador autenticado acessa a opção de publicar vaga.
 
@@ -37,7 +35,7 @@ Os diagramas completos estão disponíveis no arquivo **ConectIn_Diagramas_Entre
 
 **Fim:** Vaga publicada, visível nas buscas e candidatos notificados.
 
-## 4.3 Relação com os requisitos e regras de negócio
+## Relação com os requisitos e regras de negócio
 
 | Processo | Requisitos funcionais envolvidos | Regras de negócio envolvidas |
 |---|---|---|
