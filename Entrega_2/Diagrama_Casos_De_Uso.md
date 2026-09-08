@@ -7,7 +7,7 @@
 | **Candidato** | Estudante ou profissional em busca de oportunidades acadêmicas ou de carreira. |
 | **Empregador** | Empresa ou instituição de ensino que publica vagas e oportunidades. |
 
-## Casos de uso identificados
+## Casos de uso
 
 | Código | Caso de uso | Ator | Requisito relacionado |
 |---|---|---|---|
@@ -36,6 +36,6 @@
 
 ## Observações de consistência com a Entrega 1
 
-- Não há caso de uso de "chat privado" ou "mensagem direta entre candidato e empregador", coerente com a decisão de manter essa funcionalidade fora do escopo.
-- Não há caso de uso de "verificar/validar empresa", coerente com a restrição de que o sistema não realiza validação formal de identidade de empresas nesta versão.
-- Não há caso de uso de "filtrar vagas por localização", coerente com a remoção desse filtro do RF04 revisado.
+- Não há caso de uso de "chat privado" ou "mensagem direta entre candidato e empregador".
+- Não há caso de uso de "verificar/validar empresa".
+- Não há caso de uso de "filtrar vagas por localização".
