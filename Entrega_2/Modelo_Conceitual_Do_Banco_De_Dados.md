@@ -1,8 +1,6 @@
 # 6. Modelo Conceitual do Banco de Dados
 
-O diagrama entidade-relacionamento completo está disponível no arquivo **ConectIn_Diagramas_Entrega2.pdf** (página 6).
-
-## 6.1 Entidades
+## Entidades
 
 | Entidade | Descrição |
 |---|---|
@@ -15,7 +13,7 @@ O diagrama entidade-relacionamento completo está disponível no arquivo **Conec
 | CANDIDATURA | Registro de inscrição de um candidato em uma vaga |
 | NOTIFICACAO | Mensagem enviada a um usuário |
 
-## 6.2 Relacionamentos e cardinalidades
+## Relacionamentos e cardinalidades
 
 | Relacionamento | Entidades envolvidas | Cardinalidade |
 |---|---|---|
@@ -28,7 +26,7 @@ O diagrama entidade-relacionamento completo está disponível no arquivo **Conec
 | classificada em | VAGA — AREA_ATUACAO | 1..* : 1..* |
 | recebe | USUARIO — NOTIFICACAO | 1 : 0..* |
 
-## 6.3 Justificativas de modelagem
+## Justificativas de modelagem
 
 - **CANDIDATO e EMPREGADOR como especializações de USUARIO:** ambos compartilham atributos de autenticação e cadastro básico (nome, e-mail, senha), mas possuem atributos próprios distintos, o que justifica a generalização/especialização em vez de uma única entidade genérica.
 - **Relacionamento opcional entre CANDIDATO e CURRICULO (0..1):** decorre diretamente da RN04 revisada — currículo obrigatório apenas para vagas de emprego profissional/CLT, opcional para oportunidades acadêmicas.
