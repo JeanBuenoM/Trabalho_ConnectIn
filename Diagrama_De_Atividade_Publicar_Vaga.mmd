@@ -1,0 +1,13 @@
+flowchart TD
+    Start((Início)) --> A[Autenticar-se como empregador]
+    A --> B[Preencher dados da vaga:<br/>título, descrição, requisitos,<br/>tipo e área de atuação]
+    B --> C{Data de encerramento<br/>das inscrições informada?<br/>RN01}
+    C -- não --> D[Bloquear publicação e<br/>solicitar data de encerramento<br/>RN01]
+    D --> B
+    C -- sim --> E{Ao menos uma área<br/>de atuação selecionada?<br/>RN03}
+    E -- não --> F[Bloquear publicação e<br/>solicitar área de atuação<br/>RN03]
+    F --> B
+    E -- sim --> G[Publicar vaga<br/>RF03]
+    G --> H[Disponibilizar vaga<br/>para busca e filtros<br/>RF04]
+    H --> I[Notificar candidatos com<br/>perfil/habilidades compatíveis<br/>RF10]
+    I --> Fim((Fim))

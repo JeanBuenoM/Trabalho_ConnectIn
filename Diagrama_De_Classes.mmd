@@ -1,0 +1,75 @@
+classDiagram
+    class Usuario {
+        +int idUsuario
+        +string nome
+        +string email
+        +string senha
+        +string tipoUsuario
+        +editarPerfil()
+    }
+
+    class Candidato {
+        +string dadosAcademicos
+        +string habilidades
+        +boolean semExperiencia
+        +cadastrarCurriculo()
+        +pesquisarVagas()
+        +candidatar()
+        +marcarSemExperiencia()
+    }
+
+    class Empregador {
+        +string razaoSocial
+        +string cnpjOuCodigoInstituicao
+        +string tipoInstituicao
+        +string descricao
+        +publicarVaga()
+        +editarVaga()
+    }
+
+    class Curriculo {
+        +int idCurriculo
+        +string arquivo
+        +string resumo
+        +date dataAtualizacao
+    }
+
+    class Vaga {
+        +int idVaga
+        +string titulo
+        +string descricao
+        +string requisitos
+        +string modalidade
+        +string tipo
+        +date prazoInscricao
+        +string status
+    }
+
+    class Candidatura {
+        +int idCandidatura
+        +date dataCandidatura
+        +string status
+    }
+
+    class Notificacao {
+        +int idNotificacao
+        +string mensagem
+        +date dataEnvio
+        +boolean lida
+    }
+
+    class AreaAtuacao {
+        +int idArea
+        +string nome
+    }
+
+    Usuario <|-- Candidato
+    Usuario <|-- Empregador
+
+    Candidato "1" --> "0..1" Curriculo : possui
+    Empregador "1" --> "0..*" Vaga : publica
+    Candidato "1" --> "0..*" Candidatura : realiza
+    Vaga "1" --> "0..*" Candidatura
+    Candidato "1" --> "0..*" Notificacao : recebe
+    Empregador "1" --> "0..*" Notificacao : recebe
+    Vaga "1..*" --> "1..*" AreaAtuacao : pertence

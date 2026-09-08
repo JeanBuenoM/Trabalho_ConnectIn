@@ -1,0 +1,42 @@
+erDiagram
+    USUARIO ||--o| CANDIDATO : "é um tipo de"
+    USUARIO ||--o| EMPREGADOR : "é um tipo de"
+    CANDIDATO ||--o| CURRICULO : possui
+    EMPREGADOR ||--o{ VAGA : publica
+    CANDIDATO ||--o{ CANDIDATURA : realiza
+    VAGA ||--o{ CANDIDATURA : "referente a"
+    VAGA }o--o{ AREA_ATUACAO : "classificada em"
+    USUARIO ||--o{ NOTIFICACAO : recebe
+
+    USUARIO {
+        string nome
+        string email
+    }
+    CANDIDATO {
+        string formacaoAcademica
+        string areaInteresse
+    }
+    EMPREGADOR {
+        string razaoSocial
+        string tipoInstituicao
+    }
+    CURRICULO {
+        string arquivoUrl
+        string resumo
+    }
+    VAGA {
+        string titulo
+        string tipo
+        date prazoInscricao
+    }
+    AREA_ATUACAO {
+        string nome
+    }
+    CANDIDATURA {
+        date dataCandidatura
+        string status
+    }
+    NOTIFICACAO {
+        string tipo
+        string mensagem
+    }
