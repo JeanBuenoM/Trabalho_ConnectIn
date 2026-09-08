@@ -16,7 +16,7 @@ Ligação entre os requisitos definidos na Entrega 1 e os artefatos de modelagem
 | RF10 | UC10 — Receber notificações | notificacao, usuario | Tela/central de notificações |
 | RF11 | UC09b — Indicar sem experiência profissional | candidato | Tela de currículo do perfil (campo "sem experiência") |
 
-## 9.1 Regras de negócio e sua aplicação
+## Regras de negócio e sua aplicação
 
 | Regra de negócio | Onde é aplicada | Entidades/campos envolvidos |
 |---|---|---|
@@ -26,7 +26,7 @@ Ligação entre os requisitos definidos na Entrega 1 e os artefatos de modelagem
 | RN04 — Currículo obrigatório apenas para vagas de emprego/CLT | UC06 — Candidatar-se a vaga / UC09b | curriculo, candidato.sem_experiencia, vaga.tipo |
 | RN05 — Candidato só edita seu próprio perfil, autenticado | UC02 — Editar perfil | usuario, candidato |
 
-## 9.2 Consistência geral
+## Consistência geral
 
 - Todos os 11 requisitos funcionais (RF01–RF11) da Entrega 1 possuem caso de uso, entidade e tela correspondentes.
 - Todas as 5 regras de negócio (RN01–RN05) estão refletidas em pelo menos um caso de uso e em uma restrição do modelo de dados (seção 7.6 do Modelo Lógico).
