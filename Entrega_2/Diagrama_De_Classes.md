@@ -1,8 +1,6 @@
 # 5. Diagrama de Classes
 
-O diagrama completo está disponível no arquivo **ConectIn_Diagramas_Entrega2.pdf** (página 5).
-
-## 5.1 Classes identificadas
+## Classes identificadas
 
 ### Usuario (superclasse)
 Representa os dados comuns a qualquer pessoa cadastrada no sistema.
@@ -98,7 +96,7 @@ Recebida por qualquer usuário (candidato ou empregador).
 | dataEnvio | Data de envio |
 | lida | Indica se já foi visualizada |
 
-## 5.2 Relacionamentos e cardinalidades
+## Relacionamentos e cardinalidades
 
 | Classe A | Relacionamento | Classe B | Cardinalidade |
 |---|---|---|---|
@@ -110,9 +108,3 @@ Recebida por qualquer usuário (candidato ou empregador).
 | Vaga | recebe | Candidatura | 1 : 0..* |
 | Vaga | classificada em | AreaAtuacao | 1..* : 1..* (N:N) |
 | Usuario | recebe | Notificacao | 1 : 0..* |
-
-## 5.3 Coerência com a Entrega 1
-
-- O relacionamento **Candidato–Curriculo com cardinalidade 0..1** reflete diretamente a RN04 revisada: o currículo não é obrigatório para todo candidato, apenas para quem se candidata a vagas de emprego profissional/CLT.
-- O atributo **semExperiencia** em Candidato viabiliza o RF11 (novo).
-- A relação N:N entre **Vaga e AreaAtuacao** reflete a RN03 (toda vaga deve pertencer a pelo menos uma área de atuação, usada nos filtros do RF04).
