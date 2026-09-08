@@ -1,8 +1,6 @@
 # 7. Modelo Lógico do Banco de Dados
 
-O diagrama completo, com todas as tabelas, chaves e tipos de dados, está disponível no arquivo **ConectIn_Diagramas_Entrega2.pdf** (página 7).
-
-## 7.1 Transformação das entidades em tabelas
+## Transformação das entidades em tabelas
 
 O modelo conceitual foi transformado em 9 tabelas relacionais:
 
@@ -18,11 +16,11 @@ O modelo conceitual foi transformado em 9 tabelas relacionais:
 | candidatura | Entidade associativa CANDIDATURA |
 | notificacao | Entidade NOTIFICACAO |
 
-## 7.2 Estratégia de especialização (herança)
+## Estratégia de especialização (herança)
 
 A especialização de `usuario` em `candidato` e `empregador` foi resolvida pela estratégia de **tabela por subtipo com chave compartilhada**: as tabelas `candidato` e `empregador` possuem `id_usuario` como chave primária e, ao mesmo tempo, chave estrangeira para `usuario`. Essa abordagem evita colunas nulas em excesso (que ocorreriam em uma tabela única) e mantém a integridade referencial entre o usuário genérico e seu perfil específico.
 
-## 7.3 Chaves primárias e estrangeiras
+## Chaves primárias e estrangeiras
 
 | Tabela | Chave primária (PK) | Chaves estrangeiras (FK) |
 |---|---|---|
@@ -36,11 +34,11 @@ A especialização de `usuario` em `candidato` e `empregador` foi resolvida pela
 | candidatura | id_candidatura | id_candidato → candidato.id_usuario; id_vaga → vaga.id_vaga |
 | notificacao | id_notificacao | id_usuario → usuario.id_usuario |
 
-## 7.4 Resolução do relacionamento muitos-para-muitos
+## Resolução do relacionamento muitos-para-muitos
 
 O relacionamento N:N entre `vaga` e `area_atuacao` (RN03: toda vaga deve pertencer a pelo menos uma área de atuação) foi resolvido pela tabela associativa **vaga_area**, com chave primária composta por `id_vaga` e `id_area`, cada um também atuando como chave estrangeira para as respectivas tabelas de origem.
 
-## 7.5 Restrições importantes implementadas
+## Restrições importantes implementadas
 
 - **usuario.email** — `UNIQUE`, para impedir cadastros duplicados com o mesmo e-mail.
 - **curriculo.id_candidato** — `UNIQUE`, garantindo que cada candidato tenha no máximo um currículo (relacionamento 1:0..1).
@@ -49,7 +47,7 @@ O relacionamento N:N entre `vaga` e `area_atuacao` (RN03: toda vaga deve pertenc
 - **candidatura.status** — `DEFAULT 'analise'`, refletindo que toda nova candidatura começa em análise (RF08).
 - **candidato.sem_experiencia** — `BOOLEAN NOT NULL DEFAULT FALSE`, campo que viabiliza o RF11.
 
-## 7.6 Coerência com as regras de negócio
+## Coerência com as regras de negócio
 
 | Regra de negócio | Implementação no modelo lógico |
 |---|---|
