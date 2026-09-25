@@ -8,7 +8,7 @@ Documento de Visão, Requisitos e Modelagem — Entregas 1 e 2
 
 ## Índice
 
-**Entrega 1 — Visão e Requisitos (revisado)**
+**Entrega 1 — Visão e Requisitos**
 - [1. Identificação do projeto](#1-identificação-do-projeto)
 - [2. Contexto e problema](#2-contexto-e-problema)
 - [3. Objetivos](#3-objetivos)
