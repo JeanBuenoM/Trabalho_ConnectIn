@@ -717,7 +717,7 @@ A tela "Perfil do candidato" registra a decisão (aprovar/reprovar), refletida e
 | Requisito | Tela |
 |---|---|
 | RF02 | Cadastro de empresa |
-| RF02 | Painel da empresa (início) |
+| RF02 | Painel da empresa |
 | RF03 | Criação/publicação de vaga |
 | RF07 | Candidatos inscritos |
 | RF07 | Perfil do candidato e decisão da candidatura |
