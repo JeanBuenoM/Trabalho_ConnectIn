@@ -35,7 +35,7 @@ Documento de Visão, Requisitos e Modelagem — Entregas 1 e 2
 - [20. Arquitetura e Tecnologias](#20-arquitetura-e-tecnologias)
 - [21. Mapa de Navegação e Protótipos](#21-mapa-de-navegação-e-protótipos)
 - [22. Produto Mínimo Viável (MVP) e Fluxo Completo](#22-produto-mínimo-viável-mvp-e-fluxo-completo)
-- [23. Rastreabilidade — Entrega 3](#23-rastreabilidade--entrega-3)
+- [23. Rastreabilidade](#23-rastreabilidade)
 
 ---
 
@@ -784,7 +784,7 @@ Esse fluxo é o mais indicado para demonstração porque já tem a maior parte d
 
 ---
 
-## 23. Rastreabilidade — Entrega 3
+## 23. Rastreabilidade
 
 Cruzamento entre o fluxo completo selecionado, os requisitos envolvidos, os casos de uso, as entidades de banco de dados e as telas, indicando o que faz parte do MVP.
 
