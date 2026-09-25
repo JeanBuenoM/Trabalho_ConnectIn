@@ -13,7 +13,7 @@ A tela "Candidatos inscritos" atualiza o status, refletido em "Minhas candidatur
 ## Telas do levantamento (conforme quadro da equipe)
 
 | Requisito | Tela | Perfil que utiliza |
-|---|---|---|---|
+|---|---|---|
 | RF01 | Cadastro de estudante | Estudante |
 | RF01 | Perfil do estudante | Estudante |
 | RF02 | Cadastro de empresa | Empresa |
