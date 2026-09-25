@@ -702,7 +702,7 @@ A tela "Perfil do candidato" registra a decisão (aprovar/reprovar), refletida e
 ### Protótipos — telas do candidato
 
 | Requisito | Tela |
-|---|---|---|
+|---|---|
 | RF01 | Cadastro de estudante |
 | RF01, RF05, RF11 | Perfil do estudante |
 | RF05, RF09, RF11 | Edição de perfil — dados pessoais e formação |
@@ -715,7 +715,7 @@ A tela "Perfil do candidato" registra a decisão (aprovar/reprovar), refletida e
 ### Protótipos — telas do empregador
 
 | Requisito | Tela |
-|---|---|---|
+|---|---|
 | RF02 | Cadastro de empresa |
 | RF02 | Painel da empresa (início) |
 | RF03 | Criação/publicação de vaga |
