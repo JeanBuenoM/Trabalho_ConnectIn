@@ -1,0 +1,74 @@
+erDiagram
+    usuario {
+        int id_usuario PK
+        string nome
+        string email UK
+        string senha_hash
+        string tipo_usuario
+        datetime data_cadastro
+    }
+    candidato {
+        int id_usuario PK "FK -> usuario"
+        date data_nascimento
+        string formacao_academica
+        string area_interesse
+        boolean sem_experiencia
+    }
+    empregador {
+        int id_usuario PK "FK -> usuario"
+        string razao_social
+        string cnpj_ou_codigo
+        string tipo_instituicao
+    }
+    curriculo {
+        int id_curriculo PK
+        int id_candidato FK "UNIQUE"
+        string arquivo_url
+        string resumo
+        string habilidades
+        datetime data_atualizacao
+    }
+    vaga {
+        int id_vaga PK
+        int id_empregador FK
+        string titulo
+        string descricao
+        string requisitos
+        string tipo
+        date prazo_inscricao
+        datetime data_publicacao
+        string status
+    }
+    area_atuacao {
+        int id_area PK
+        string nome UK
+    }
+    vaga_area {
+        int id_vaga PK,FK
+        int id_area PK,FK
+    }
+    candidatura {
+        int id_candidatura PK
+        int id_candidato FK
+        int id_vaga FK
+        datetime data_candidatura
+        string status
+    }
+    notificacao {
+        int id_notificacao PK
+        int id_usuario FK
+        string tipo
+        string mensagem
+        datetime data_envio
+        boolean lida
+    }
+
+    usuario ||--o| candidato : "1:1"
+    usuario ||--o| empregador : "1:1"
+    candidato ||--o| curriculo : "1:1"
+    empregador ||--o{ vaga : "1:N"
+    vaga ||--o{ vaga_area : "1:N"
+    area_atuacao ||--o{ vaga_area : "1:N"
+    candidato ||--o{ candidatura : "1:N"
+    vaga ||--o{ candidatura : "1:N"
+    usuario ||--o{ notificacao : "1:N"

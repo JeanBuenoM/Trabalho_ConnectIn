@@ -1,0 +1,17 @@
+flowchart TD
+    Start((Início)) --> A[Pesquisar/filtrar vagas<br/>RF04]
+    A --> B[Visualizar detalhes da vaga]
+    B --> C{Prazo de inscrição<br/>em aberto?<br/>RN02}
+    C -- não --> D[Exibir mensagem:<br/>inscrições encerradas]
+    D --> Fim((Fim))
+    C -- sim --> E{Vaga é emprego<br/>profissional/CLT?<br/>RN04}
+    E -- "sim (emprego/CLT)" --> F{Candidato possui<br/>currículo cadastrado?}
+    E -- "não (estágio/<br/>projeto acadêmico)" --> H[Confirmar candidatura<br/>RF06]
+    F -- não --> G[Bloquear candidatura e<br/>solicitar cadastro de currículo<br/>RN04]
+    G --> Fim
+    F -- sim --> H
+    H -. "candidato sem<br/>currículo (opcional)" .-> I[Permitir marcar 'sem experiência,<br/>em busca de oportunidade'<br/>RF11]
+    I --> J[Registrar candidatura<br/>com status 'análise'<br/>RF08]
+    H --> J
+    J --> K[Notificar empregador<br/>sobre nova inscrição]
+    K --> Fim
