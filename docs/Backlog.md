@@ -9,11 +9,11 @@
 | T03 | Implementar pesquisa e filtros de vagas | RF04 | Alta | João Passos | Completo |
 | T04 | Criar cadastro e anexo de currículo | RF05 | Alta | Jean Bueno | Completo |
 | T05 | Implementar candidatura às vagas | RF06 | Alta | Jean Bueno | Completo |
-| T06 | Criar área para empresas visualizarem inscrições | RF07 | Alta | Jean Bueno | Não iniciado |
-| T07 | Implementar avaliação das inscrições | RF07 | Média | João Passos | Não iniciado |
+| T06 | Criar área para empresas visualizarem inscrições | RF07 | Alta | Jean Bueno | Em progresso |
+| T07 | Implementar avaliação das inscrições | RF07 | Média | João Passos | Em progresso |
 | T08 | Criar acompanhamento do status das inscrições | RF08 | Média | Mateus Gomes | Em progresso |
 | T09 | Criar edição de perfil e currículo | RF09 | Alta | Kauã Morais | Em progresso |
-| T10 | Implementar sistema de notificações | RF10 | Média | João Passos | Não iniciado |
+| T10 | Implementar sistema de notificações | RF10 | Média | João Passos | Em progresso |
 | T11 | Implementar proteção dos dados dos usuários | RNF01 | Alta | Mateus Gomes | Não iniciado |
 | T12 | Adaptar interface para desktop e mobile | RNF02 | Média | Mateus Gomes | Não iniciado |
 | T13 | Otimização geral do sistema — mobile e desktop | RNF03, RNF04, RNF05 | Média | Mateus Gomes | Não iniciado |
