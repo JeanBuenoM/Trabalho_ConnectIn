@@ -714,7 +714,7 @@ A tela "Perfil do candidato" registra a decisão (aprovar/reprovar), refletida e
 
 ### Protótipos — telas do empregador
 
-| Requisito | Tela | Arquivo |
+| Requisito | Tela |
 |---|---|---|
 | RF02 | Cadastro de empresa |
 | RF02 | Painel da empresa (início) |
