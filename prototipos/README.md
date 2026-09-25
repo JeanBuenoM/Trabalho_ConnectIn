@@ -2,8 +2,6 @@
 
 ## Mapa de navegação
 
-Ver [`mapa-de-navegacao.svg`](mapa-de-navegacao.svg).
-
 ```
 LOGIN/CADASTRO
    ↘ (estudante) PERFIL DO ESTUDANTE → PERFIL E CURRÍCULO → BUSCA DE VAGAS → DETALHES DA VAGA/CANDIDATURA → MINHAS CANDIDATURAS
@@ -14,20 +12,20 @@ A tela "Candidatos inscritos" atualiza o status, refletido em "Minhas candidatur
 
 ## Telas do levantamento (conforme quadro da equipe)
 
-| Requisito | Tela | Perfil que utiliza | Arquivo |
+| Requisito | Tela | Perfil que utiliza |
 |---|---|---|---|
-| RF01 | Cadastro de estudante | Estudante | [`01-tela-login.svg`](01-tela-login.svg) |
-| RF01 | Perfil do estudante | Estudante | [`07-tela-perfil-estudante.svg`](07-tela-perfil-estudante.svg) |
-| RF02 | Cadastro de empresa | Empresa | [`01-tela-login.svg`](01-tela-login.svg) |
-| RF02 | Perfil da empresa | Empresa | [`08-tela-perfil-empresa.svg`](08-tela-perfil-empresa.svg) |
-| RF03 | Criação/publicação de vaga | Empresa | [`05-tela-publicar-vaga.svg`](05-tela-publicar-vaga.svg) |
-| RF04 | Busca e listagem de vagas | Estudante | [`02-tela-busca-vagas.svg`](02-tela-busca-vagas.svg) |
-| RF05, RF11 | Perfil e currículo | Estudante | [`07-tela-perfil-estudante.svg`](07-tela-perfil-estudante.svg) |
-| RF06, RN02, RN04 | Detalhes da vaga e candidatura | Estudante | [`03-tela-detalhes-vaga.svg`](03-tela-detalhes-vaga.svg) |
-| RF07 | Candidatos inscritos | Empresa | [`06-tela-gestao-inscricoes.svg`](06-tela-gestao-inscricoes.svg) |
-| RF08 | Minhas candidaturas | Estudante | [`04-tela-minhas-candidaturas.svg`](04-tela-minhas-candidaturas.svg) |
-| RF09 | Edição de perfil | Estudante, Empresa | Reaproveita `07` / `08` com campos editáveis |
-| RF10 | Notificações | Estudante, Empresa | [`09-tela-notificacoes.svg`](09-tela-notificacoes.svg) |
+| RF01 | Cadastro de estudante | Estudante |
+| RF01 | Perfil do estudante | Estudante |
+| RF02 | Cadastro de empresa | Empresa |
+| RF02 | Perfil da empresa | Empresa |
+| RF03 | Criação/publicação de vaga | Empresa |
+| RF04 | Busca e listagem de vagas | Estudante |
+| RF05, RF11 | Perfil e currículo | Estudante |
+| RF06, RN02, RN04 | Detalhes da vaga e candidatura | Estudante |
+| RF07 | Candidatos inscritos | Empresa |
+| RF08 | Minhas candidaturas | Estudante |
+| RF09 | Edição de perfil | Estudante, Empresa |
+| RF10 | Notificações | Estudante, Empresa |
 
 ## Estados e mensagens representados
 
