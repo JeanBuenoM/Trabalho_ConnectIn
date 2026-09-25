@@ -54,7 +54,3 @@ A primeira versão funcional cobre o fluxo essencial: cadastro de candidato e em
 ## Backlog
 
 O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável e status (A fazer, Em progresso, Completo). As tarefas de maior prioridade — login/cadastro, publicação de vaga, busca/filtros, currículo e candidatura (T01-T05) — já estão concluídas; segue em andamento o restante do fluxo (avaliação de inscrições, edição de perfil, notificações e requisitos não funcionais).
-
-## Apresentação
-
-Roteiro e divisão de falas da equipe para a apresentação da 3ª entrega em [`docs/Apresentacao.md`](docs/Apresentacao.md).
