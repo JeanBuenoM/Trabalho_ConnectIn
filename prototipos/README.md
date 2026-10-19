@@ -44,6 +44,8 @@ A tela "Candidatos inscritos" atualiza o status, refletido em "Minhas candidatur
 
 ## Relação com o backlog
 
-As telas correspondentes a T01-T05 (login, publicar vaga, busca/filtros, currículo, candidatura) já estão concluídas segundo o backlog da equipe. As telas de candidatos inscritos (T06, T07) e notificações (T10) ainda estão pendentes — os esboços aqui servem de referência para essa implementação.
+Todas as telas aqui são protótipos: nenhuma delas foi implementada em código ainda (situação em 18/10/2026). Para a entrega de 20/10, as telas de publicar vaga (T02) e de busca e listagem de vagas (T03) são as primeiras a serem implementadas. Os esboços servem de referência para as demais.
+
+Protótipo de alta fidelidade: a pasta [`alta-fidelidade/`](alta-fidelidade/) tem o protótipo navegável das telas (React, Vite e Tailwind), com a tela de publicar vaga já com o campo modalidade. As diferenças entre ele e os requisitos estão no README da pasta. As imagens PNG desta pasta (`RF03 Criação-publicação de vaga.png` e as outras) são os esboços anteriores e não têm o campo modalidade.
 
 > Esboços em baixa fidelidade (wireframes). Podem ser refeitos em média/alta fidelidade no Figma ou Canva antes da apresentação, mantendo os mesmos campos, estados e fluxo.
