@@ -41,16 +41,39 @@ Justificativa completa e diagrama simples de arquitetura em [`docs/Arquitetura_e
 
 A primeira versão funcional cobre o fluxo essencial: cadastro de candidato e empregador, publicação de vaga, busca/filtro de vagas, candidatura (com a regra de currículo obrigatório/opcional conforme o tipo de vaga) e avaliação/acompanhamento do status da candidatura. Edição de perfil e notificações ficam como desejáveis para esta etapa. Detalhes completos, classificação por funcionalidade e o fluxo completo selecionado em [`docs/MVP.md`](docs/MVP.md).
 
+## Situação atual (2º bimestre)
+
+- A documentação do 1º bimestre está pronta: requisitos, modelagem, banco de dados, protótipos, MVP, backlog e arquitetura.
+- A implementação está começando. O recorte da entrega de 20/10 é **publicar vagas e consultar vagas** (RF03 e parte do RF04). Esse recorte está **em desenvolvimento**.
+- Funcionalidades disponíveis hoje: nenhuma ainda. Esta seção deve ser atualizada quando o código for enviado.
+- Índice da entrega de 20/10: [`docs/Entrega_20-10_Indice.md`](docs/Entrega_20-10_Indice.md)
+
+## Como executar
+
+Esta parte deve ser preenchida pela equipe com os comandos e as versões que realmente funcionaram, quando o código estiver no repositório. O esqueleto abaixo segue o que está previsto em [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md) e precisa ser ajustado se a equipe usar outra ferramenta.
+
+1. Instalar: Java, Maven, MySQL e Git (versões a registrar aqui).
+2. Clonar o repositório.
+3. Criar o banco rodando `banco-de-dados/schema.sql` no MySQL.
+4. Copiar `src/main/resources/application-example.properties` para `application.properties` e colocar o usuário e a senha do seu MySQL. Esse arquivo não vai para o GitHub.
+5. Iniciar a aplicação (por exemplo, `mvn spring-boot:run`) e abrir no navegador o endereço informado aqui.
+
 ## Organização do projeto
 
 | Pasta/arquivo | Conteúdo |
 |---|---|
-| `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP e apresentação |
+| `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP, casos de teste, índice da entrega e roteiro da demonstração |
 | `diagramas/` | Casos de uso, atividades, classes e arquitetura |
 | `banco-de-dados/` | Modelo conceitual, modelo lógico, script SQL e dicionário de dados |
 | `prototipos/` | Mapa de navegação e protótipos de alta fidelidade das 13 telas do MVP (candidato e empregador) |
-| `src/` | Código-fonte (quando a implementação estiver iniciada) |
+| `src/` | Código-fonte (Java/Spring e telas HTML), em desenvolvimento |
 
 ## Backlog
 
-O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável e status (A fazer, Em progresso, Completo). As tarefas de maior prioridade — login/cadastro, publicação de vaga, busca/filtros, currículo e candidatura (T01-T05) — já estão concluídas; segue em andamento o restante do fluxo (avaliação de inscrições, edição de perfil, notificações e requisitos não funcionais).
+O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável, prazo e situação (Não iniciado, Em progresso, Completo). Em 18/10/2026 todas as tarefas estão como "Não iniciado", porque o repositório ainda não tem código. As tarefas T02, T03 e T14 a T17 formam o recorte da entrega de 20/10.
+
+## Pendências e próximos passos
+
+- Até 20/10: publicar e consultar vagas funcionando, com testes registrados.
+- Até 06/11: cadastro e login, currículo, candidatura e início da avaliação.
+- Até 27/11: avaliação, status, edição de perfil, notificações, ajustes finais e apresentação de todos os integrantes.
