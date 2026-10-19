@@ -47,6 +47,7 @@ CREATE TABLE vaga (
     descricao TEXT NOT NULL,
     requisitos TEXT,
     tipo ENUM('emprego', 'estagio', 'projeto_academico') NOT NULL,
+    modalidade ENUM('presencial', 'remoto', 'hibrido') NOT NULL,
     prazo_inscricao DATE NOT NULL,
     data_publicacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status ENUM('aberta', 'encerrada') NOT NULL DEFAULT 'aberta',
