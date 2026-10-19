@@ -137,7 +137,7 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 |--------|-----------|
 | RF01 | O sistema deve permitir o cadastro de estudantes com dados pessoais e acadêmicos. |
 | RF02 | O sistema deve permitir o cadastro de empresas com dados institucionais. |
-| RF03 | O sistema deve permitir que empresas publiquem vagas (estágio, emprego, projeto acadêmico), informando título, descrição, requisitos e prazo para o fechamento das inscrições. |
+| RF03 | O sistema deve permitir que empresas publiquem vagas (estágio, emprego, projeto acadêmico), informando título, descrição, requisitos, modalidade (presencial, remoto ou híbrido) e prazo para o fechamento das inscrições. |
 | RF04 | O sistema deve permitir que estudantes pesquisem vagas por filtros (área de atuação, modalidade, tipo de vaga). |
 | RF05 | O sistema deve permitir que estudantes cadastrem e anexem seus currículos ao perfil, de forma opcional para oportunidades acadêmicas (ver RN04). |
 | RF06 | O sistema deve permitir que estudantes se candidatem às vagas publicadas. |
@@ -245,7 +245,7 @@ A numeração de requisitos funcionais (RF01–RF10), não funcionais (RNF01–R
 
 Detalhamento das funcionalidades prioritárias do sistema, no formato ator, objetivo, pré-condições, fluxo principal, fluxos alternativos e pós-condições.
 
-### UC01 — Publicar vaga
+### UC03 — Publicar vaga
 
 | Campo | Descrição |
 |---|---|
@@ -268,7 +268,7 @@ Detalhamento das funcionalidades prioritárias do sistema, no formato ator, obje
 
 ---
 
-### UC02 — Pesquisar vagas
+### UC05 — Pesquisar vagas
 
 | Campo | Descrição |
 |---|---|
@@ -291,7 +291,7 @@ Detalhamento das funcionalidades prioritárias do sistema, no formato ator, obje
 
 ---
 
-### UC03 — Candidatar-se a vaga
+### UC06 — Candidatar-se a vaga
 
 | Campo | Descrição |
 |---|---|
@@ -320,7 +320,7 @@ Detalhamento das funcionalidades prioritárias do sistema, no formato ator, obje
 
 ---
 
-### UC04 — Avaliar candidaturas
+### UC08 — Avaliar candidaturas
 
 | Campo | Descrição |
 |---|---|
@@ -342,7 +342,7 @@ Detalhamento das funcionalidades prioritárias do sistema, no formato ator, obje
 
 ---
 
-### UC05 — Acompanhar inscrição
+### UC07 — Acompanhar inscrição
 
 | Campo | Descrição |
 |---|---|
@@ -535,6 +535,7 @@ O script SQL de criação das tabelas está em [`banco-de-dados/schema.sql`](../
 | descricao | TEXT | Sim | — | Descrição detalhada |
 | requisitos | TEXT | Não | — | Requisitos exigidos |
 | tipo | ENUM | Sim | — | 'emprego', 'estagio' ou 'projeto_academico' |
+| modalidade | ENUM | Sim | — | 'presencial', 'remoto' ou 'hibrido' (filtro do RF04) |
 | prazo_inscricao | DATE | Sim | — | Data limite (RN01) |
 | data_publicacao | DATETIME | Sim | — | Data de publicação |
 | status | ENUM | Sim (default 'aberta') | — | 'aberta' ou 'encerrada' |
@@ -594,6 +595,8 @@ O script SQL de criação das tabelas está em [`banco-de-dados/schema.sql`](../
 | RF09 | UC02 — Editar perfil | candidato, curriculo | Tela de edição de perfil |
 | RF10 | UC10 — Receber notificações | notificacao, usuario | Central de notificações |
 | RF11 | UC09b — Indicar sem experiência | candidato | Tela de currículo do perfil |
+
+Implementação e testes (2º bimestre): a ligação de cada requisito com o código e com os casos de teste está em [`Casos_de_Teste.md`](Casos_de_Teste.md).
 
 ### Regras de negócio e sua aplicação
 
