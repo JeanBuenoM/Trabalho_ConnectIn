@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vagas abertas — ConectIn</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="conteudo">
+      <a class="marca" href="index.html">ConectIn</a>
+      <nav aria-label="Principal">
+        <a href="vagas.html" aria-current="page">Vagas abertas</a>
+        <a href="publicar-vaga.html">Publicar vaga</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Vagas abertas</h1>
+    <p class="subtitulo">Oportunidades de emprego, estágio e projetos acadêmicos.</p>
+
+    <form id="form-filtros" class="cartao filtros">
+      <div>
+        <label for="filtro-tipo">Tipo</label>
+        <select id="filtro-tipo">
+          <option value="">Todos</option>
+          <option value="emprego">Emprego</option>
+          <option value="estagio">Estágio</option>
+          <option value="projeto_academico">Projeto acadêmico</option>
+        </select>
+      </div>
+      <div>
+        <label for="filtro-area">Área de atuação</label>
+        <select id="filtro-area">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div>
+        <label for="filtro-modalidade">Modalidade</label>
+        <select id="filtro-modalidade">
+          <option value="">Todas</option>
+          <option value="presencial">Presencial</option>
+          <option value="hibrido">Híbrido</option>
+          <option value="remoto">Remoto</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit">Filtrar</button>
+        <button type="button" class="secundario" id="limpar-filtros">Limpar</button>
+      </div>
+    </form>
+
+    <div id="mensagem" role="status" hidden></div>
+    <div id="lista-vagas"></div>
+  </main>
+
+  <script src="js/vagas.js"></script>
+</body>
+</html>
