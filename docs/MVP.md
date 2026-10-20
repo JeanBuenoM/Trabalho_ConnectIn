@@ -6,12 +6,12 @@ O MVP do ConectIn cobre o ciclo essencial: cadastro, publicação de vaga, busca
 
 ## Funcionalidades e classificação
 
-| Funcionalidade | Requisito | Classificação | Faz parte do MVP? | Situação (18/10/2026) |
+| Funcionalidade | Requisito | Classificação | Faz parte do MVP? | Situação (20/10/2026) |
 |---|---|---|---|---|
 | Cadastro de candidato/estudante | RF01 | Indispensável | Sim | Não iniciado (T01) |
 | Cadastro de empregador/empresa | RF02 | Indispensável | Sim | Não iniciado (T01) |
-| Publicar vaga | RF03 | Indispensável | Sim | Recorte de 20/10 (T02, T14 a T16) |
-| Pesquisar/filtrar vagas | RF04 | Indispensável | Sim | Recorte de 20/10 (T03) |
+| Publicar vaga | RF03 | Indispensável | Sim | Recorte de 20/10: implementado, aguardando testes (T02, T14 a T16) |
+| Pesquisar/filtrar vagas | RF04 | Indispensável | Sim | Recorte de 20/10: listagem e filtros implementados, aguardando testes (T03) |
 | Cadastrar currículo | RF05 | Indispensável | Sim | Não iniciado (T04) |
 | Candidatar-se a vaga | RF06 | Indispensável | Sim | Não iniciado (T05) |
 | Avaliar candidaturas | RF07 | Indispensável | Sim | Não iniciado (T06, T07) |
@@ -20,7 +20,7 @@ O MVP do ConectIn cobre o ciclo essencial: cadastro, publicação de vaga, busca
 | Notificações | RF10 | Desejável | Não | Não iniciado (T10) |
 | Indicar sem experiência profissional | RF11 | Indispensável | Sim | Não iniciado (parte de T05) |
 
-Todas as telas já têm protótipo em `prototipos/`. O que ainda não existe é o código.
+Todas as telas já têm protótipo em `prototipos/`. O código existe apenas para o recorte de 20/10 (publicar e listar vagas); o restante ainda não foi iniciado.
 
 ## Fluxo completo selecionado
 
@@ -92,7 +92,7 @@ O que deve funcionar no dia da entrega:
 - Se algum campo obrigatório faltar, a vaga não é salva e a tela informa qual campo falta.
 - Uma tela de listagem mostra as vagas abertas, e a vaga recém-publicada aparece nela.
 - Depois de fechar e abrir a aplicação de novo, as vagas continuam lá.
-- Se der tempo: filtro da listagem por tipo e por área, e mensagem "nenhuma vaga encontrada" quando o filtro não retorna nada.
+- Filtro da listagem por tipo, área e modalidade, e mensagem "nenhuma vaga encontrada" quando o filtro não retorna nada (entrou no recorte).
 
 Como ainda não há login, a publicação usa um empregador fictício já cadastrado no banco, com dados de teste.
 

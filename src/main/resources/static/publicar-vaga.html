@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publicar vaga — ConectIn</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="conteudo">
+      <a class="marca" href="index.html">ConectIn</a>
+      <nav aria-label="Principal">
+        <a href="vagas.html">Vagas abertas</a>
+        <a href="publicar-vaga.html" aria-current="page">Publicar vaga</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Publicar vaga</h1>
+    <p class="subtitulo">Preencha os dados da oportunidade. Por enquanto a vaga é publicada pelo empregador de teste (o login entra na próxima entrega).</p>
+
+    <div id="mensagem" role="status" hidden></div>
+
+    <!-- novalidate: as regras (RN01, RN03...) são validadas pelo servidor, que devolve a mensagem de cada campo -->
+    <form id="form-vaga" class="cartao" novalidate>
+      <div class="campo">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" maxlength="150" autocomplete="off">
+        <p class="erro" id="erro-titulo"></p>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" name="tipo">
+            <option value="">Selecione</option>
+            <option value="emprego">Emprego</option>
+            <option value="estagio">Estágio</option>
+            <option value="projeto_academico">Projeto acadêmico</option>
+          </select>
+          <p class="erro" id="erro-tipo"></p>
+        </div>
+
+        <div class="campo">
+          <label for="modalidade">Modalidade</label>
+          <select id="modalidade" name="modalidade">
+            <option value="">Selecione</option>
+            <option value="presencial">Presencial</option>
+            <option value="hibrido">Híbrido</option>
+            <option value="remoto">Remoto</option>
+          </select>
+          <p class="erro" id="erro-modalidade"></p>
+        </div>
+
+        <div class="campo">
+          <label for="prazoInscricao">Prazo de inscrição</label>
+          <input type="date" id="prazoInscricao" name="prazoInscricao">
+          <p class="erro" id="erro-prazoInscricao"></p>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>Área de atuação (escolha pelo menos uma)</legend>
+        <div class="opcoes-areas" id="opcoes-areas">Carregando áreas...</div>
+        <p class="erro" id="erro-areas"></p>
+      </fieldset>
+
+      <div class="campo">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao"></textarea>
+        <p class="erro" id="erro-descricao"></p>
+      </div>
+
+      <div class="campo">
+        <label for="requisitos">Requisitos (opcional)</label>
+        <textarea id="requisitos" name="requisitos"></textarea>
+      </div>
+
+      <button type="submit" id="botao-publicar">Publicar vaga</button>
+    </form>
+  </main>
+
+  <script src="js/publicar-vaga.js"></script>
+</body>
+</html>

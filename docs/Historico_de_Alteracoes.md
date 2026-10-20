@@ -61,9 +61,23 @@ A revisão foi feita lendo todos os documentos e o repositório do 1º bimestre,
 ### 6. Protótipo de alta fidelidade e tecnologia da interface
 - O que mudou: o repositório passou a ter o protótipo de alta fidelidade em `prototipos/alta-fidelidade/`. Ele foi feito em React, Vite e Tailwind, mas a arquitetura do projeto prevê HTML, CSS e JavaScript simples servidos pelo Spring.
 - Segurança: como não havia certeza de que o arquivo recebido estava limpo, o código do protótipo foi reescrito do zero em arquivos novos e as dependências foram instaladas de novo. Nenhum arquivo do original foi aproveitado. O README da pasta do protótipo explica como isso foi conferido.
-- Decisão pendente da equipe: ou as telas são refeitas em HTML, CSS e JavaScript simples seguindo o protótipo, ou o protótipo em React passa a ser a interface do sistema, com o build servido pelo Spring. Enquanto isso não for decidido, `Arquitetura_e_Tecnologias.md` continua com HTML, CSS e JavaScript.
+- Decisão (20/10/2026): as telas do sistema foram refeitas em HTML, CSS e JavaScript simples, seguindo o protótipo, e servidas pelo Spring. O protótipo em React continua na pasta `prototipos/` só como modelo visual. Motivo: é a tecnologia já prevista na arquitetura e não exige Node nem pnpm para rodar o sistema. A equipe pode rever até 06/11.
 - Diferenças entre o protótipo e os requisitos: estão no README da pasta do protótipo.
 
 ### 7. Pendência que não bloqueia: habilidades do candidato
 - O RF10 usa as habilidades do candidato para avisar sobre vagas compatíveis, mas as habilidades ficam na tabela curriculo, que é opcional (RN04). Um candidato sem currículo não teria habilidades cadastradas.
 - Nada foi alterado ainda. A equipe precisa decidir até 06/11 se as habilidades passam para a tabela candidato.
+
+## 2º bimestre — Início da implementação (20/10/2026)
+
+| Item | O que mudou | Motivo | Impacto |
+|---|---|---|---|
+| `src/` e `pom.xml` | Código do recorte da entrega: publicação de vaga (RF03, com RN01 e RN03) e listagem de vagas abertas com filtros (RF04). | Primeira implementação executável prevista no MVP. | RF03, RF04; tarefas T02, T03, T14, T16. |
+| `banco-de-dados/dados-teste.sql` | Empregador de teste e cinco áreas de atuação fictícias. | O login só entra em 06/11, então a vaga é publicada por um empregador de teste (item 5 acima). | T15; casos de teste CT01 a CT11. |
+| Persistência | O acesso ao MySQL usa `JdbcTemplate` (SQL explícito), e não Spring Data JPA. | SQL visível, alinhado ao `schema.sql` e simples de explicar. | `Arquitetura_e_Tecnologias.md`. |
+| Filtros da listagem | O filtro por tipo, área e modalidade entrou no recorte, que antes o tratava como "se der tempo". | A consulta já suporta os três filtros do RF04 e a modalidade já existe no banco. | CT10 e CT11 passam a valer. |
+| Backlog | T14 a T17 estavam marcadas como "Concluído" sem haver código no repositório e com um estado que não existe na legenda. Passaram para "Em progresso" (T14, T15, T02, T16, T03) e "Não iniciado" (T17). | O status precisa mostrar o que foi executado e conferido. Cada tarefa só vira "Completo" depois dos critérios de conclusão. | `Backlog.md`. |
+| README | Removido o link para `docs/Demonstracao.md`, que foi apagado. Acrescentados comandos de instalação e execução do sistema. | Links quebrados e instruções incompletas. | `README.md`. |
+| Casos de teste | Nenhum caso foi marcado como aprovado. Todos seguem "Não executado" até a equipe rodar o sistema. | Não marcar como aprovado o que não foi executado. | `Casos_de_Teste.md`. |
+
+Pendências desta entrega que continuam abertas: atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço "RF03 Criação-publicação de vaga" com o campo modalidade (item 3), e decidir onde ficam as habilidades do candidato (item 7).

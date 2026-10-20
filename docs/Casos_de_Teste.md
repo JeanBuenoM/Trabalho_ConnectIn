@@ -7,7 +7,7 @@
 - Quem executou: (preencher)
 - Banco recém-criado com o schema.sql e com os dados fictícios de teste (empregador de teste e áreas de atuação)
 - Aplicação aberta no navegador, seguindo o README
-- Os testes CT10 e CT11 só valem se o filtro entrar no recorte
+- Os filtros da listagem (tipo, área e modalidade) foram implementados, então CT10 e CT11 valem para esta entrega. Se a equipe decidir não demonstrar o filtro, marcar os dois como "Não se aplica" e justificar aqui
 
 ## Casos de teste
 
@@ -74,14 +74,14 @@ CT09 — RF04 — Listagem sem nenhuma vaga
 - Observado: (preencher após executar)
 - Situação: Não executado
 
-CT10 — RF04 — Filtrar por tipo (somente se o filtro entrar)
+CT10 — RF04 — Filtrar por tipo
 - Passos: ter vagas de tipos diferentes, escolher o tipo estágio e aplicar o filtro.
 - Entrada: filtro tipo = estágio.
 - Esperado: aparecem só as vagas de estágio.
 - Observado: (preencher após executar)
 - Situação: Não executado
 
-CT11 — RF04 — Filtrar por área (somente se o filtro entrar)
+CT11 — RF04 — Filtrar por área
 - Passos: ter vagas de áreas diferentes, escolher uma área e aplicar o filtro. Depois escolher uma área sem vagas.
 - Entrada: filtro área = Tecnologia, depois uma área sem vagas.
 - Esperado: com a primeira área aparecem só as vagas dela. Com a área sem vagas aparece a mensagem de que nenhuma vaga foi encontrada.
@@ -116,6 +116,6 @@ Complementa a seção 17 de `Visao_e_Requisitos.md`. A coluna de implementação
 
 - RF01 Cadastro de estudante — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
 - RF02 Cadastro de empresa — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
-- RF03 Publicação de vaga (RN01, RN03) — Implementação: (indicar o arquivo da tela e da classe de serviço quando existirem) — Testes: CT01 a CT06 e CT08 — Estado: recorte de 20/10, não implementado
-- RF04 Pesquisa de vagas — Implementação: (indicar o arquivo da tela e do controlador quando existirem) — Testes: CT07 a CT09, e CT10 e CT11 se o filtro entrar — Estado: recorte de 20/10, não implementado
+- RF03 Publicação de vaga (RN01, RN03) — Implementação: tela `src/main/resources/static/publicar-vaga.html` e `js/publicar-vaga.js`; regras em `src/main/java/com/conectin/service/VagaService.java`; gravação em `repository/VagaRepository.java`; rota `POST /api/vagas` em `controller/VagaController.java` — Testes: CT01 a CT06 e CT08 — Estado: implementado, ainda não testado (todos os casos "Não executado")
+- RF04 Pesquisa de vagas — Implementação: tela `src/main/resources/static/vagas.html` e `js/vagas.js`; consulta em `repository/VagaRepository.java` (método `listarAbertas`); rota `GET /api/vagas` com filtros `tipo`, `area` e `modalidade` em `controller/VagaController.java` — Testes: CT07 a CT11 — Estado: implementado (filtros incluídos), ainda não testado
 - RF05 a RF11 — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
