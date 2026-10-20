@@ -8,17 +8,17 @@ O MVP do ConectIn cobre o ciclo essencial: cadastro, publicação de vaga, busca
 
 | Funcionalidade | Requisito | Classificação | Faz parte do MVP? | Situação (20/10/2026) |
 |---|---|---|---|---|
-| Cadastro de candidato/estudante | RF01 | Indispensável | Sim | Não iniciado (T01) |
-| Cadastro de empregador/empresa | RF02 | Indispensável | Sim | Não iniciado (T01) |
-| Publicar vaga | RF03 | Indispensável | Sim | Recorte de 20/10: implementado, aguardando testes (T02, T14 a T16) |
-| Pesquisar/filtrar vagas | RF04 | Indispensável | Sim | Recorte de 20/10: listagem e filtros implementados, aguardando testes (T03) |
-| Cadastrar currículo | RF05 | Indispensável | Sim | Não iniciado (T04) |
-| Candidatar-se a vaga | RF06 | Indispensável | Sim | Não iniciado (T05) |
-| Avaliar candidaturas | RF07 | Indispensável | Sim | Não iniciado (T06, T07) |
-| Acompanhar status de candidatura | RF08 | Indispensável | Sim | Não iniciado (T08) |
-| Editar perfil/currículo | RF09 | Desejável | Não | Não iniciado (T09) |
-| Notificações | RF10 | Desejável | Não | Não iniciado (T10) |
-| Indicar sem experiência profissional | RF11 | Indispensável | Sim | Não iniciado (parte de T05) |
+| Cadastro de candidato/estudante | RF01 | Indispensável | Sim | Finalizado (T01) |
+| Cadastro de empregador/empresa | RF02 | Indispensável | Sim | Finalizado (T01) |
+| Publicar vaga | RF03 | Indispensável | Sim | Finalizado |
+| Pesquisar/filtrar vagas | RF04 | Indispensável | Sim | Finalizado |
+| Cadastrar currículo | RF05 | Indispensável | Sim | Finalizado |
+| Candidatar-se a vaga | RF06 | Indispensável | Sim | Finalizado |
+| Avaliar candidaturas | RF07 | Indispensável | Sim | Finalizado |
+| Acompanhar status de candidatura | RF08 | Indispensável | Sim | Finalizado |
+| Editar perfil/currículo | RF09 | Desejável | Não | Finalizado |
+| Notificações | RF10 | Desejável | Não | Finalizado |
+| Indicar sem experiência profissional | RF11 | Indispensável | Sim | Finalizado |
 
 Todas as telas já têm protótipo em `prototipos/`. O código existe apenas para o recorte de 20/10 (publicar e listar vagas); o restante ainda não foi iniciado.
 
