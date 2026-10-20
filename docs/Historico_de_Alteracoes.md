@@ -27,7 +27,7 @@ Adicionados: diagrama de casos de uso, especificação de casos de uso, diagrama
 - Backlog e arquitetura atualizados com os dados reais do quadro de gestão já usado pela equipe (13 tarefas, responsáveis e status).
 - Levantamento de telas ampliado para refletir o quadro real da equipe: adicionadas as telas de perfil do estudante, perfil da empresa, candidatos inscritos e notificações.
 
-## 2º bimestre — Revisão da base (18/10/2026)
+## 2º bimestre — Revisão da base
 
 A revisão foi feita lendo todos os documentos e o repositório do 1º bimestre, antes de começar a implementação. O problema, os objetivos, os usuários e o escopo continuam válidos. Os requisitos RF01 a RF11, RNF01 a RNF05 e as regras RN01 a RN05 foram mantidos, e nenhum requisito foi removido. Os ajustes abaixo corrigem diferenças entre os documentos e o que existe no repositório.
 
