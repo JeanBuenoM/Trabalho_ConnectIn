@@ -4,9 +4,9 @@
 
 Interface
 - Tecnologia: HTML, CSS e JavaScript.
-- Como as telas são construídas: páginas HTML simples, guardadas em `src/main/resources/static` e servidas pela própria aplicação Spring. O JavaScript (`static/js`) chama o servidor com `fetch` e mostra na tela as mensagens de erro devolvidas por ele. O estilo fica em `static/css/estilo.css`.
+- Como as telas são construídas: páginas HTML simples, guardadas em `prototipos/alta-fidelidade/main/resources/static` e servidas pela própria aplicação Spring. O JavaScript (`static/js`) chama o servidor com `fetch` e mostra na tela as mensagens de erro devolvidas por ele. O estilo fica em `static/css/estilo.css`.
 - Justificativa: são tecnologias que a equipe já conhece e não exigem uma ferramenta extra para a interface.
-- Decisão desta entrega: o protótipo de alta fidelidade (`prototipos/alta-fidelidade/`) usa React, Vite e Tailwind e serve só de modelo visual. As telas do sistema foram feitas em HTML, CSS e JavaScript simples, sem Node nem pnpm para rodar o sistema (ver `Historico_de_Alteracoes.md`, item 6).
+- Decisão desta entrega: as telas do sistema foram feitas em HTML, CSS e JavaScript simples, sem Node nem pnpm para rodar o sistema (ver `Historico_de_Alteracoes.md`, item 6). O protótipo em React que serviu de modelo visual não faz parte desta versão do repositório.
 
 Lógica da aplicação
 - Linguagem e framework: Java 21 com Spring Boot 3.3.5 (versão fixada no `pom.xml`), usando `spring-boot-starter-web`.
@@ -45,16 +45,16 @@ O usuário (candidato ou empregador) usa a interface web. A interface fala com o
 
 ## Organização das pastas
 
-Onde mexer em cada coisa (pacote base `com.conectin`):
+Onde mexer em cada coisa (pacote base `com.conectin`). O código fica em `prototipos/alta-fidelidade/main/`, e não na pasta padrão `src/main`; por isso o `pom.xml` define `sourceDirectory` e `resources` apontando para lá.
 
-- `src/main/java/com/conectin/controller`: recebe as requisições da interface (`VagaController`)
-- `src/main/java/com/conectin/service`: regras de negócio (RN01 a RN05); hoje `VagaService`, com RN01 e RN03
-- `src/main/java/com/conectin/repository`: acesso ao banco (`VagaRepository`, `AreaRepository`)
-- `src/main/java/com/conectin/model`: dados trocados entre as camadas (`VagaRequest`, `VagaResumo`, `AreaAtuacao`)
-- `src/main/java/com/conectin/erro`: validação e conversão dos erros em respostas para a tela
-- `src/main/resources/static`: telas HTML, CSS e JavaScript
-- `src/main/resources/application-example.properties`: exemplo de configuração, sem senha de verdade
-- `src/test/java`: testes automatizados (ainda não existem; os testes desta entrega são manuais, em `docs/Casos_de_Teste.md`)
+- `prototipos/alta-fidelidade/main/java/com/conectin/controller`: recebe as requisições da interface (`VagaController`)
+- `prototipos/alta-fidelidade/main/java/com/conectin/service`: regras de negócio (RN01 a RN05); hoje `VagaService`, com RN01 e RN03
+- `prototipos/alta-fidelidade/main/java/com/conectin/repository`: acesso ao banco (`VagaRepository`, `AreaRepository`)
+- `prototipos/alta-fidelidade/main/java/com/conectin/model`: dados trocados entre as camadas (`VagaRequest`, `VagaResumo`, `AreaAtuacao`)
+- `prototipos/alta-fidelidade/main/java/com/conectin/erro`: validação e conversão dos erros em respostas para a tela
+- `prototipos/alta-fidelidade/main/resources/static`: telas HTML, CSS e JavaScript
+- `prototipos/alta-fidelidade/main/resources/application-example.properties`: exemplo de configuração, sem senha de verdade
+- Testes automatizados: ainda não existem; os testes desta entrega são manuais, em `docs/Casos_de_Teste.md`
 - `banco-de-dados/`: `schema.sql`, `dados-teste.sql` (dados fictícios) e os modelos
 - `docs/`: documentação do projeto, incluindo `Casos_de_Teste.md`
 - `docs/evidencias/`: capturas de tela dos testes
