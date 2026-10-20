@@ -91,9 +91,3 @@ Em desenvolvimento. O banco já pode ser criado rodando `banco-de-dados/schema.s
 ## Backlog
 
 O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável, prazo e situação (Não iniciado, Em progresso, Completo). As tarefas T02, T03 e T14 a T17 formam o recorte da entrega de 20/10.
-
-## Próximos passos
-
-- Entrega de 20/10: publicar e consultar vagas, com testes registrados.
-- Entrega de 06/11: cadastro e login, currículo, candidatura e início da avaliação.
-- Entrega de 27/11: avaliação, status, edição de perfil, notificações, ajustes finais e apresentação de todos os integrantes.
