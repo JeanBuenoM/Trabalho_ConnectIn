@@ -1,7 +1,5 @@
 # Arquitetura e Tecnologias — ConectIn
 
-As tecnologias abaixo são as previstas no 1º bimestre e continuam valendo. Os itens marcados com "(confirmar)" foram sugeridos na revisão de 18/10/2026 e precisam ser confirmados pela equipe. As versões devem ser trocadas pelas que a equipe realmente instalar.
-
 ## Tecnologias e justificativas
 
 Interface
