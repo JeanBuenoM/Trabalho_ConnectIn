@@ -64,11 +64,6 @@ Regra do manual: não marcar como aprovado o que não foi executado. Se algum te
 - [ ] `docs/Historico_de_Alteracoes.md`: se algum defeito levou a mudança no código ou nos requisitos, registrar (data, item, motivo, impacto).
 - [ ] Opcional: atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço de publicar vaga com o campo modalidade. Já consta como pendência no histórico e no README.
 
-## 4. Verificar que outra pessoa consegue rodar (critério da T14)
-
-- [ ] Alguém que não escreveu o código clona o repositório em outra pasta e segue o README do zero.
-- [ ] Se travar em algum passo, corrigir o README.
-
 ## 6. Fechar o repositório
 
 - [ ] Apagar o `O_QUE_FALTA.md` da raiz (é uma lista interna e fala que o código nunca foi executado).
