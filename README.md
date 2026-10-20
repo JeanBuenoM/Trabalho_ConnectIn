@@ -35,6 +35,8 @@ Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego
 - **Banco de dados:** MySQL
 - **Hospedagem:** a definir
 
+O protótipo navegável das telas usa React com Vite. A tecnologia da interface do sistema ainda será confirmada pela equipe.
+
 Justificativa completa e diagrama simples de arquitetura em [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md).
 
 ## MVP
@@ -44,35 +46,54 @@ A primeira versão funcional cobre o fluxo essencial: cadastro de candidato e em
 ## Situação atual (2º bimestre)
 
 - A documentação do 1º bimestre está pronta: requisitos, modelagem, banco de dados, protótipos, MVP, backlog e arquitetura.
-- A implementação está começando. O recorte da entrega de 20/10 é **publicar vagas e consultar vagas** (RF03 e parte do RF04). Esse recorte está **em desenvolvimento**.
-- Funcionalidades disponíveis hoje: nenhuma ainda. Esta seção deve ser atualizada quando o código for enviado.
+- O recorte da entrega de 20/10 é **publicar vagas e consultar vagas** (RF03 e parte do RF04).
+- Já existe no repositório o **protótipo de alta fidelidade** das telas, navegável, em [`prototipos/alta-fidelidade/`](prototipos/alta-fidelidade/). Ele é só a interface: não valida campos e não salva dados.
+- O sistema com servidor (Java/Spring) e banco de dados (MySQL) **está em desenvolvimento** e ainda não foi enviado para a pasta `src/`.
+- O script de criação do banco já está pronto em [`banco-de-dados/schema.sql`](banco-de-dados/schema.sql).
 
 ## Como executar
 
-Esta parte deve ser preenchida pela equipe com os comandos e as versões que realmente funcionaram, quando o código estiver no repositório. O esqueleto abaixo segue o que está previsto em [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md) e precisa ser ajustado se a equipe usar outra ferramenta.
+### Protótipo das telas
 
-1. Instalar: Java, Maven, MySQL e Git (versões a registrar aqui).
-2. Clonar o repositório.
-3. Criar o banco rodando `banco-de-dados/schema.sql` no MySQL.
-4. Copiar `src/main/resources/application-example.properties` para `application.properties` e colocar o usuário e a senha do seu MySQL. Esse arquivo não vai para o GitHub.
-5. Iniciar a aplicação (por exemplo, `mvn spring-boot:run`) e abrir no navegador o endereço informado aqui.
+Precisa de Node 20.19 ou mais novo e do pnpm.
+
+1. Entrar na pasta: `cd prototipos/alta-fidelidade`
+2. Instalar as dependências: `pnpm install`
+3. Iniciar: `pnpm dev`
+4. Abrir no navegador: http://localhost:5173
+
+Mais detalhes, e o que ainda difere dos requisitos, em [`prototipos/alta-fidelidade/README.md`](prototipos/alta-fidelidade/README.md).
+
+### Sistema (Java/Spring + MySQL)
+
+Em desenvolvimento. O banco já pode ser criado rodando `banco-de-dados/schema.sql` no MySQL. As instruções para iniciar o servidor serão adicionadas aqui quando o código for enviado para `src/`.
+
+## Documentação da entrega
+
+- Requisitos, regras de negócio, modelagem e dicionário de dados: [`docs/Visao_e_Requisitos.md`](docs/Visao_e_Requisitos.md)
+- Revisão e alterações desde o 1º bimestre: [`docs/Historico_de_Alteracoes.md`](docs/Historico_de_Alteracoes.md)
+- Escopo priorizado e recorte da entrega: [`docs/MVP.md`](docs/MVP.md)
+- Tecnologias e arquitetura: [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md)
+- Backlog com prioridades, responsáveis, prazos e situação: [`docs/Backlog.md`](docs/Backlog.md)
+- Casos de teste e rastreabilidade: [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md)
+- Roteiro da demonstração: [`docs/Demonstracao.md`](docs/Demonstracao.md)
 
 ## Organização do projeto
 
 | Pasta/arquivo | Conteúdo |
 |---|---|
-| `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP, casos de teste, índice da entrega e roteiro da demonstração |
+| `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP, casos de teste e roteiro da demonstração |
 | `diagramas/` | Casos de uso, atividades, classes e arquitetura |
 | `banco-de-dados/` | Modelo conceitual, modelo lógico, script SQL e dicionário de dados |
-| `prototipos/` | Mapa de navegação e protótipos de alta fidelidade das 13 telas do MVP (candidato e empregador) |
-| `src/` | Código-fonte (Java/Spring e telas HTML), em desenvolvimento |
+| `prototipos/` | Mapa de navegação, esboços das telas do MVP (candidato e empregador) e protótipo de alta fidelidade navegável (`alta-fidelidade/`) |
+| `src/` | Código-fonte do sistema, em desenvolvimento |
 
 ## Backlog
 
-O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável, prazo e situação (Não iniciado, Em progresso, Completo). Em 18/10/2026 todas as tarefas estão como "Não iniciado", porque o repositório ainda não tem código. As tarefas T02, T03 e T14 a T17 formam o recorte da entrega de 20/10.
+O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável, prazo e situação (Não iniciado, Em progresso, Completo). As tarefas T02, T03 e T14 a T17 formam o recorte da entrega de 20/10.
 
-## Pendências e próximos passos
+## Próximos passos
 
-- Até 20/10: publicar e consultar vagas funcionando, com testes registrados.
-- Até 06/11: cadastro e login, currículo, candidatura e início da avaliação.
-- Até 27/11: avaliação, status, edição de perfil, notificações, ajustes finais e apresentação de todos os integrantes.
+- Entrega de 20/10: publicar e consultar vagas, com testes registrados.
+- Entrega de 06/11: cadastro e login, currículo, candidatura e início da avaliação.
+- Entrega de 27/11: avaliação, status, edição de perfil, notificações, ajustes finais e apresentação de todos os integrantes.
