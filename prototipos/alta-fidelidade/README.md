@@ -15,17 +15,6 @@ Precisa de Node 20.19 ou mais novo e do pnpm.
 
 `pnpm build` gera a versão final na pasta `dist`.
 
-## Conferência de segurança (20/10/2026)
-
-O código e a configuração foram lidos antes de entrar no repositório:
-- O código de `src/` não usa `eval`, `fetch`, armazenamento do navegador, cookies, `innerHTML` nem código ofuscado.
-- As únicas conexões externas são o Google Fonts (fonte Inter) e o Unsplash (foto da página inicial).
-- O `package.json` tem só React, Vite, Tailwind, TypeScript e ferramentas conhecidas, sem scripts de instalação. O `pnpm-lock.yaml` tem hash de integridade e todos os pacotes vêm do registro oficial do npm.
-- A pasta `.figma/make/` tem scripts de shell da plataforma Figma Make (`pnpm install`, `pnpm run dev`, `figma make deploy`). Eles não são executados por `pnpm dev` nem por `pnpm build`. Só o `site.json` dessa pasta é lido pelo `vite.config.ts`.
-- `pnpm install --frozen-lockfile` e `pnpm build` foram executados e funcionaram.
-
-Essa conferência é uma leitura do código, não uma garantia absoluta. Rode `pnpm install` normalmente, sem `sudo`.
-
 ## Observações
 
 - A pasta `.figma/`, o `CLAUDE.md` e o `AGENTS.md` são arquivos da ferramenta Figma Make e podem ser ignorados.
