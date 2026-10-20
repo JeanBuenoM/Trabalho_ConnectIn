@@ -5,15 +5,6 @@ Siga o README: criar o banco, copiar o `application.properties`, `mvn spring-boo
 
 Se der erro, o mais provável é: senha do MySQL errada no `application.properties`, porta 3306 diferente, ou o Maven reclamando da versão do Java (precisa ser 21). Se aparecer algum erro de compilação, me mande o texto completo do erro que eu corrijo.
 
-## . Executar os 11 casos de teste e escrever os resultados (só vocês podem)
-Em `docs/Casos_de_Teste.md`, para cada CT01 a CT11:
-- Trocar "Observado: (preencher após executar)" pelo que realmente aconteceu.
-- Trocar "Situação: Não executado" por Aprovado ou Reprovado, conforme o resultado real.
-- No topo: data, quem executou e o commit testado (`git rev-parse --short HEAD`).
-- Tirar uma captura de tela de cada teste e salvar em `docs/evidencias/` com o nome do caso (ex.: `CT02-prazo-obrigatorio.png`).
-- Se algum falhar, preencher a seção "Defeitos encontrados", corrigir e repetir o teste.
-- CT06, CT07 e CT08 mexem direto no banco: use o MySQL Workbench ou `mysql -u root -p conectin`.
-
 ## . Preencher o que depende da máquina de vocês
 - README.md: linha "Versões usadas pela equipe nos testes" (Java, Maven, MySQL).
 - docs/Arquitetura_e_Tecnologias.md: versão do MySQL (traço sublinhado em "Ambiente").
