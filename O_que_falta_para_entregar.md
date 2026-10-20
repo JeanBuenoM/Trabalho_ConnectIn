@@ -24,7 +24,7 @@ Ainda não está provado que o app Spring sobe e responde. Esse é o ponto princ
 - [ ] Acrescentar duas linhas na tabela "Organização do projeto" do `README.md`: `scripts/` (script de testes pela API) e `prototipos/alta-fidelidade-original/` (protótipo original do Figma Make).
 - [ ] Conferir com `git status` que NÃO aparecem `application.properties`, `target/` nem `node_modules/`.
 
-## 1. Rodar o sistema (quem: Mateus, T14/T15)
+## . Rodar o sistema (quem: Mateus, T14/T15)
 
 - [ ] Instalar/conferir Java 21, Maven 3.9+, MySQL 8 e Git (`java -version`, `mvn -v`, `mysql --version`).
 - [ ] Criar o banco: `mysql -u root -p < banco-de-dados/schema.sql` e depois `mysql -u root -p < banco-de-dados/dados-teste.sql`.
@@ -33,7 +33,7 @@ Ainda não está provado que o app Spring sobe e responde. Esse é o ponto princ
 - [ ] Se der erro, guardar o texto completo do erro e corrigir (ou me mandar). Erros mais prováveis: senha ou porta do MySQL, versão do Java diferente de 21.
 - [ ] Se algum erro precisar de correção no código, anotar como defeito em `docs/Casos_de_Teste.md` (seção "Defeitos encontrados").
 
-## 2. Executar os testes (quem: Jean, T17; os outros ajudam)
+## . Executar os testes (quem: Jean, T17; os outros ajudam)
 
 Seguir a ordem de `docs/Roteiro_Final_20-10.md` (o CT09 vem primeiro, com o banco sem vagas).
 
@@ -53,7 +53,7 @@ Seguir a ordem de `docs/Roteiro_Final_20-10.md` (o CT09 vem primeiro, com o banc
 
 Regra do manual: não marcar como aprovado o que não foi executado. Se algum teste falhar, registrar o defeito, corrigir, repetir o teste e atualizar o resultado.
 
-## 3. Preencher os documentos com o resultado real
+## . Preencher os documentos com o resultado real
 
 - [ ] `docs/Casos_de_Teste.md`: data, quem executou, commit testado (`git rev-parse --short HEAD`), "Observado" e "Situação" de cada caso.
 - [ ] `docs/Casos_de_Teste.md`: seção "Rastreabilidade" (trocar "ainda não testado" pelo estado real) e a frase "Nenhum defeito registrado..." se houve defeito.
@@ -64,7 +64,7 @@ Regra do manual: não marcar como aprovado o que não foi executado. Se algum te
 - [ ] `docs/Historico_de_Alteracoes.md`: se algum defeito levou a mudança no código ou nos requisitos, registrar (data, item, motivo, impacto).
 - [ ] Opcional: atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço de publicar vaga com o campo modalidade. Já consta como pendência no histórico e no README.
 
-## 6. Fechar o repositório
+## . Fechar o repositório
 
 - [ ] Apagar o `O_QUE_FALTA.md` da raiz (é uma lista interna e fala que o código nunca foi executado).
 - [ ] Commit final com mensagem clara, por exemplo: "Registra resultados dos testes e atualiza a documentação (entrega 20/10)".
@@ -72,7 +72,7 @@ Regra do manual: não marcar como aprovado o que não foi executado. Se algum te
 - [ ] Abrir o link do repositório em aba anônima. Se for privado, adicionar a professora como colaboradora.
 - [ ] Enviar pelo canal que a professora indicou (link do repositório e da tag).
 
-## 7. Ensaiar a demonstração
+## . Ensaiar a demonstração
 
 - [ ] Banco com os dados de teste e app rodando no computador que será usado.
 - [ ] Ensaiar a sequência de `docs/Roteiro_Final_20-10.md`, seção 4: problema e recorte, o que mudou, arquitetura, backlog, publicar vaga válida, recusar sem prazo e sem área, listagem e filtros, fechar e abrir o app, testes e plano até 06/11.
