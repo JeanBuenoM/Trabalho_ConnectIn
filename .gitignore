@@ -1,0 +1,15 @@
+target/
+src/main/resources/application.properties
+src/main/resources/application-local.properties
+.env
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+node_modules/
