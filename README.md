@@ -10,8 +10,6 @@ A busca por oportunidades acadêmicas e profissionais acontece hoje de forma fra
 
 Desenvolver uma plataforma que centralize e facilite o acesso a vagas de emprego e oportunidades acadêmicas por meio de um software intuitivo, simples e de fácil utilização, conectando candidatos (estudantes e profissionais) a empregadores (empresas e instituições de ensino) em um único ambiente.
 
-Repositório: https://github.com/JeanBuenoM/Trabalho_ConnectIn
-
 ## Equipe
 
 - Mateus Cantelle Gomes
@@ -32,12 +30,12 @@ Repositório: https://github.com/JeanBuenoM/Trabalho_ConnectIn
 
 ## Tecnologias previstas
 
-- **Interface:** HTML, CSS e JavaScript simples, servidos pelo próprio Spring
-- **Backend/servidor:** Java 21 com Spring Boot 3.3.5 (Maven)
-- **Banco de dados:** MySQL 8, acessado com `JdbcTemplate`
-- **Hospedagem:** a definir (por enquanto roda na máquina de cada integrante)
+- **Interface:** HTML, CSS e JavaScript
+- **Backend/servidor:** Java com Spring
+- **Banco de dados:** MySQL
+- **Hospedagem:** a definir
 
-O protótipo navegável das telas (`prototipos/alta-fidelidade/`) usa React com Vite e serve só de modelo visual.
+O protótipo navegável das telas usa React com Vite. A tecnologia da interface do sistema ainda será confirmada pela equipe.
 
 Justificativa completa e diagrama simples de arquitetura em [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md).
 
@@ -47,42 +45,13 @@ A primeira versão funcional cobre o fluxo essencial: cadastro de candidato e em
 
 ## Situação atual (2º bimestre)
 
-Entrega de 20/10/2026. Recorte escolhido: **publicar vagas e consultar vagas** (RF03 e RF04).
-
-**Já está no repositório (o funcionamento ainda precisa ser confirmado pelos testes):**
-- Tela de publicação de vaga (`publicar-vaga.html`) com título, descrição, requisitos, tipo, modalidade, prazo de inscrição e áreas de atuação. A vaga é gravada no MySQL.
-- Regras aplicadas no servidor: prazo de inscrição obrigatório (RN01), pelo menos uma área de atuação (RN03), título e descrição obrigatórios. Uma vaga recusada não é gravada e a tela mostra qual campo corrigir.
-- Tela de listagem (`vagas.html`) que mostra só vagas abertas, com filtros por tipo, área e modalidade e a mensagem "Nenhuma vaga encontrada".
-- Script do banco (`banco-de-dados/schema.sql`) e dados fictícios de teste (`banco-de-dados/dados-teste.sql`).
-- Protótipo de alta fidelidade das telas, em `prototipos/alta-fidelidade/`. Ele é só a interface: não valida campos e não salva dados.
-
-**Em desenvolvimento (não está disponível nesta entrega):** cadastro e login de candidato e empregador, currículo, candidatura, avaliação, acompanhamento de status, edição de perfil e notificações. Enquanto não há login, as vagas são publicadas por um empregador de teste cadastrado em `dados-teste.sql`.
-
-**Testes:** os 11 casos estão descritos em [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md). O resultado de cada um só é registrado depois de executado.
+- A documentação do 1º bimestre está pronta: requisitos, modelagem, banco de dados, protótipos, MVP, backlog e arquitetura.
+- O recorte da entrega de 20/10 é **publicar vagas e consultar vagas** (RF03 e parte do RF04).
+- Já existe no repositório o **protótipo de alta fidelidade** das telas, navegável, em [`prototipos/alta-fidelidade/`](prototipos/alta-fidelidade/). Ele é só a interface: não valida campos e não salva dados.
+- O sistema com servidor (Java/Spring) e banco de dados (MySQL) **está em desenvolvimento** e ainda não foi enviado para a pasta `src/`.
+- O script de criação do banco já está pronto em [`banco-de-dados/schema.sql`](banco-de-dados/schema.sql).
 
 ## Como executar
-
-### Sistema (Java/Spring + MySQL)
-
-Precisa de: Java 21, Maven 3.9 ou mais novo, MySQL 8 e Git.
-
-1. Clonar o repositório e entrar na pasta: `git clone https://github.com/JeanBuenoM/Trabalho_ConnectIn.git` e `cd Trabalho_ConnectIn`
-2. Criar o banco e os dados de teste, em um banco vazio (a senha do MySQL será pedida):
-   - `mysql -u root -p < banco-de-dados/schema.sql`
-   - `mysql -u root -p < banco-de-dados/dados-teste.sql`
-   - Para recomeçar do zero: `mysql -u root -p -e "DROP DATABASE conectin"` e repetir os dois comandos acima.
-3. Criar o arquivo de configuração a partir do exemplo e colocar a sua senha do MySQL:
-   - Linux/macOS: `cp src/main/resources/application-example.properties src/main/resources/application.properties`
-   - Windows (PowerShell): `Copy-Item src/main/resources/application-example.properties src/main/resources/application.properties`
-   - Abrir o `application.properties` e trocar `COLOQUE_A_SUA_SENHA_AQUI`. Esse arquivo não vai para o GitHub.
-4. Iniciar: `mvn spring-boot:run`
-5. Abrir no navegador: http://localhost:8080
-
-Para parar a aplicação, `Ctrl+C` no terminal.
-
-Variáveis de configuração (todas em `application.properties`, nomes no arquivo de exemplo): `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password` e `conectin.empregador-teste-id`.
-
-**Versões usadas pela equipe nos testes** (preencher com o resultado de `java -version`, `mvn -v` e `mysql --version`): Java ____ · Maven ____ · MySQL ____
 
 ### Protótipo das telas
 
@@ -95,41 +64,30 @@ Precisa de Node 20.19 ou mais novo e do pnpm.
 
 Mais detalhes, e o que ainda difere dos requisitos, em [`prototipos/alta-fidelidade/README.md`](prototipos/alta-fidelidade/README.md).
 
-## Índice da entrega de 20/10/2026
+### Sistema (Java/Spring + MySQL)
 
-Versão avaliada: tag `entrega-20-10-2026`.
+Em desenvolvimento. O banco já pode ser criado rodando `banco-de-dados/schema.sql` no MySQL. As instruções para iniciar o servidor serão adicionadas aqui quando o código for enviado para `src/`.
 
-| O que a entrega precisa mostrar | Onde está |
-|---|---|
-| Equipe, projeto e repositório | Início deste README |
-| Revisão e alterações desde o 1º bimestre | [`docs/Historico_de_Alteracoes.md`](docs/Historico_de_Alteracoes.md) |
-| Escopo priorizado e recorte da entrega | [`docs/MVP.md`](docs/MVP.md) |
-| Tecnologias justificadas e arquitetura | [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md) e [`diagramas/diagrama-arquitetura.svg`](diagramas/diagrama-arquitetura.svg) |
-| Backlog com prioridades, responsáveis, prazos e situação | [`docs/Backlog.md`](docs/Backlog.md) |
-| Código integrado e como executar | `src/`, `pom.xml` e a seção "Como executar" acima |
-| Casos de teste, resultados e evidências | [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md) e `docs/evidencias/` |
-| Requisitos, regras de negócio, modelagem e dicionário de dados | [`docs/Visao_e_Requisitos.md`](docs/Visao_e_Requisitos.md) |
-| Pendências e plano até 06/11 | Seção "Próximos passos" abaixo |
+## Documentação da entrega
 
-## Próximos passos (até 06/11)
-
-- Cadastro e login de candidato e de empregador (RF01, RF02, RN05), que substituem o empregador de teste.
-- Currículo e opção "sem experiência" (RF05, RF11), candidatura (RF06, RN02, RN04) e área da empresa para ver as inscrições (RF07).
-- Atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço de publicar vaga com o campo modalidade.
-- Decidir onde ficam as habilidades do candidato (RF10) e se a interface continua em HTML/JS simples.
-- Criar testes automatizados para as regras do `VagaService`, se houver tempo.
+- Requisitos, regras de negócio, modelagem e dicionário de dados: [`docs/Visao_e_Requisitos.md`](docs/Visao_e_Requisitos.md)
+- Revisão e alterações desde o 1º bimestre: [`docs/Historico_de_Alteracoes.md`](docs/Historico_de_Alteracoes.md)
+- Escopo priorizado e recorte da entrega: [`docs/MVP.md`](docs/MVP.md)
+- Tecnologias e arquitetura: [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md)
+- Backlog com prioridades, responsáveis, prazos e situação: [`docs/Backlog.md`](docs/Backlog.md)
+- Casos de teste e rastreabilidade: [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md)
+- Roteiro da demonstração: [`docs/Demonstracao.md`](docs/Demonstracao.md)
 
 ## Organização do projeto
 
 | Pasta/arquivo | Conteúdo |
 |---|---|
-| `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP, casos de teste e `evidencias/` |
+| `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP, casos de teste e roteiro da demonstração |
 | `diagramas/` | Casos de uso, atividades, classes e arquitetura |
-| `banco-de-dados/` | Modelo conceitual, modelo lógico, `schema.sql` e `dados-teste.sql` (o dicionário de dados está em `docs/Visao_e_Requisitos.md`) |
+| `banco-de-dados/` | Modelo conceitual, modelo lógico, script SQL e dicionário de dados |
 | `prototipos/` | Mapa de navegação, esboços das telas do MVP (candidato e empregador) e protótipo de alta fidelidade navegável (`alta-fidelidade/`) |
-| `src/` | Código-fonte do sistema (Java/Spring em `src/main/java`, telas em `src/main/resources/static`) |
-| `pom.xml` | Configuração do Maven: versões do Java e do Spring Boot e dependências |
+| `src/` | Código-fonte do sistema, em desenvolvimento |
 
 ## Backlog
 
-O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável, prazo e situação (Não iniciado, Em progresso, Completo). As tarefas T02, T03 e T14 a T17 formam o recorte da entrega de 20/10; as de T01 e T04 em diante ficam para 06/11 e 27/11.
+O quadro de tarefas do projeto está em [`docs/Backlog.md`](docs/Backlog.md), com tarefas, requisito relacionado, prioridade, responsável, prazo e situação (Não iniciado, Em progresso, Completo). As tarefas T02, T03 e T14 a T17 formam o recorte da entrega de 20/10.
