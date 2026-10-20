@@ -8,12 +8,12 @@ Estados usados: Não iniciado, Em progresso, Completo.
 
 | Tarefa | Descrição | Requisito | Responsável | Prioridade | Prazo | Situação |
 |---|---|---|---|---|---|---|
-| T14 | Criar a estrutura do projeto Java/Spring, ligar ao MySQL e escrever no README como executar | RF03 | Mateus Gomes | Alta | 19/10 de manhã | Não iniciado |
-| T15 | Rodar o schema.sql e criar dados fictícios de teste (um empregador de teste e as áreas de atuação) | RF03, RN03 | Mateus Gomes | Alta | 19/10 de manhã | Não iniciado |
-| T02 | Criar a tela de publicação de vagas, seguindo o protótipo de alta fidelidade e corrigindo as opções de Tipo e Modalidade, que no protótipo estão erradas | RF03 | Kauã Morais | Alta | 19/10 à noite | Não iniciado |
-| T16 | Implementar no servidor a publicação de vaga: receber os dados, validar RN01 e RN03 e gravar no banco | RF03, RN01, RN03 | Jean Bueno | Alta | 19/10 à noite | Não iniciado |
-| T03 | Criar a listagem de vagas abertas; se der tempo, filtros por tipo e por área e mensagem de "nenhuma vaga encontrada" | RF04 | João Passos | Alta | 19/10 à noite | Não iniciado |
-| T17 | Executar os casos de teste, registrar resultados e evidências, e criar a tag da entrega | RF03, RF04 | Jean Bueno | Alta | 20/10 | Não iniciado |
+| T14 | Criar a estrutura do projeto Java/Spring, ligar ao MySQL e escrever no README como executar | RF03 | Mateus Gomes | Alta | 20/10 | Concluído |
+| T15 | Rodar o schema.sql e criar dados fictícios de teste (um empregador de teste e as áreas de atuação) | RF03, RN03 | Mateus Gomes | Alta | 20/10 | Concluído |
+| T02 | Criar a tela de publicação de vagas, seguindo o protótipo de alta fidelidade e corrigindo as opções de Tipo e Modalidade, que no protótipo estão erradas | RF03 | Kauã Morais | Alta | 20/10 | Concluído |
+| T16 | Implementar no servidor a publicação de vaga: receber os dados, validar RN01 e RN03 e gravar no banco | RF03, RN01, RN03 | Jean Bueno | Alta | 20/10 | Concluído |
+| T03 | Criar a listagem de vagas abertas; se der tempo, filtros por tipo e por área e mensagem de "nenhuma vaga encontrada" | RF04 | João Passos | Alta | 20/10 | Concluído |
+| T17 | Executar os casos de teste, registrar resultados e evidências, e criar a tag da entrega | RF03, RF04 | Jean Bueno | Alta | 20/10 | Concluído |
 
 ### Critérios de conclusão
 
