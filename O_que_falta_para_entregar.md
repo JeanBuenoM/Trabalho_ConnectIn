@@ -69,12 +69,6 @@ Regra do manual: não marcar como aprovado o que não foi executado. Se algum te
 - [ ] Alguém que não escreveu o código clona o repositório em outra pasta e segue o README do zero.
 - [ ] Se travar em algum passo, corrigir o README.
 
-## 5. Contribuição de cada integrante
-
-- [ ] Mateus faz pelo menos um commit com o próprio usuário (ex.: preencher as versões no README, ou o resultado de um teste).
-- [ ] João faz pelo menos um commit com o próprio usuário (ex.: um caso de teste, ou o status de T03 no backlog).
-- [ ] Cada um lê o código da sua parte (perguntas sugeridas no `Roteiro_Final_20-10.md`, seção 4).
-
 ## 6. Fechar o repositório
 
 - [ ] Apagar o `O_QUE_FALTA.md` da raiz (é uma lista interna e fala que o código nunca foi executado).
