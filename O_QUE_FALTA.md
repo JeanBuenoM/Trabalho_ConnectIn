@@ -1,7 +1,5 @@
 # O que a equipe precisa fazer antes de entregar (20/10)
 
-Este arquivo NÃO vai para o GitHub. É só a sua lista.
-
 ## 1. Subir a pasta para o repositório
 1. Clone o repositório: `git clone https://github.com/JeanBuenoM/Trabalho_ConnectIn.git`
 2. Copie o conteúdo da pasta `entrega_conectin` POR CIMA do clone (aceite substituir README.md, docs/ e src/README.md). Não apague nada do que já existe.
