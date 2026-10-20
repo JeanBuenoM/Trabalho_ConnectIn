@@ -46,7 +46,6 @@ A primeira versão funcional cobre o fluxo essencial: cadastro de candidato e em
 - A documentação do 1º bimestre está pronta: requisitos, modelagem, banco de dados, protótipos, MVP, backlog e arquitetura.
 - A implementação está começando. O recorte da entrega de 20/10 é **publicar vagas e consultar vagas** (RF03 e parte do RF04). Esse recorte está **em desenvolvimento**.
 - Funcionalidades disponíveis hoje: nenhuma ainda. Esta seção deve ser atualizada quando o código for enviado.
-- Índice da entrega de 20/10: [`docs/Entrega_20-10_Indice.md`](docs/Entrega_20-10_Indice.md)
 
 ## Como executar
 
