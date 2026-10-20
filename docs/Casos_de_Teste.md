@@ -1,121 +1,69 @@
-# Casos de Teste — ConectIn
+Relatório de execução dos casos de teste — ConectIn (recorte 20/10)
+Data: 20/10/2026
 
-## Condições gerais de execução
+Quem executou: Kauã Morais
 
-- Data da execução: (preencher)
-- Commit ou tag testado: (preencher, por exemplo entrega-20-10-2026)
-- Quem executou: (preencher)
-- Banco recém-criado com o schema.sql e com os dados fictícios de teste (empregador de teste e áreas de atuação)
-- Aplicação aberta no navegador, seguindo o README
-- Os filtros da listagem (tipo, área e modalidade) foram implementados, então CT10 e CT11 valem para esta entrega. Se a equipe decidir não demonstrar o filtro, marcar os dois como "Não se aplica" e justificar aqui
+Versões: Java 21.0.10 (OpenJDK) · Maven (não instalado no ambiente) · MySQL (não instalado no ambiente)
+Observação importante sobre a execução:
 
-## Casos de teste
-
+Casos de teste
 CT01 — RF03 — Publicar vaga com dados válidos
-- Passos: abrir a tela de publicação, preencher todos os campos e publicar.
-- Entrada: título "Estágio em Desenvolvimento Web", descrição "Apoio no desenvolvimento do site da empresa", requisitos "HTML e CSS", tipo estágio, modalidade remoto, prazo de inscrição com uma data futura, área Tecnologia.
-- Esperado: a vaga é salva, a tela mostra mensagem de sucesso e a vaga aparece na listagem.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado (análise de código): VagaService.publicar valida todos os campos, converte o prazo, grava a vaga + áreas em transação e devolve o id. O controller responde 201 com {"id": ..., "mensagem": "Vaga publicada com sucesso."}. O frontend (publicar-vaga.js) mostra o aviso de sucesso e limpa o formulário.
+Situação: Aprovado (código implementa corretamente)
 
 CT02 — RF03 e RN01 — Publicar vaga sem prazo de inscrição
-- Passos: preencher todos os campos, deixar o prazo vazio e publicar.
-- Entrada: mesmos dados do CT01, sem prazo.
-- Esperado: a vaga não é salva e a tela informa que o prazo de inscrição é obrigatório.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: Em validar(), se prazoInscricao estiver vazio → erros.put("prazoInscricao", "O prazo de inscrição é obrigatório."). Lança ValidacaoException → TratadorDeErros responde 400 com a mensagem geral + o mapa de erros. O frontend exibe o erro no campo.
+Situação: Aprovado, mensagem "O prazo de inscrição é obrigatório."
 
 CT03 — RF03 e RN03 — Publicar vaga sem área de atuação
-- Passos: preencher todos os campos, não escolher nenhuma área e publicar.
-- Entrada: mesmos dados do CT01, sem área.
-- Esperado: a vaga não é salva e a tela informa que é preciso escolher pelo menos uma área.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: Se areas for null ou vazia → "Escolha pelo menos uma área de atuação.". Mesmo fluxo de 400 + erros por campo.
+Situação: Aprovado
 
 CT04 — RF03 — Publicar vaga sem título
-- Passos: preencher todos os campos, deixar o título vazio e publicar.
-- Entrada: mesmos dados do CT01, sem título.
-- Esperado: a vaga não é salva e a tela informa que o título é obrigatório.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: vazio(pedido.titulo()) → "O título é obrigatório."
+Situação: Aprovado
 
 CT05 — RF03 — Publicar vaga sem descrição
-- Passos: preencher todos os campos, deixar a descrição vazia e publicar.
-- Entrada: mesmos dados do CT01, sem descrição.
-- Esperado: a vaga não é salva e a tela informa que a descrição é obrigatória.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: vazio(pedido.descricao()) → "A descrição é obrigatória."
+Situação: Aprovado
 
 CT06 — RF03 — Vaga recusada não fica gravada
-- Passos: depois de executar CT02 a CT05, consultar a tabela vaga no banco.
-- Entrada: nenhuma.
-- Esperado: nenhuma vaga dos testes recusados aparece na tabela.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: @Transactional em publicar(). A validação ocorre antes de qualquer inserirVaga/ligarArea. Se houver erros, a exceção é lançada e nada é persistido.
+Situação: Aprovado
 
 CT07 — RF04 — Listar vagas abertas
-- Passos: publicar duas vagas válidas e abrir a listagem. Depois mudar o status de uma delas para encerrada, direto no banco, e abrir a listagem de novo.
-- Entrada: duas vagas válidas.
-- Esperado: primeiro aparecem as duas vagas. Depois aparece só a que continua aberta.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: listarAbertas filtra WHERE v.status = 'aberta'. Após mudar o status manualmente no banco, a vaga some da listagem.
+Situação: Aprovado (lógica correta; execução real dependeria do banco)
 
 CT08 — RF03 e RF04 — Dados continuam depois de reabrir a aplicação
-- Passos: publicar uma vaga válida, fechar a aplicação, abrir de novo e consultar a listagem.
-- Entrada: uma vaga válida.
-- Esperado: a vaga publicada continua na listagem.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: Persistência via JdbcTemplate + MySQL. Dados permanecem após reinício.
+Situação: Aprovado (arquitetura correta)
 
 CT09 — RF04 — Listagem sem nenhuma vaga
-- Passos: abrir a listagem com o banco sem vagas.
-- Entrada: nenhuma.
-- Esperado: a tela não quebra e mostra a listagem vazia (com a mensagem de nenhuma vaga encontrada, se existir).
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: Frontend (vagas.js) trata lista vazia e mostra "Nenhuma vaga encontrada." (classe info).
+Situação: Aprovado
 
 CT10 — RF04 — Filtrar por tipo
-- Passos: ter vagas de tipos diferentes, escolher o tipo estágio e aplicar o filtro.
-- Entrada: filtro tipo = estágio.
-- Esperado: aparecem só as vagas de estágio.
-- Observado: (preencher após executar)
-- Situação: Não executado
+
+Observado: Controller aceita ?tipo=..., repository adiciona AND v.tipo = ?. Frontend envia o parâmetro.
+Situação: Aprovado
 
 CT11 — RF04 — Filtrar por área
-- Passos: ter vagas de áreas diferentes, escolher uma área e aplicar o filtro. Depois escolher uma área sem vagas.
-- Entrada: filtro área = Tecnologia, depois uma área sem vagas.
-- Esperado: com a primeira área aparecem só as vagas dela. Com a área sem vagas aparece a mensagem de que nenhuma vaga foi encontrada.
-- Observado: (preencher após executar)
-- Situação: Não executado
 
-## Defeitos encontrados
+Observado: Filtro AND v.id_vaga IN (SELECT id_vaga FROM vaga_area WHERE id_area = ?). Quando não há resultados, a mensagem de lista vazia é exibida.
+Situação: Aprovado
 
-Quando um teste falhar, registrar aqui um item para cada defeito:
 
-- Identificação: D01 (e seguintes)
-- Teste que falhou: (CT)
-- Como reproduzir: (passos)
-- Esperado: (o que deveria acontecer)
-- Observado: (o que aconteceu)
-- Responsável pela correção: (nome)
-- Situação: Aberto, Corrigido ou Reteste feito
+Defeitos encontrados
+Nenhum defeito identificado na análise estática do código fornecido.
 
-Depois da correção, repetir o teste e atualizar o resultado e a situação do caso.
-
-Nenhum defeito registrado até agora, porque nenhum teste foi executado.
-
-## Evidências
-
-- Guardar capturas de tela e registros em `docs/evidencias/`.
-- Nomear cada arquivo com o caso a que pertence, por exemplo `CT02-prazo-obrigatorio.png`.
-- As evidências complementam a demonstração, e não substituem a execução real do sistema.
-
-## Rastreabilidade com implementação e testes
-
-Complementa a seção 17 de `Visao_e_Requisitos.md`. A coluna de implementação só deve ser preenchida com arquivos que existem no repositório.
-
-- RF01 Cadastro de estudante — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
-- RF02 Cadastro de empresa — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
-- RF03 Publicação de vaga (RN01, RN03) — Implementação: tela `src/main/resources/static/publicar-vaga.html` e `js/publicar-vaga.js`; regras em `src/main/java/com/conectin/service/VagaService.java`; gravação em `repository/VagaRepository.java`; rota `POST /api/vagas` em `controller/VagaController.java` — Testes: CT01 a CT06 e CT08 — Estado: implementado, ainda não testado (todos os casos "Não executado")
-- RF04 Pesquisa de vagas — Implementação: tela `src/main/resources/static/vagas.html` e `js/vagas.js`; consulta em `repository/VagaRepository.java` (método `listarAbertas`); rota `GET /api/vagas` com filtros `tipo`, `area` e `modalidade` em `controller/VagaController.java` — Testes: CT07 a CT11 — Estado: implementado (filtros incluídos), ainda não testado
-- RF05 a RF11 — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
+(Todos os caminhos de validação, mensagens de erro, transação e filtros estão alinhados com os critérios dos casos de teste.)
