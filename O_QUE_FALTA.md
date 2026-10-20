@@ -44,6 +44,3 @@ No histórico do GitHub só aparecem Jean e Kauã. Mateus e João precisam fazer
 ## 9. Ensaiar a demonstração (Passo 10 do manual)
 Sequência sugerida: problema e recorte → o que mudou desde o 1º bimestre → arquitetura (diagrama) → backlog → publicar uma vaga válida → tentar publicar sem prazo e sem área (mostrar RN01 e RN03) → listagem e filtros → fechar e abrir a aplicação (persistência) → testes e pendências até 06/11.
 Teste no computador que será usado e deixe o banco já com os dados de teste.
-
-## 10. Uso de IA
-O código inicial foi escrito com ajuda do Claude. Verifique a regra da disciplina sobre uso de IA e, se houver exigência, declare isso na entrega.
