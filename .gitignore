@@ -1,6 +1,8 @@
 target/
 src/main/resources/application.properties
 src/main/resources/application-local.properties
+prototipos/alta-fidelidade/main/resources/application.properties
+prototipos/alta-fidelidade/main/resources/application-local.properties
 .env
 .idea/
 *.iml
