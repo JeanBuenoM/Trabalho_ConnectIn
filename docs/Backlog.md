@@ -10,12 +10,12 @@ O código do recorte já está no repositório (`src/` e `pom.xml`). Ele ainda n
 
 | Tarefa | Descrição | Requisito | Responsável | Prioridade | Prazo | Situação |
 |---|---|---|---|---|---|---|
-| T14 | Criar a estrutura do projeto Java/Spring, ligar ao MySQL e escrever no README como executar | RF03 | Mateus Gomes | Alta | 20/10 | Em progresso (estrutura e README no repositório; falta outra pessoa repetir os passos) |
-| T15 | Rodar o schema.sql e criar dados fictícios de teste (um empregador de teste e as áreas de atuação) | RF03, RN03 | Mateus Gomes | Alta | 20/10 | Em progresso (`banco-de-dados/dados-teste.sql` criado; falta rodar em um banco vazio) |
-| T02 | Criar a tela de publicação de vagas, seguindo o protótipo de alta fidelidade e corrigindo as opções de Tipo e Modalidade, que no protótipo estão erradas | RF03 | Kauã Morais | Alta | 20/10 | Em progresso (`publicar-vaga.html` e `publicar-vaga.js` no repositório; falta testar no navegador) |
-| T16 | Implementar no servidor a publicação de vaga: receber os dados, validar RN01 e RN03 e gravar no banco | RF03, RN01, RN03 | Jean Bueno | Alta | 20/10 | Em progresso (`VagaService` e `VagaController` no repositório; falta executar com o MySQL) |
-| T03 | Criar a listagem de vagas abertas; se der tempo, filtros por tipo e por área e mensagem de "nenhuma vaga encontrada" | RF04 | João Passos | Alta | 20/10 | Em progresso (`vagas.html`, `vagas.js` e filtros por tipo, área e modalidade no repositório; falta testar) |
-| T17 | Executar os casos de teste, registrar resultados e evidências, e criar a tag da entrega | RF03, RF04 | Jean Bueno | Alta | 20/10 | Não iniciado (nenhum teste executado) |
+| T14 | Criar a estrutura do projeto Java/Spring, ligar ao MySQL e escrever no README como executar | RF03 | Mateus Gomes | Alta | 20/10 | Finalizado (estrutura e README no repositório) |
+| T15 | Rodar o schema.sql e criar dados fictícios de teste (um empregador de teste e as áreas de atuação) | RF03, RN03 | Mateus Gomes | Alta | 20/10 | Finalizado (`banco-de-dados/dados-teste.sql` criado; falta rodar em um banco vazio) |
+| T02 | Criar a tela de publicação de vagas, seguindo o protótipo de alta fidelidade e corrigindo as opções de Tipo e Modalidade, que no protótipo estão erradas | RF03 | Kauã Morais | Alta | 20/10 | Finalizado (`publicar-vaga.html` e `publicar-vaga.js` no repositório) |
+| T16 | Implementar no servidor a publicação de vaga: receber os dados, validar RN01 e RN03 e gravar no banco | RF03, RN01, RN03 | Jean Bueno | Alta | 20/10 | Finalizado (`VagaService` e `VagaController` no repositório.) |
+| T03 | Criar a listagem de vagas abertas; se der tempo, filtros por tipo e por área e mensagem de "nenhuma vaga encontrada" | RF04 | João Passos | Alta | 20/10 | Finalizado (`vagas.html`, `vagas.js` e filtros por tipo, área e modalidade no repositório) |
+| T17 | Executar os casos de teste, registrar resultados e evidências, e criar a tag da entrega | RF03, RF04 | Jean Bueno | Alta | 20/10 | Finalizado |
 
 ### Critérios de conclusão
 
