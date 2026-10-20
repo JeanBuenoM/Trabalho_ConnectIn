@@ -1,11 +1,5 @@
 # O que a equipe precisa fazer antes de entregar (20/10)
 
-## 1. Subir a pasta para o repositório
-1. Clone o repositório: `git clone https://github.com/JeanBuenoM/Trabalho_ConnectIn.git`
-2. Copie o conteúdo da pasta `entrega_conectin` POR CIMA do clone (aceite substituir README.md, docs/ e src/README.md). Não apague nada do que já existe.
-3. `git add .` e confira com `git status` que NÃO aparece `application.properties` nem `target/`.
-4. `git commit -m "Implementa publicação e listagem de vagas (RF03, RF04) e atualiza a documentação"` e `git push`.
-
 ## 2. Rodar de verdade (o código nunca foi executado com MySQL)
 Siga o README: criar o banco, copiar o `application.properties`, `mvn spring-boot:run`, abrir http://localhost:8080.
 
