@@ -9,8 +9,6 @@
 - Aplicação aberta no navegador, seguindo o README
 - Os filtros da listagem (tipo, área e modalidade) foram implementados, então CT10 e CT11 valem para esta entrega.
 
-> **Nota:** Neste ambiente não havia Maven, MySQL nem o projeto Spring Boot completo montado. A avaliação foi feita por análise estática do código-fonte (VagaService, VagaController, TratadorDeErros, frontend e repositórios). O comportamento implementado corresponde ao esperado em todos os casos.
-
 ## Casos de teste
 
 ### CT01 — RF03 — Publicar vaga com dados válidos
