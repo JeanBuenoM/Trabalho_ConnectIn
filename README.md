@@ -37,7 +37,7 @@ Repositório: https://github.com/JeanBuenoM/Trabalho_ConnectIn
 - **Banco de dados:** MySQL 8, acessado com `JdbcTemplate`
 - **Hospedagem:** a definir (por enquanto roda na máquina de cada integrante)
 
-O protótipo navegável das telas (`prototipos/alta-fidelidade/`) usa React com Vite e serve só de modelo visual.
+Os esboços das telas estão em `prototipos/` (imagens PNG). O protótipo navegável em React, usado nos testes da Parte A de `docs/Casos_de_Teste.md`, não faz parte desta versão do repositório.
 
 Justificativa completa e diagrama simples de arquitetura em [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md).
 
@@ -54,11 +54,13 @@ Entrega de 20/10/2026. Recorte escolhido: **publicar vagas e consultar vagas** (
 - Regras aplicadas no servidor: prazo de inscrição obrigatório (RN01), pelo menos uma área de atuação (RN03), título e descrição obrigatórios. Uma vaga recusada não é gravada e a tela mostra qual campo corrigir.
 - Tela de listagem (`vagas.html`) que mostra só vagas abertas, com filtros por tipo, área e modalidade e a mensagem "Nenhuma vaga encontrada".
 - Script do banco (`banco-de-dados/schema.sql`) e dados fictícios de teste (`banco-de-dados/dados-teste.sql`).
-- Protótipo de alta fidelidade das telas, em `prototipos/alta-fidelidade/`. Ele é só a interface: não valida campos e não salva dados.
+- Esboços das telas em `prototipos/` (imagens PNG).
 
 **Em desenvolvimento (não está disponível nesta entrega):** cadastro e login de candidato e empregador, currículo, candidatura, avaliação, acompanhamento de status, edição de perfil e notificações. Enquanto não há login, as vagas são publicadas por um empregador de teste cadastrado em `dados-teste.sql`.
 
-**Testes:** os 11 casos estão descritos em [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md). O resultado de cada um só é registrado depois de executado.
+**Testes:** [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md) tem 16 casos, em duas partes.
+- Protótipo de alta fidelidade em React (5 casos executados em 20/10; o código do protótipo não está neste repositório): 3 aprovados (CT07, CT08, CT09) e 2 reprovados (CT01, CT12). Os defeitos D01 a D03 estão registrados no documento.
+- Sistema Java/Spring (11 casos: CT02 a CT06, CT10, CT11 e CT13 a CT16): ainda não executados. O RF03 e o RF04 estão implementados no código, mas só constarão como testados depois dessa execução.
 
 ## Como executar
 
@@ -72,8 +74,8 @@ Precisa de: Java 21, Maven 3.9 ou mais novo, MySQL 8 e Git.
    - `mysql -u root -p < banco-de-dados/dados-teste.sql`
    - Para recomeçar do zero: `mysql -u root -p -e "DROP DATABASE conectin"` e repetir os dois comandos acima.
 3. Criar o arquivo de configuração a partir do exemplo e colocar a sua senha do MySQL:
-   - Linux/macOS: `cp src/main/resources/application-example.properties src/main/resources/application.properties`
-   - Windows (PowerShell): `Copy-Item src/main/resources/application-example.properties src/main/resources/application.properties`
+   - Linux/macOS: `cp prototipos/alta-fidelidade/main/resources/application-example.properties prototipos/alta-fidelidade/main/resources/application.properties`
+   - Windows (PowerShell): `Copy-Item prototipos/alta-fidelidade/main/resources/application-example.properties prototipos/alta-fidelidade/main/resources/application.properties`
    - Abrir o `application.properties` e trocar `COLOQUE_A_SUA_SENHA_AQUI`. Esse arquivo não vai para o GitHub.
 4. Iniciar: `mvn spring-boot:run`
 5. Abrir no navegador: http://localhost:8080
@@ -83,17 +85,6 @@ Para parar a aplicação, `Ctrl+C` no terminal.
 Variáveis de configuração (todas em `application.properties`, nomes no arquivo de exemplo): `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password` e `conectin.empregador-teste-id`.
 
 **Versões usadas pela equipe nos testes** (preencher com o resultado de `java -version`, `mvn -v` e `mysql --version`): Java ____ · Maven ____ · MySQL ____
-
-### Protótipo das telas
-
-Precisa de Node 20.19 ou mais novo e do pnpm.
-
-1. Entrar na pasta: `cd prototipos/alta-fidelidade`
-2. Instalar as dependências: `pnpm install`
-3. Iniciar: `pnpm dev`
-4. Abrir no navegador: http://localhost:5173
-
-Mais detalhes, e o que ainda difere dos requisitos, em [`prototipos/alta-fidelidade/README.md`](prototipos/alta-fidelidade/README.md).
 
 ## Índice da entrega de 20/10/2026
 
@@ -106,7 +97,7 @@ Versão avaliada: tag `entrega-20-10-2026`.
 | Escopo priorizado e recorte da entrega | [`docs/MVP.md`](docs/MVP.md) |
 | Tecnologias justificadas e arquitetura | [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md) e [`diagramas/diagrama-arquitetura.svg`](diagramas/diagrama-arquitetura.svg) |
 | Backlog com prioridades, responsáveis, prazos e situação | [`docs/Backlog.md`](docs/Backlog.md) |
-| Código integrado e como executar | `src/`, `pom.xml` e a seção "Como executar" acima |
+| Código integrado e como executar | `prototipos/alta-fidelidade/main/`, `pom.xml` e a seção "Como executar" acima |
 | Casos de teste, resultados e evidências | [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md) e `docs/evidencias/` |
 | Requisitos, regras de negócio, modelagem e dicionário de dados | [`docs/Visao_e_Requisitos.md`](docs/Visao_e_Requisitos.md) |
 | Pendências e plano até 06/11 | Seção "Próximos passos" abaixo |
@@ -117,6 +108,8 @@ Versão avaliada: tag `entrega-20-10-2026`.
 - Currículo e opção "sem experiência" (RF05, RF11), candidatura (RF06, RN02, RN04) e área da empresa para ver as inscrições (RF07).
 - Atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço de publicar vaga com o campo modalidade.
 - Decidir onde ficam as habilidades do candidato (RF10) e se a interface continua em HTML/JS simples.
+- Executar no sistema os casos da Parte B de `docs/Casos_de_Teste.md` e anexar as evidências em `docs/evidencias/`.
+- Corrigir os defeitos D01 a D03 e repetir os testes.
 - Criar testes automatizados para as regras do `VagaService`, se houver tempo.
 
 ## Organização do projeto
@@ -126,8 +119,8 @@ Versão avaliada: tag `entrega-20-10-2026`.
 | `docs/` | Documento de visão, requisitos, regras de negócio, histórico de alterações, backlog, arquitetura, MVP, casos de teste e `evidencias/` |
 | `diagramas/` | Casos de uso, atividades, classes e arquitetura |
 | `banco-de-dados/` | Modelo conceitual, modelo lógico, `schema.sql` e `dados-teste.sql` (o dicionário de dados está em `docs/Visao_e_Requisitos.md`) |
-| `prototipos/` | Mapa de navegação, esboços das telas do MVP (candidato e empregador) e protótipo de alta fidelidade navegável (`alta-fidelidade/`) |
-| `src/` | Código-fonte do sistema (Java/Spring em `src/main/java`, telas em `src/main/resources/static`) |
+| `prototipos/` | Mapa de navegação e esboços das telas do MVP (candidato e empregador) |
+| `prototipos/alta-fidelidade/main/` | Código-fonte do sistema: Java/Spring em `java/`, telas e configuração em `resources/` (o `pom.xml` aponta o Maven para esta pasta) |
 | `pom.xml` | Configuração do Maven: versões do Java e do Spring Boot e dependências |
 
 ## Backlog
