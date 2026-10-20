@@ -35,9 +35,6 @@ git push origin entrega-20-10-2026
 ```
 Se mexer no código depois da tag, recrie a tag apontando para o commit final.
 
-## 7. Conferir o acesso da professora
-Repositório público, ou professora adicionada como colaboradora. Abra o link numa aba anônima para confirmar.
-
 ## 8. Divisão do trabalho (o manual exige contribuição identificável de cada um)
 No histórico do GitHub só aparecem Jean e Kauã. Mateus e João precisam fazer pelo menos um commit próprio (uma correção, um teste, um item do backlog) com o usuário deles. Cada um precisa conseguir explicar a sua parte na apresentação: leiam o código da sua tarefa (T14/T15 Mateus, T02 Kauã, T16 Jean, T03 João) antes de apresentar.
 
