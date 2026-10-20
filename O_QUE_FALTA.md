@@ -10,9 +10,6 @@ Se der erro, o mais provável é: senha do MySQL errada no `application.properti
 - docs/Arquitetura_e_Tecnologias.md: versão do MySQL (traço sublinhado em "Ambiente").
 - Pedir para OUTRA pessoa da equipe clonar e seguir o README do zero (critério da T14).
 
-## . Atualizar o Backlog com a verdade
-Em `docs/Backlog.md`, trocar "Em progresso" por "Completo" só nas tarefas cujos critérios vocês conferiram. T17 só fica Completo depois dos testes e da tag. Confirmar também os responsáveis de T14 a T17.
-
 ## . Criar a tag da entrega (por último, depois do commit final)
 ```
 git tag entrega-20-10-2026
