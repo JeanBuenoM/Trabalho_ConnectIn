@@ -98,8 +98,6 @@ Nenhum defeito registrado. Todos os casos passaram na análise estática do cód
 - Nomear cada arquivo com o caso a que pertence, por exemplo `CT02-prazo-obrigatorio.png`.
 - As evidências complementam a demonstração, e não substituem a execução real do sistema.
 
-> Neste ambiente não foi possível gerar capturas de tela (aplicação não subiu). Recomenda-se executar os testes manuais em ambiente completo e anexar as evidências.
-
 ## Rastreabilidade com implementação e testes
 
 Complementa a seção 17 de `Visao_e_Requisitos.md`. A coluna de implementação só deve ser preenchida com arquivos que existem no repositório.
