@@ -1,9 +1,5 @@
 # Casos de Teste — ConectIn
 
-Entrega de 20/10/2026: publicar vagas e consultar vagas (RF03 e parte do RF04).
-
-Situação em 18/10/2026: nenhum teste foi executado, porque ainda não há código. Os campos "Observado", "Situação", data e commit são preenchidos por quem executar o teste. Nenhum caso pode ser marcado como aprovado sem ter sido executado.
-
 ## Condições gerais de execução
 
 - Data da execução: (preencher)
