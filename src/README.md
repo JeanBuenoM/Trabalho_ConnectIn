@@ -1,6 +1,6 @@
-# Protótipo de alta fidelidade — versão original (Figma Make)
+# Protótipo de alta fidelidade
 
-Esta é a versão original do protótipo, como foi exportada do Figma Make, sem alterações no código. A versão reescrita pela equipe continua em `../alta-fidelidade/`.
+Esta é a versão original do protótipo, como foi exportada do Figma Make.
 
 Como o resto do protótipo, ela é só a interface: não tem servidor, não tem banco e nada é salvo. Os dados são de exemplo, escritos dentro do código.
 
