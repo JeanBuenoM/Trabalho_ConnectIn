@@ -6,7 +6,7 @@ Interface
 - Tecnologia: HTML, CSS e JavaScript.
 - Como as telas são construídas: páginas HTML simples, guardadas em `src/main/resources/static` e servidas pela própria aplicação Spring. O JavaScript (`static/js`) chama o servidor com `fetch` e mostra na tela as mensagens de erro devolvidas por ele. O estilo fica em `static/css/estilo.css`.
 - Justificativa: são tecnologias que a equipe já conhece e não exigem uma ferramenta extra para a interface.
-- Decisão desta entrega: o protótipo de alta fidelidade (`prototipos/alta-fidelidade/`) usa React, Vite e Tailwind e serve só de modelo visual. As telas do sistema foram feitas em HTML, CSS e JavaScript simples, sem Node nem pnpm para rodar o sistema (ver `Historico_de_Alteracoes.md`, item 6). A equipe pode rever essa decisão até 06/11.
+- Decisão desta entrega: o protótipo de alta fidelidade (`prototipos/alta-fidelidade/`) usa React, Vite e Tailwind e serve só de modelo visual. As telas do sistema foram feitas em HTML, CSS e JavaScript simples, sem Node nem pnpm para rodar o sistema (ver `Historico_de_Alteracoes.md`, item 6).
 
 Lógica da aplicação
 - Linguagem e framework: Java 21 com Spring Boot 3.3.5 (versão fixada no `pom.xml`), usando `spring-boot-starter-web`.
