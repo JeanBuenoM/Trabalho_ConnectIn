@@ -17,7 +17,7 @@
 - **Observado:** Os dados são preenchidos corretamente, mas algumas caixas de seleção apresentam opções incoerentes. Além disso, o botão “Publicar vaga” não funciona. É necessário corrigir as opções e implementar a publicação com uma tela de confirmação de sucesso.
 - **Situação:** Reprovado - 
 
-### CT07 — RF04 — Listar vagas abertas no perfil da empresa
+### CT07 — RF04 — Listar todas as vagas no perfil da empresa
 - **Passos:** Acessar a listagem de vagas da empresa.
 - **Entrada:** Vagas cadastradas no banco de dados.
 - **Esperado:** Abre a listagem de vagas
