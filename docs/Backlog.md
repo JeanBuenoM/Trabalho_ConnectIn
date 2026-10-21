@@ -4,8 +4,6 @@ O quadro de gestão que a equipe já usava continua sendo a base. Os status refl
 
 ## Entrega de 20/10: publicar e consultar vagas
 
-O código do recorte está no repositório, em `prototipos/alta-fidelidade/main/`. Os status refletem o estado informado pela equipe em 20/10/2026. "Finalizado" não é um dos estados do quadro.
-
 | Tarefa | Descrição | Requisito | Responsável | Prioridade | Prazo | Situação |
 |---|---|---|---|---|---|---|
 | T14 | Criar a estrutura do projeto Java/Spring, ligar ao MySQL e escrever no README como executar | RF03 | Mateus Gomes | Alta | 20/10 | Completo |
