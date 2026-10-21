@@ -8,16 +8,16 @@ O MVP do ConectIn cobre o ciclo essencial: cadastro, publicação de vaga, busca
 
 | Funcionalidade | Requisito | Classificação | Faz parte do MVP? | Situação (20/10/2026) |
 |---|---|---|---|---|
-| Cadastro de candidato/estudante | RF01 | Indispensável | Sim | Não iniciado (T01) |
-| Cadastro de empregador/empresa | RF02 | Indispensável | Sim | Não iniciado (T01) |
-| Publicar vaga | RF03 | Indispensável | Sim | Finalizado |
+| Cadastro de candidato/estudante | RF01 | Indispensável | Sim | Finalizado (T01) |
+| Cadastro de empregador/empresa | RF02 | Indispensável | Sim | Finalizado (T01) |
+| Publicar vaga | RF03 | Indispensável | Sim | Em Andamento |
 | Pesquisar/filtrar vagas | RF04 | Indispensável | Sim | Finalizado |
-| Cadastrar currículo | RF05 | Indispensável | Sim | Não iniciado |
-| Candidatar-se a vaga | RF06 | Indispensável | Sim | Não iniciado |
+| Cadastrar currículo | RF05 | Indispensável | Sim | Em Andamento |
+| Candidatar-se a vaga | RF06 | Indispensável | Sim | Em Andamento |
 | Avaliar candidaturas | RF07 | Indispensável | Sim | Não iniciado |
-| Acompanhar status de candidatura | RF08 | Indispensável | Sim | Não iniciado |
-| Editar perfil/currículo | RF09 | Desejável | Não | Não iniciado |
-| Notificações | RF10 | Desejável | Não | Não iniciado |
+| Acompanhar status de candidatura | RF08 | Indispensável | Sim | Em Andamento |
+| Editar perfil/currículo | RF09 | Desejável | Não | Em Andamento |
+| Notificações | RF10 | Desejável | Não | Finalizado |
 | Indicar sem experiência profissional | RF11 | Indispensável | Sim | Não iniciado |
 
 Todas as telas já têm esboço em `prototipos/`. O código existe apenas para o recorte de 20/10 (publicar e listar vagas); o restante ainda não foi iniciado.
