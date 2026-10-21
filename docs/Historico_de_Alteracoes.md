@@ -33,15 +33,13 @@ Os requisitos definidos na Entrega 1 revisada foram mantidos.
 
 ## 2º bimestre — Implementação e testes (20/10/2026)
 
-## 2º bimestre — Implementação e testes (20/10/2026)
+- **Publicação de vagas (RF03):** implementada a funcionalidade de publicação de vagas, com validações dos dados informados e integração com o backend.
+- **Consulta de vagas (RF04):** implementada a consulta de vagas, com recuperação dos registros e aplicação de filtros.
+- **Backend:** desenvolvidos os componentes responsáveis pelas operações relacionadas às vagas e pela comunicação com o banco de dados.
+- **Banco de dados:** utilizados os scripts SQL e os dados de teste para apoiar o desenvolvimento e a execução local do sistema.
+- **Testes funcionais:** executados e registrados os casos de teste da entrega em `docs/Casos_de_Teste.md`.
+- **Defeitos:** registrados três defeitos: D01 (CT01), relacionado a opções incoerentes nas caixas de seleção e ao botão "Publicar vaga" sem ação; D02 (CT07), relacionado à exibição de vagas abertas e fechadas na listagem; e D03 (CT12), relacionado ao botão "Aprovar Candidato" sem ação.
 
-| Item | O que mudou | Motivo | Impacto |
-|---|---|---|---|
-| Publicação de vagas (RF03) | Implementação da funcionalidade de publicação de vagas, incluindo validações dos dados informados e integração com o backend. | Permitir que empregadores cadastrem oportunidades na plataforma. | Estabelece a base para disponibilizar novas oportunidades, mas ainda existem problemas registrados nos testes que precisam ser corrigidos. |
-| Consulta de vagas (RF04) | Implementação da consulta de vagas, com suporte à recuperação dos registros e à aplicação de filtros. | Permitir que os usuários consultem as oportunidades disponíveis. | Disponibiliza a estrutura inicial de consulta, sendo necessário considerar os resultados dos testes e corrigir os comportamentos identificados. |
-| Backend | Desenvolvimento dos componentes responsáveis pelas operações relacionadas às vagas e pela comunicação com o banco de dados. | Organizar as regras de negócio e o acesso aos dados da aplicação. | Estrutura a implementação das funcionalidades contempladas nesta etapa. |
-| Banco de dados | Utilização da estrutura definida nos scripts SQL e de dados de teste para apoiar o desenvolvimento e a verificação das funcionalidades. | Disponibilizar a estrutura e os registros necessários para a execução local do sistema. | Permite trabalhar com dados persistidos durante o desenvolvimento. |
-| Testes funcionais | Execução e registro dos casos de teste definidos para a entrega, conforme documentado em `docs/Casos_de_Teste.md`. | Verificar o comportamento das funcionalidades e identificar problemas que precisam de correção. | Foram registrados cinco casos de teste: CT07, CT08 e CT09 aprovados; CT01 e CT12 reprovados. Os resultados originais permanecem documentados no arquivo de casos de teste. |
-| Registro de defeitos | Documentação dos problemas identificados durante a verificação, classificados como D01, D02 e D03. | Facilitar o acompanhamento das correções necessárias. | Os defeitos passam a servir como referência para as próximas atividades de correção e validação. |
-| Documentação do projeto | Atualização dos registros relacionados à implementação, ao planejamento e à entrega. | Manter a documentação alinhada ao desenvolvimento realizado. | Facilita o acompanhamento do estado do projeto e das atividades pendentes. |
-| Defeitos | Registrados três defeitos: D01 (CT01), relacionado a opções incoerentes nas caixas de seleção e ao botão "Publicar vaga" sem ação; D02 (CT07), relacionado à exibição de vagas abertas e fechadas na listagem; e D03 (CT12), relacionado ao botão "Aprovar Candidato" sem ação. | Documentar os problemas encontrados durante os testes para orientar as correções. | `Casos_de_Teste.md`. |
+**Resultados dos testes:** CT07, CT08 e CT09 aprovados; CT01 e CT12 reprovados, conforme registrado em `docs/Casos_de_Teste.md`.
+
+**Pendências desta entrega:** corrigir os defeitos D01, D02 e D03 e executar novamente os testes afetados após as correções.
