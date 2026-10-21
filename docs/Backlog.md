@@ -1,7 +1,5 @@
 # Backlog — ConectIn
 
-O quadro de gestão que a equipe já usava continua sendo a base. Os status refletem o que existe no repositório (ver `Historico_de_Alteracoes.md`).
-
 ## Entrega de 20/10: publicar e consultar vagas
 
 | Tarefa | Descrição | Requisito | Responsável | Prioridade | Prazo | Situação |
