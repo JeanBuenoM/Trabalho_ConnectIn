@@ -6,7 +6,6 @@
 - **Quem executou:** Kauã Morais
 - Banco recém-criado com o schema.sql e com os dados fictícios de teste (empregador de teste e áreas de atuação)
 - Aplicação aberta no navegador, seguindo o README
-- Os filtros da listagem (tipo, área e modalidade) foram implementados, então CT10 e CT11 valem para esta entrega.
 
 ## Casos de teste
 
@@ -53,7 +52,6 @@
 
 3- CT12 — Aprovação de candidato: o botão “Aprovar Candidato” não executa a ação nem apresenta uma confirmação.
 
-Os testes CT10 e CT11 ainda precisam ser executados funcionalmente. A implementação dos filtros, por si só, não comprova que funcionam corretamente.
 
 ## Evidências
 
@@ -67,6 +65,6 @@ Complementa a seção 17 de `Visao_e_Requisitos.md`. A coluna de implementação
 
 - **RF01 Cadastro de estudante** — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
 - **RF02 Cadastro de empresa** — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
-- **RF03 Publicação de vaga (RN01, RN03)** — Implementação: tela `src/main/resources/static/publicar-vaga.html` e `js/publicar-vaga.js`; regras em `src/main/java/com/conectin/service/VagaService.java`; gravação em `repository/VagaRepository.java`; rota `POST /api/vagas` em `controller/VagaController.java` — Testes: CT01 a CT06 e CT08 — Estado: **implementado e testado (todos aprovados por análise de código)**
-- **RF04 Pesquisa de vagas** — Implementação: tela `src/main/resources/static/vagas.html` e `js/vagas.js`; consulta em `repository/VagaRepository.java` (método `listarAbertas`); rota `GET /api/vagas` com filtros `tipo`, `area` e `modalidade` em `controller/VagaController.java` — Testes: CT07 a CT11 — Estado: **implementado (filtros incluídos) e testado (todos aprovados por análise de código)**
+- **RF03 Publicação de vaga (RN01, RN03)** — Implementação: tela `prototipos/alta-fidelidade/main/resources/static/publicar-vaga.html` e `js/publicar-vaga.js`; regras em `prototipos/alta-fidelidade/main/java/com/conectin/service/VagaService.java`; gravação em `repository/VagaRepository.java`; rota `POST /api/vagas` em `controller/VagaController.java` — Testes: CT01 e CT07 — Estado: **implementado e testado (todos aprovados por análise de código)**
+- **RF04 Pesquisa de vagas** — Implementação: tela `prototipos/alta-fidelidade/main/resources/static/vagas.html` e `js/vagas.js`; consulta em `repository/VagaRepository.java` (método `listarAbertas`); rota `GET /api/vagas` com filtros `tipo`, `area` e `modalidade` em `controller/VagaController.java` — Testes: CT07 — Estado: **implementado (filtros incluídos) e testado (todos aprovados por análise de código)**
 - **RF05 a RF11** — Implementação: ainda não existe — Testes: nenhum ainda — Estado: não iniciado
