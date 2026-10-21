@@ -58,9 +58,7 @@ Entrega de 20/10/2026. Recorte escolhido: **publicar vagas e consultar vagas** (
 
 **Em desenvolvimento (não está disponível nesta entrega):** cadastro e login de candidato e empregador, currículo, candidatura, avaliação, acompanhamento de status, edição de perfil e notificações. Enquanto não há login, as vagas são publicadas por um empregador de teste cadastrado em `dados-teste.sql`.
 
-**Testes:** [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md) tem 16 casos, em duas partes.
-- Protótipo de alta fidelidade em React (5 casos executados em 20/10; o código do protótipo não está neste repositório): 3 aprovados (CT07, CT08, CT09) e 2 reprovados (CT01, CT12). Os defeitos D01 a D03 estão registrados no documento.
-- Sistema Java/Spring (11 casos: CT02 a CT06, CT10, CT11 e CT13 a CT16): ainda não executados. O RF03 e o RF04 estão implementados no código, mas só constarão como testados depois dessa execução.
+**Testes:** [`docs/Casos_de_Teste.md`](docs/Casos_de_Teste.md) tem 5 casos executados em 20/10: 3 aprovados (CT07, CT08, CT09) e 2 reprovados (CT01, CT12). Os defeitos D01 a D03 estão registrados no documento e as capturas estão em `docs/evidencias/`.
 
 ## Como executar
 
@@ -108,7 +106,6 @@ Versão avaliada: tag `entrega-20-10-2026`.
 - Currículo e opção "sem experiência" (RF05, RF11), candidatura (RF06, RN02, RN04) e área da empresa para ver as inscrições (RF07).
 - Atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço de publicar vaga com o campo modalidade.
 - Decidir onde ficam as habilidades do candidato (RF10) e se a interface continua em HTML/JS simples.
-- Executar no sistema os casos da Parte B de `docs/Casos_de_Teste.md` e anexar as evidências em `docs/evidencias/`.
 - Corrigir os defeitos D01 a D03 e repetir os testes.
 - Criar testes automatizados para as regras do `VagaService`, se houver tempo.
 
