@@ -82,8 +82,6 @@ Para parar a aplicação, `Ctrl+C` no terminal.
 
 Variáveis de configuração (todas em `application.properties`, nomes no arquivo de exemplo): `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password` e `conectin.empregador-teste-id`.
 
-**Versões usadas pela equipe nos testes** (preencher com o resultado de `java -version`, `mvn -v` e `mysql --version`): Java ____ · Maven ____ · MySQL ____
-
 ## Índice da entrega de 20/10/2026
 
 Versão avaliada: tag `entrega-20-10-2026`.
