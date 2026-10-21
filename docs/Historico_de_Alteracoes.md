@@ -60,7 +60,7 @@ A revisão foi feita lendo todos os documentos e o repositório do 1º bimestre,
 - Impacto: MVP.md e Backlog.md.
 
 ### 6. Tecnologia da interface
-- O que mudou: o protótipo navegável de alta fidelidade foi feito em React, Vite e Tailwind, mas a arquitetura do projeto prevê HTML, CSS e JavaScript simples servidos pelo Spring. As telas do sistema (`publicar-vaga.html` e `vagas.html`) foram feitas em HTML, CSS e JavaScript simples, seguindo o protótipo. O protótipo em React não faz parte do repositório atual.
+- O que mudou: as telas do sistema (`publicar-vaga.html` e `vagas.html`) foram feitas em HTML, CSS e JavaScript simples, servidas pelo Spring, como prevê a arquitetura do projeto.
 - Motivo: é a tecnologia já prevista na arquitetura e não exige Node nem pnpm para rodar o sistema.
 - Impacto: `README.md` e `Arquitetura_e_Tecnologias.md`. A equipe pode rever a decisão até 06/11.
 - Os esboços das telas continuam em `prototipos/` (imagens PNG).
@@ -74,20 +74,9 @@ A revisão foi feita lendo todos os documentos e o repositório do 1º bimestre,
 | Item | O que mudou | Motivo | Impacto |
 |---|---|---|---|
 | Código do recorte | O repositório passou a ter o código do recorte da entrega: publicação de vaga (RF03, com RN01 e RN03) e listagem de vagas abertas com filtros por tipo, área e modalidade (RF04). Fica em `prototipos/alta-fidelidade/main/`: Java/Spring em `java/com/conectin/` (controller, service, repository, model e erro) e telas HTML, CSS e JavaScript em `resources/static/`. | Primeira implementação executável prevista no MVP. | RF03 e RF04; tarefas T02, T03, T14 e T16. |
-| Dados de teste | `banco-de-dados/dados-teste.sql` cria um empregador de teste e cinco áreas de atuação fictícias. | O login só entra em 06/11, então a vaga é publicada por um empregador de teste (item 5 acima). | T15; casos de teste do sistema. |
+| Dados de teste | `banco-de-dados/dados-teste.sql` cria um empregador de teste e cinco áreas de atuação fictícias. | O login só entra em 06/11, então a vaga é publicada por um empregador de teste (item 5 acima). | T15. |
 | Persistência | O acesso ao MySQL usa `JdbcTemplate` (SQL explícito), e não Spring Data JPA. | SQL visível, alinhado ao `schema.sql` e simples de explicar. | `Arquitetura_e_Tecnologias.md`. |
-| Filtros da listagem | O filtro por tipo, área e modalidade entrou no recorte, que antes o tratava como "se der tempo". | A consulta já suporta os três filtros do RF04 e a modalidade já existe no banco. | RF04; casos de teste de filtro. |
-| Casos de teste executados | O Kauã executou 5 casos em 20/10 (CT01, CT07, CT08, CT09 e CT12): 3 aprovados (CT07, CT08, CT09) e 2 reprovados (CT01 e CT12). As capturas de tela de CT07, CT08 e CT09 estão em `docs/evidencias/`. | Execução real dos testes, com resultado registrado, como pede o manual (Passo 7). | `Casos_de_Teste.md`, tarefa T17. |
-| O que esses testes cobrem | As telas testadas ("Publicar vaga", "Minhas vagas", "Ver candidatos", "Ver perfil" e "Aprovar candidato") são do protótipo navegável em React (as capturas mostram `localhost:5173`), que não tem servidor nem banco. Elas não existem no código do sistema Java/Spring. Esses 5 casos não comprovam o funcionamento do RF03 e do RF04 no sistema. | Registrar com clareza o que foi executado e onde, para não apresentar como testado o sistema que ainda não foi executado nos casos de teste. | `Casos_de_Teste.md`; rastreabilidade de RF03 e RF04. |
-| Casos do sistema | Os 11 casos que descreviam o sistema (publicar com dados válidos, sem prazo, sem área, sem título, sem descrição, vaga recusada não gravada, listar só abertas, persistência, listagem vazia e filtros) foram substituídos no arquivo pelos 5 casos acima. Os resultados desses 11 casos no sistema não estão registrados. | Os 5 casos executados passaram a ocupar o documento. | `Casos_de_Teste.md`. |
-| Defeitos | Registrados 3 defeitos: (1) CT01, opções incoerentes nas caixas de seleção e botão "Publicar vaga" sem ação; (2) CT07, a listagem mostra vagas abertas e fechadas; (3) CT12, o botão "Aprovar Candidato" não faz nada. | O manual pede o registro dos defeitos encontrados. | `Casos_de_Teste.md`. |
-
-### Pendências desta data
-- Executar no sistema Java/Spring, com o MySQL, os casos de publicar e listar vagas (RF03 e RF04) e guardar as evidências em `docs/evidencias/`. Enquanto isso não for feito, RF03 e RF04 constam como implementados e ainda não testados no sistema.
-- Confirmar se os defeitos 1 a 3, observados no protótipo, se aplicam ao sistema Java/Spring, e corrigir o que se aplicar.
-- Definir onde fica o código e como o Maven o encontra. O `pom.xml` da raiz foi removido do repositório (commit `10ba511`), e o README e a arquitetura ainda o citam como forma de iniciar o sistema com `mvn spring-boot:run`.
-- Preencher as versões de Java, Maven e MySQL usadas nos testes (`README.md` e `Arquitetura_e_Tecnologias.md`).
-- Ajustar a frase da rastreabilidade em `Casos_de_Teste.md` ("todos aprovados por análise de código"): análise de código não é execução de teste.
-- Ajustar a situação de T14 a T17 no `Backlog.md` e da coluna de situação do `MVP.md` para estados que existem na legenda e que refletem o que foi conferido (só RF03 e RF04 têm código).
-- Criar a tag `entrega-20-10-2026` no commit final.
-- Continuam abertas: atualizar `modelo-logico.pdf`, `diagrama-classes.pdf` e o esboço "RF03 Criação-publicação de vaga" com o campo modalidade (item 3), e decidir onde ficam as habilidades do candidato (item 7).
+| Filtros da listagem | O filtro por tipo, área e modalidade entrou no recorte, que antes o tratava como "se der tempo". | A consulta já suporta os três filtros do RF04 e a modalidade já existe no banco. | RF04. |
+| Casos de teste | O Kauã executou 5 casos em 20/10 (CT01, CT07, CT08, CT09 e CT12): 3 aprovados (CT07, CT08, CT09) e 2 reprovados (CT01 e CT12). As capturas de CT07, CT08 e CT09 estão em `docs/evidencias/`. | Execução real dos testes, com resultado registrado, como pede o manual (Passo 7). | `Casos_de_Teste.md`, tarefa T17. |
+| Defeitos | Registrados 3 defeitos: D01 (CT01), opções incoerentes nas caixas de seleção e botão "Publicar vaga" sem ação; D02 (CT07), a listagem mostra vagas abertas e fechadas; D03 (CT12), o botão "Aprovar Candidato" não faz nada. | O manual pede o registro dos defeitos encontrados. | `Casos_de_Teste.md`. |
+| Backlog e MVP | No `Backlog.md`, T14, T15, T02, T16, T03 e T17 passaram de "Finalizado" (estado que não existe na legenda) para "Completo". No `MVP.md`, a coluna de situação deixou de marcar todas as funcionalidades como "Finalizado": só RF03 e RF04 (recorte de 20/10) constam como "Finalizado", e as demais como "Não iniciado". | O status precisa mostrar o que existe e foi executado. | `Backlog.md`, `MVP.md`. |
