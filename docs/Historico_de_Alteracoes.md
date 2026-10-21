@@ -39,7 +39,3 @@ Os requisitos definidos na Entrega 1 revisada foram mantidos.
 - **Banco de dados:** utilizados os scripts SQL e os dados de teste para apoiar o desenvolvimento e a execução local do sistema.
 - **Testes funcionais:** executados e registrados os casos de teste da entrega em `docs/Casos_de_Teste.md`.
 - **Defeitos:** registrados três defeitos: D01 (CT01), relacionado a opções incoerentes nas caixas de seleção e ao botão "Publicar vaga" sem ação; D02 (CT07), relacionado à exibição de vagas abertas e fechadas na listagem; e D03 (CT12), relacionado ao botão "Aprovar Candidato" sem ação.
-
-**Resultados dos testes:** CT07, CT08 e CT09 aprovados; CT01 e CT12 reprovados, conforme registrado em `docs/Casos_de_Teste.md`.
-
-**Pendências desta entrega:** corrigir os defeitos D01, D02 e D03 e executar novamente os testes afetados após as correções.
