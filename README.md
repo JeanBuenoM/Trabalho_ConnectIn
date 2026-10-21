@@ -37,7 +37,7 @@ Repositório: https://github.com/JeanBuenoM/Trabalho_ConnectIn
 - **Banco de dados:** MySQL 8, acessado com `JdbcTemplate`
 - **Hospedagem:** a definir (por enquanto roda na máquina de cada integrante)
 
-Os esboços das telas estão em `prototipos/` (imagens PNG). O protótipo navegável em React, usado nos testes da Parte A de `docs/Casos_de_Teste.md`, não faz parte desta versão do repositório.
+Os esboços das telas estão em `prototipos/` (imagens PNG).
 
 Justificativa completa e diagrama simples de arquitetura em [`docs/Arquitetura_e_Tecnologias.md`](docs/Arquitetura_e_Tecnologias.md).
 
