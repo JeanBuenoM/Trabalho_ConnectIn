@@ -111,3 +111,21 @@ CREATE TABLE notificacao (
 INSERT INTO area_atuacao (nome) VALUES
     ('Tecnologia'), ('Dados'), ('Pesquisa'), ('Administração'), ('Educação'),
     ('Saúde'), ('Engenharia'), ('Design'), ('Marketing'), ('Suporte');
+
+-- avisa o Flyway que o banco ja esta completo (versao 3), assim ele nao tenta rodar as migracoes de novo
+CREATE TABLE flyway_schema_history (
+    installed_rank INT NOT NULL PRIMARY KEY,
+    version VARCHAR(50) DEFAULT NULL,
+    description VARCHAR(200) NOT NULL,
+    type VARCHAR(20) NOT NULL,
+    script VARCHAR(1000) NOT NULL,
+    checksum INT DEFAULT NULL,
+    installed_by VARCHAR(100) NOT NULL,
+    installed_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    execution_time INT NOT NULL,
+    success TINYINT(1) NOT NULL,
+    KEY flyway_schema_history_s_idx (success)
+);
+
+INSERT INTO flyway_schema_history (installed_rank, version, description, type, script, checksum, installed_by, execution_time, success)
+VALUES (1, '3', '<< Flyway Baseline >>', 'BASELINE', '<< Flyway Baseline >>', NULL, 'root', 0, 1);
