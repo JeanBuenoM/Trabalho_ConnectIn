@@ -46,6 +46,5 @@ A tela "Candidatos inscritos" atualiza o status, refletido em "Minhas candidatur
 
 Todas as telas aqui são protótipos: nenhuma delas foi implementada em código ainda (situação em 18/10/2026). Para a entrega de 20/10, as telas de publicar vaga (T02) e de busca e listagem de vagas (T03) são as primeiras a serem implementadas. Os esboços servem de referência para as demais.
 
-Protótipo de alta fidelidade: a pasta [`alta-fidelidade/`](alta-fidelidade/) tem o protótipo navegável das telas (React, Vite e Tailwind), com a tela de publicar vaga já com o campo modalidade. As diferenças entre ele e os requisitos estão no README da pasta. As imagens PNG desta pasta (`RF03 Criação-publicação de vaga.png` e as outras) são os esboços anteriores e não têm o campo modalidade.
+Protótipo de alta fidelidade: a pasta [`ConectIn_app_v0.4/`](ConectIn_app_v0.4/) tem o protótipo navegável das telas (React, Vite e Tailwind), com a tela de publicar vaga já com o campo modalidade. As diferenças entre ele e os requisitos estão no README da pasta. As imagens PNG desta pasta (`RF03 Criação-publicação de vaga.png` e as outras) são os esboços anteriores e não têm o campo modalidade.
 
-> Esboços em baixa fidelidade (wireframes). Podem ser refeitos em média/alta fidelidade no Figma ou Canva antes da apresentação, mantendo os mesmos campos, estados e fluxo.

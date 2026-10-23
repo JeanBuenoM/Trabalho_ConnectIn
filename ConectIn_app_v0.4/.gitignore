@@ -1,0 +1,32 @@
+# Maven: arquivos gerados pela compilação
+target/
+
+# Configuração local com a senha real do banco (use application-example.properties como modelo)
+src/main/resources/application.properties
+src/main/resources/application-local.properties
+.env
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e temporários
+*.log
+*.tmp
+
+# Dependências do protótipo (já ignoradas também na pasta do protótipo)
+node_modules/
+
+# Interface React compilada (gerada por "npm run build" na pasta frontend)
+src/main/resources/static/
+
+# Currículos e fotos enviados pelos usuários (dados pessoais: nunca vão para o GitHub)
+uploads/

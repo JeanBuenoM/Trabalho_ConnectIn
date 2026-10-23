@@ -1,5 +1,5 @@
--- ConectIn — Script de criação do banco de dados (MySQL)
--- Baseado no Modelo Lógico (ver modelo-logico.pdf) e no Dicionário de Dados (docs/Visao_e_Requisitos.md, seção 16)
+
+-- rodar no MySQL Workbench ou: mysql -u root -p < criar-banco.sql
 
 
 CREATE DATABASE conectin CHARACTER SET utf8mb4;
@@ -112,7 +112,7 @@ INSERT INTO area_atuacao (nome) VALUES
     ('Tecnologia'), ('Dados'), ('Pesquisa'), ('Administração'), ('Educação'),
     ('Saúde'), ('Engenharia'), ('Design'), ('Marketing'), ('Suporte');
 
--- avisa o Flyway que o banco ja esta completo (versao 3), assim ele nao tenta rodar as migracoes de novo
+
 CREATE TABLE flyway_schema_history (
     installed_rank INT NOT NULL PRIMARY KEY,
     version VARCHAR(50) DEFAULT NULL,
