@@ -1,68 +1,122 @@
-# Arquitetura e Tecnologias — ConectIn
+# Arquitetura e Tecnologias
 
-## Tecnologias e justificativas
+## 1. Visão geral
 
-Interface
-- Tecnologia: HTML, CSS e JavaScript.
-- Como as telas são construídas: páginas HTML simples, guardadas em `prototipos/alta-fidelidade/main/resources/static` e servidas pela própria aplicação Spring. O JavaScript (`static/js`) chama o servidor com `fetch` e mostra na tela as mensagens de erro devolvidas por ele. O estilo fica em `static/css/estilo.css`.
-- Justificativa: são tecnologias que a equipe já conhece e não exigem uma ferramenta extra para a interface.
-- Decisão desta entrega: as telas do sistema foram feitas em HTML, CSS e JavaScript simples, sem Node nem pnpm para rodar o sistema (ver `Historico_de_Alteracoes.md`, item 6). O protótipo em React que serviu de modelo visual não faz parte desta versão do repositório.
+O ConectIn utiliza uma arquitetura web cliente-servidor. A interface React é executada no navegador e se comunica por HTTP com uma API REST desenvolvida em Spring Boot. O backend concentra as regras de negócio, a autenticação, a autorização e o acesso aos dados persistidos no MySQL.
 
-Lógica da aplicação
-- Linguagem e framework: Java 21 com Spring Boot 3.3.5 (versão fixada no `pom.xml`), usando `spring-boot-starter-web`.
-- Onde ficam as regras de negócio: na camada `service`. Regras como RN01 e RN03 ficam nessa camada, e não na tela, para valer para qualquer entrada.
-- Justificativa: é a linguagem que a equipe está estudando e o Spring organiza o código em camadas.
-
-Persistência
-- Banco: MySQL, criado pelo script `banco-de-dados/schema.sql`.
-- Acesso pelo Java: `JdbcTemplate` do Spring (`spring-boot-starter-jdbc`) com SQL escrito à mão nas classes `repository`. Foi escolhido em vez de JPA porque o SQL fica visível, combina com o `schema.sql` e é mais simples de explicar.
-- Justificativa: os dados são bem estruturados (usuários, vagas, candidaturas) e têm relações entre si, o que combina com um banco relacional.
-
-Integrações
-- Nenhuma nesta fase. O sistema não usa APIs nem serviços externos.
-- O envio de arquivo de currículo (RF05) ainda não está no recorte atual. Quando entrar, o arquivo será guardado em pasta local do servidor e o caminho vai no campo `arquivo_url`.
-
-Hospedagem
-- A definir. Nesta fase a aplicação roda apenas na máquina de cada integrante.
-
-Ambiente
-- Java 21 (o `pom.xml` exige essa versão)
-- Maven 3.9 ou mais novo
-- Spring Boot 3.3.5 (baixado pelo Maven)
-- MySQL 8 — **a equipe deve escrever aqui a versão exata instalada** (`mysql --version`): ______
-- Um navegador atual, como Chrome ou Firefox
-- Git
-
-## Diagrama de arquitetura
-
-O diagrama está em [`../diagramas/diagrama-arquitetura.svg`](../diagramas/diagrama-arquitetura.svg). Os componentes são só os que o projeto usa:
-
-```
-USUÁRIO → INTERFACE (HTML/CSS/JS) → BACKEND/SERVIDOR (Java + Spring) → BANCO DE DADOS (MySQL)
+```text
+NAVEGADOR
+   │
+   ▼
+FRONTEND — React 19 + TypeScript + Vite + Tailwind CSS
+   │  HTTP / JSON / multipart-form-data
+   ▼
+BACKEND — Java 21 + Spring Boot 3.3.5
+   ├── Controllers REST
+   ├── Services — regras de negócio
+   ├── Repositories — acesso a dados com JdbcTemplate
+   ├── Spring Security — autenticação e autorização JWT
+   ├── Flyway — migrações do banco
+   └── Armazenamento local de arquivos
+   │
+   ▼
+MYSQL 8
 ```
 
-O usuário (candidato ou empregador) usa a interface web. A interface fala com o backend por requisições HTTP. O backend aplica as regras de negócio (RN01 a RN05) e acessa o MySQL para gravar e consultar usuários, vagas e candidaturas. Como a interface é servida pelo próprio Spring, o navegador conversa com um único servidor.
+A interface pode ser compilada pelo Vite. O resultado do build é colocado em `src/main/resources/static`, de onde a aplicação Spring Boot pode servir os recursos estáticos. Durante o desenvolvimento do frontend, o Vite disponibiliza o servidor local em `http://localhost:5173`.
 
-## Organização das pastas
+## 2. Backend
 
-Onde mexer em cada coisa (pacote base `com.conectin`). O código fica em `prototipos/alta-fidelidade/main/`, e não na pasta padrão `src/main`; por isso o `pom.xml` define `sourceDirectory` e `resources` apontando para lá.
+| Item | Tecnologia ou configuração |
+|---|---|
+| Linguagem | Java 21 |
+| Framework | Spring Boot 3.3.5 |
+| Build | Maven |
+| Artefato | `com.conectin:conectin:0.2.0` |
+| API HTTP | Spring Web |
+| Persistência | Spring JDBC e `JdbcTemplate` |
+| Banco | MySQL Connector/J |
+| Migrações | Flyway Core e Flyway MySQL |
+| Segurança | Spring Security e OAuth2 Resource Server com JWT |
+| Hash de senhas | BCrypt |
 
-- `prototipos/alta-fidelidade/main/java/com/conectin/controller`: recebe as requisições da interface (`VagaController`)
-- `prototipos/alta-fidelidade/main/java/com/conectin/service`: regras de negócio (RN01 a RN05); hoje `VagaService`, com RN01 e RN03
-- `prototipos/alta-fidelidade/main/java/com/conectin/repository`: acesso ao banco (`VagaRepository`, `AreaRepository`)
-- `prototipos/alta-fidelidade/main/java/com/conectin/model`: dados trocados entre as camadas (`VagaRequest`, `VagaResumo`, `AreaAtuacao`)
-- `prototipos/alta-fidelidade/main/java/com/conectin/erro`: validação e conversão dos erros em respostas para a tela
-- `prototipos/alta-fidelidade/main/resources/static`: telas HTML, CSS e JavaScript
-- `prototipos/alta-fidelidade/main/resources/application-example.properties`: exemplo de configuração, sem senha de verdade
-- Testes automatizados: ainda não existem; os testes desta entrega são manuais, em `docs/Casos_de_Teste.md`
-- `banco-de-dados/`: `schema.sql`, `dados-teste.sql` (dados fictícios) e os modelos
-- `docs/`: documentação do projeto, incluindo `Casos_de_Teste.md`
-- `docs/evidencias/`: capturas de tela dos testes
+O código Java está organizado em pacotes que separam responsabilidades, incluindo `controller`, `service`, `repository`, `model`, `seguranca`, `config`, `erro` e `util`.
 
-A senha do banco não vai para o GitHub. Quem for rodar copia `application-example.properties` para `application.properties` e coloca a própria senha. O `application.properties` e a pasta `target/` ficam no `.gitignore`.
+O fluxo de uma operação normalmente segue esta sequência:
 
-## Relação com os requisitos não funcionais
+1. Um controller recebe a requisição HTTP e obtém os parâmetros ou o corpo enviado pelo cliente.
+2. O service executa as validações e aplica as regras do domínio.
+3. Um repository realiza a consulta ou alteração no banco por meio do JDBC.
+4. O controller devolve o resultado no formato definido pelo modelo de resposta.
 
-- RNF01 (LGPD): tarefa T11 — proteção dos dados dos usuários, concentrada no backend. A senha já está prevista como hash no banco (`senha_hash`).
-- RNF02 (Responsividade): tarefa T12 — adaptação da interface para desktop e mobile.
-- RNF03, RNF04 e RNF05 (tempo de resposta, disponibilidade, compatibilidade): tarefa T13 — otimização geral.
+## 3. Frontend
+
+O frontend está em `frontend/` e utiliza:
+
+- React 19 e React DOM;
+- TypeScript 5.7;
+- Vite 8;
+- Tailwind CSS 4;
+- plugin React para Vite.
+
+Os comandos disponíveis no `package.json` são:
+
+| Comando | Finalidade |
+|---|---|
+| `npm run dev` | Iniciar o servidor de desenvolvimento |
+| `npm run build` | Compilar a interface |
+| `npm run preview` | Visualizar localmente o build gerado |
+
+## 4. Banco de dados e persistência
+
+O sistema utiliza MySQL 8. O acesso aos dados é implementado com `JdbcTemplate` e transações do Spring.
+
+As alterações estruturais do banco são gerenciadas pelo Flyway. Os scripts de migração ficam em `src/main/resources/db/migration` e são aplicados durante a inicialização da aplicação, de acordo com a configuração local.
+
+A configuração JDBC documentada utiliza o banco `conectin` em `localhost:3306`. O parâmetro `createDatabaseIfNotExist=true` permite a criação do banco quando o servidor MySQL e o usuário configurado possuem as permissões necessárias.
+
+## 5. Autenticação e autorização
+
+A API utiliza tokens JWT e política de sessão stateless. O token identifica a conta autenticada e contém o papel utilizado para autorização das rotas.
+
+| Área | Permissão |
+|---|---|
+| Cadastro e login | Público |
+| Consulta de vagas, detalhes, áreas e estatísticas | Público |
+| `/api/candidato/**` | Papel `CANDIDATO` |
+| `/api/empresa/**` | Papel `EMPREGADOR` |
+| Demais rotas `/api/**` | Exigem autenticação |
+
+As senhas são armazenadas usando BCrypt. A configuração JWT é feita por `conectin.jwt.segredo` e `conectin.jwt.validade-horas`. O segredo deve ser forte, privado e possuir pelo menos 32 caracteres.
+
+A API utiliza `401 Unauthorized` para requisições sem autenticação válida e `403 Forbidden` para contas autenticadas sem a permissão necessária.
+
+## 6. Armazenamento de arquivos
+
+O serviço `ArmazenamentoService` mantém arquivos no sistema de arquivos local, dentro da pasta configurada por `conectin.uploads.pasta` (por padrão, `uploads`).
+
+Os tipos tratados pelo serviço são:
+
+- Currículos em PDF;
+- Imagens JPG e PNG utilizadas pelos fluxos que solicitam imagens.
+
+O serviço limita arquivos a 5 MB, verifica a assinatura do conteúdo para confirmar o formato e gera nomes internos aleatórios. Os caminhos são normalizados para impedir que uma referência de arquivo saia do diretório de armazenamento configurado.
+
+O `application.properties` de referência também configura o limite de requisição multipart em 6 MB.
+
+## 7. Configuração da aplicação
+
+O arquivo local `src/main/resources/application.properties` reúne as propriedades de execução, incluindo:
+
+- `spring.datasource.url`;
+- `spring.datasource.username`;
+- `spring.datasource.password`;
+- `conectin.jwt.segredo`;
+- `conectin.jwt.validade-horas`;
+- `conectin.uploads.pasta`.
+
+O backend utiliza a porta `8080` por padrão. O frontend em modo de desenvolvimento utiliza a porta `5173`.
+
+## 8. Execução e implantação
+
+O procedimento de execução documentado é local: MySQL, backend Spring Boot e frontend React compilado. O armazenamento de arquivos também é local ao servidor. Para uma implantação distribuída, é necessário definir infraestrutura para persistência compartilhada dos arquivos, gestão de segredos, backups, monitoramento e demais requisitos operacionais.
