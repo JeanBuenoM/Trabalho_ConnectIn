@@ -30,20 +30,6 @@ public class NotificacaoRepository {
         jdbc.batchUpdate(INSERT, idsUsuarios.stream().map(id -> new Object[] {id, tipo, texto, agora, idReferencia}).toList());
     }
 
-    // avisa candidatos com a area da vaga ou com alguma habilidade citada no titulo/requisitos
-    public int notificarCandidatosCompativeis(int idVaga, String textoDaVaga, String mensagem) {
-        return jdbc.update("""
-                INSERT INTO notificacao (id_usuario, tipo, mensagem, data_envio, id_referencia)
-                SELECT c.id_usuario, 'nova_vaga', ?, ?, ?
-                FROM candidato c
-                WHERE c.area_interesse IN (
-                          SELECT a.nome FROM vaga_area va JOIN area_atuacao a ON a.id_area = va.id_area WHERE va.id_vaga = ?)
-                   OR EXISTS (
-                          SELECT 1 FROM habilidade_candidato h
-                          WHERE h.id_candidato = c.id_usuario AND CHAR_LENGTH(h.nome) >= 2 AND LOCATE(LOWER(h.nome), LOWER(?)) > 0)
-                """, Textos.cortar(mensagem, 255), LocalDateTime.now(), idVaga, idVaga, textoDaVaga);
-    }
-
     public List<Notificacao> listar(int idUsuario, int limite) {
         return jdbc.query("""
                 SELECT id_notificacao, tipo, mensagem, data_envio, lida, id_referencia

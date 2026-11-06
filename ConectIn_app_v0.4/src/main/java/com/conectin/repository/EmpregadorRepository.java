@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.conectin.model.EmpregadorRegistro;
+import com.conectin.model.Empresa;
 
 @Repository
 public class EmpregadorRepository {
@@ -21,15 +21,16 @@ public class EmpregadorRepository {
                 idUsuario, razaoSocial, cnpjOuCodigo, tipoInstituicao);
     }
 
-    public Optional<EmpregadorRegistro> buscar(int id) {
+    public Optional<Empresa> buscar(int id) {
         return jdbc.query("""
                 SELECT u.id_usuario, e.razao_social, u.email, u.telefone, u.foto_url, e.cnpj_ou_codigo, e.tipo_instituicao, e.descricao
                 FROM empregador e JOIN usuario u ON u.id_usuario = e.id_usuario
                 WHERE e.id_usuario = ?
                 """,
-                (rs, n) -> new EmpregadorRegistro(rs.getInt("id_usuario"), rs.getString("razao_social"), rs.getString("email"),
+                (rs, n) -> new Empresa(rs.getInt("id_usuario"), rs.getString("razao_social"), rs.getString("email"),
                         rs.getString("telefone"), rs.getString("foto_url"), rs.getString("cnpj_ou_codigo"),
-                        rs.getString("tipo_instituicao"), rs.getString("descricao")),
+                        rs.getString("tipo_instituicao"), rs.getString("descricao"),
+                        rs.getString("foto_url") != null),
                 id).stream().findFirst();
     }
 

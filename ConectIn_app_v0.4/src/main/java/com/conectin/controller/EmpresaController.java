@@ -19,51 +19,47 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.conectin.model.CandidaturaDetalhe;
-import com.conectin.model.CandidaturaRecebida;
-import com.conectin.model.PainelEmpresa;
-import com.conectin.model.PerfilEmpresa;
-import com.conectin.model.PerfilEmpresaRequest;
-import com.conectin.model.StatusRequest;
+import com.conectin.model.Candidatura;
+import com.conectin.model.Empresa;
+import com.conectin.model.Vaga;
 import com.conectin.model.VagaDetalhe;
-import com.conectin.model.VagaEmpresa;
 import com.conectin.model.VagaRequest;
 import com.conectin.seguranca.UsuarioLogado;
 import com.conectin.service.CandidaturaService;
-import com.conectin.service.EmpresaService;
+import com.conectin.service.UsuarioService;
 import com.conectin.service.VagaService;
 
 @RestController
 @RequestMapping("/api/empresa")
 public class EmpresaController {
 
-    private final EmpresaService empresas;
+    private final UsuarioService usuarioService;
     private final VagaService vagas;
     private final CandidaturaService candidaturas;
 
-    public EmpresaController(EmpresaService empresas, VagaService vagas, CandidaturaService candidaturas) {
-        this.empresas = empresas;
+    public EmpresaController(UsuarioService usuarioService, VagaService vagas, CandidaturaService candidaturas) {
+        this.usuarioService = usuarioService;
         this.vagas = vagas;
         this.candidaturas = candidaturas;
     }
 
     @GetMapping("/painel")
-    public PainelEmpresa painel(@AuthenticationPrincipal Jwt jwt) {
+    public Map<String, Object> painel(@AuthenticationPrincipal Jwt jwt) {
         return vagas.painel(UsuarioLogado.id(jwt));
     }
 
     @GetMapping("/perfil")
-    public PerfilEmpresa perfil(@AuthenticationPrincipal Jwt jwt) {
-        return empresas.perfil(UsuarioLogado.id(jwt));
+    public Empresa perfil(@AuthenticationPrincipal Jwt jwt) {
+        return usuarioService.perfilEmpresa(UsuarioLogado.id(jwt));
     }
 
     @PutMapping("/perfil")
-    public PerfilEmpresa atualizarPerfil(@AuthenticationPrincipal Jwt jwt, @RequestBody(required = false) PerfilEmpresaRequest pedido) {
-        return empresas.atualizar(UsuarioLogado.id(jwt), pedido);
+    public Empresa atualizarPerfil(@AuthenticationPrincipal Jwt jwt, @RequestBody(required = false) Empresa pedido) {
+        return usuarioService.atualizarEmpresa(UsuarioLogado.id(jwt), pedido);
     }
 
     @GetMapping("/vagas")
-    public List<VagaEmpresa> minhasVagas(@AuthenticationPrincipal Jwt jwt) {
+    public List<Vaga> minhasVagas(@AuthenticationPrincipal Jwt jwt) {
         return vagas.listarDoEmpregador(UsuarioLogado.id(jwt));
     }
 
@@ -100,13 +96,13 @@ public class EmpresaController {
     }
 
     @GetMapping("/candidaturas")
-    public List<CandidaturaRecebida> candidaturas(@AuthenticationPrincipal Jwt jwt, @RequestParam(required = false) Integer vaga,
+    public List<Candidatura> candidaturas(@AuthenticationPrincipal Jwt jwt, @RequestParam(required = false) Integer vaga,
             @RequestParam(required = false) String status, @RequestParam(required = false) String busca) {
         return candidaturas.recebidas(UsuarioLogado.id(jwt), vaga, status, busca);
     }
 
     @GetMapping("/candidaturas/{id}")
-    public CandidaturaDetalhe candidatura(@AuthenticationPrincipal Jwt jwt, @PathVariable("id") int id) {
+    public Candidatura candidatura(@AuthenticationPrincipal Jwt jwt, @PathVariable("id") int id) {
         return candidaturas.detalheParaEmpregador(UsuarioLogado.id(jwt), id);
     }
 
@@ -116,8 +112,8 @@ public class EmpresaController {
     }
 
     @PutMapping("/candidaturas/{id}/status")
-    public CandidaturaDetalhe avaliar(@AuthenticationPrincipal Jwt jwt, @PathVariable("id") int id,
-            @RequestBody(required = false) StatusRequest pedido) {
-        return candidaturas.avaliar(UsuarioLogado.id(jwt), id, pedido == null ? null : pedido.status());
+    public Candidatura avaliar(@AuthenticationPrincipal Jwt jwt, @PathVariable("id") int id,
+            @RequestBody Map<String, String> pedido) {
+        return candidaturas.avaliar(UsuarioLogado.id(jwt), id, pedido.get("status"));
     }
 }

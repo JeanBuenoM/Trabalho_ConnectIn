@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.conectin.model.CurriculoRegistro;
+import com.conectin.model.Curriculo;
 
 @Repository
 public class CurriculoRepository {
@@ -17,9 +17,9 @@ public class CurriculoRepository {
         this.jdbc = jdbc;
     }
 
-    public Optional<CurriculoRegistro> buscar(int idCandidato) {
+    public Optional<Curriculo> buscar(int idCandidato) {
         return jdbc.query("SELECT arquivo_url, nome_arquivo, tamanho_bytes, data_atualizacao FROM curriculo WHERE id_candidato = ?",
-                (rs, n) -> new CurriculoRegistro(rs.getString("arquivo_url"),
+                (rs, n) -> new Curriculo(rs.getString("arquivo_url"),
                         rs.getString("nome_arquivo") == null ? "curriculo.pdf" : rs.getString("nome_arquivo"),
                         rs.getLong("tamanho_bytes"), rs.getObject("data_atualizacao", LocalDateTime.class)),
                 idCandidato).stream().findFirst();

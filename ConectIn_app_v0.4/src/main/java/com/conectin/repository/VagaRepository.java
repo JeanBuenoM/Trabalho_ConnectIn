@@ -13,11 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-import com.conectin.model.FiltroVagas;
-import com.conectin.model.Pagina;
-import com.conectin.model.VagaEmpresa;
-import com.conectin.model.VagaRegistro;
-import com.conectin.model.VagaResumo;
+import com.conectin.model.Vaga;
 import com.conectin.util.Textos;
 
 @Repository
@@ -73,65 +69,63 @@ public class VagaRepository {
         jdbc.update("DELETE FROM vaga WHERE id_vaga = ?", idVaga);
     }
 
-    public Optional<VagaRegistro> buscarPorId(int idVaga) {
+    public Optional<Vaga> buscarPorId(int idVaga) {
         return jdbc.query("""
-                SELECT v.*, e.razao_social, e.tipo_instituicao, e.descricao AS descricao_empresa
+                SELECT v.*, e.razao_social, e.tipo_instituicao, e.descricao AS descricao_empresa,
+                """ + AREAS_DA_VAGA + """
                 FROM vaga v JOIN empregador e ON e.id_usuario = v.id_empregador
                 WHERE v.id_vaga = ?
                 """,
-                (rs, n) -> new VagaRegistro(rs.getInt("id_vaga"), rs.getInt("id_empregador"), rs.getString("titulo"),
-                        rs.getString("descricao"), rs.getString("requisitos"), rs.getString("tipo"), rs.getString("modalidade"),
-                        rs.getDate("prazo_inscricao").toLocalDate(), rs.getObject("data_publicacao", LocalDateTime.class),
-                        rs.getString("status"), rs.getString("razao_social"), rs.getString("tipo_instituicao"),
-                        rs.getString("descricao_empresa")),
+                (rs, n) -> {
+                    LocalDate prazo = rs.getDate("prazo_inscricao").toLocalDate();
+                    String status = rs.getString("status");
+                    return new Vaga(rs.getInt("id_vaga"), rs.getInt("id_empregador"), rs.getString("titulo"),
+                            rs.getString("descricao"), rs.getString("requisitos"), rs.getString("tipo"), rs.getString("modalidade"),
+                            prazo, rs.getObject("data_publicacao", LocalDateTime.class), status, estaAberta(status, prazo),
+                            rs.getString("razao_social"), rs.getString("tipo_instituicao"), rs.getString("descricao_empresa"),
+                            separarAreas(rs.getString("areas")), 0, 0);
+                },
                 idVaga).stream().findFirst();
     }
 
-    public Pagina<VagaResumo> listarAbertas(FiltroVagas f) {
-        StringBuilder where = new StringBuilder(" WHERE v.status = 'aberta' AND v.prazo_inscricao >= ?");
-        List<Object> args = new ArrayList<>(List.of(Date.valueOf(LocalDate.now())));
-        if (f.busca() != null) {
-            where.append(" AND (v.titulo LIKE ? OR v.descricao LIKE ? OR v.requisitos LIKE ? OR e.razao_social LIKE ?)");
-            String padrao = Textos.paraLike(f.busca());
-            args.addAll(List.of(padrao, padrao, padrao, padrao));
-        }
-        if (f.tipo() != null) {
-            where.append(" AND v.tipo = ?");
-            args.add(f.tipo());
-        }
-        if (f.modalidade() != null) {
-            where.append(" AND v.modalidade = ?");
-            args.add(f.modalidade());
-        }
-        if (f.area() != null) {
-            where.append(" AND v.id_vaga IN (SELECT id_vaga FROM vaga_area WHERE id_area = ?)");
-            args.add(f.area());
-        }
+    // vagas abertas com os filtros da tela; devolve só a página pedida
+    public List<Vaga> listarAbertas(String busca, String tipo, String modalidade, Integer area, String ordem, int pagina, int tamanho) {
+        List<Object> args = new ArrayList<>();
+        String where = filtros(busca, tipo, modalidade, area, args);
 
-        String origem = " FROM vaga v JOIN empregador e ON e.id_usuario = v.id_empregador" + where;
-        Integer total = jdbc.queryForObject("SELECT COUNT(*)" + origem, Integer.class, args.toArray());
-        String ordem = "prazo".equals(f.ordem())
-                ? " ORDER BY v.prazo_inscricao ASC, v.id_vaga DESC"
-                : " ORDER BY v.data_publicacao DESC, v.id_vaga DESC";
-        args.add(f.tamanho());
-        args.add(f.pagina() * f.tamanho());
+        String ordenarPor = " ORDER BY v.data_publicacao DESC, v.id_vaga DESC";
+        if ("prazo".equals(ordem)) {
+            ordenarPor = " ORDER BY v.prazo_inscricao ASC, v.id_vaga DESC";
+        }
+        args.add(tamanho);
+        args.add(pagina * tamanho);
 
-        List<VagaResumo> itens = jdbc.query("""
+        return jdbc.query("""
                 SELECT v.id_vaga, v.titulo, v.descricao, v.requisitos, v.tipo, v.modalidade, v.prazo_inscricao,
-                       v.data_publicacao, v.id_empregador, e.razao_social AS empresa,
-                """ + AREAS_DA_VAGA + origem + ordem + " LIMIT ? OFFSET ?",
-                (rs, n) -> new VagaResumo(rs.getInt("id_vaga"), rs.getString("titulo"), rs.getString("descricao"),
-                        rs.getString("requisitos"), rs.getString("tipo"), rs.getString("modalidade"),
+                       v.data_publicacao, v.status, v.id_empregador, e.razao_social AS empresa, e.tipo_instituicao,
+                """ + AREAS_DA_VAGA
+                + " FROM vaga v JOIN empregador e ON e.id_usuario = v.id_empregador" + where + ordenarPor + " LIMIT ? OFFSET ?",
+                (rs, n) -> new Vaga(rs.getInt("id_vaga"), rs.getInt("id_empregador"), rs.getString("titulo"),
+                        rs.getString("descricao"), rs.getString("requisitos"), rs.getString("tipo"), rs.getString("modalidade"),
                         rs.getDate("prazo_inscricao").toLocalDate(), rs.getObject("data_publicacao", LocalDateTime.class),
-                        rs.getInt("id_empregador"), rs.getString("empresa"), separarAreas(rs.getString("areas"))),
+                        rs.getString("status"), true, rs.getString("empresa"), rs.getString("tipo_instituicao"), null,
+                        separarAreas(rs.getString("areas")), 0, 0),
                 args.toArray());
-        return new Pagina<>(itens, total == null ? 0 : total, f.pagina(), f.tamanho());
     }
 
-    public List<VagaEmpresa> listarDoEmpregador(int idEmpregador) {
-        LocalDate hoje = LocalDate.now();
+    // quantas vagas abertas existem com esses filtros (para mostrar o total e as páginas)
+    public int contarAbertas(String busca, String tipo, String modalidade, Integer area) {
+        List<Object> args = new ArrayList<>();
+        String where = filtros(busca, tipo, modalidade, area, args);
+        Integer total = jdbc.queryForObject("SELECT COUNT(*) FROM vaga v JOIN empregador e ON e.id_usuario = v.id_empregador" + where,
+                Integer.class, args.toArray());
+        return total == null ? 0 : total;
+    }
+
+    // vagas da empresa, com quantas candidaturas cada uma recebeu
+    public List<Vaga> listarDoEmpregador(int idEmpregador) {
         return jdbc.query("""
-                SELECT v.id_vaga, v.titulo, v.tipo, v.modalidade, v.prazo_inscricao, v.data_publicacao, v.status,
+                SELECT v.*,
                        (SELECT COUNT(*) FROM candidatura c WHERE c.id_vaga = v.id_vaga) AS total_candidaturas,
                        (SELECT COUNT(*) FROM candidatura c WHERE c.id_vaga = v.id_vaga AND c.status = 'analise') AS em_analise,
                 """ + AREAS_DA_VAGA + """
@@ -140,21 +134,55 @@ public class VagaRepository {
                 (rs, n) -> {
                     LocalDate prazo = rs.getDate("prazo_inscricao").toLocalDate();
                     String status = rs.getString("status");
-                    return new VagaEmpresa(rs.getInt("id_vaga"), rs.getString("titulo"), rs.getString("tipo"),
-                            rs.getString("modalidade"), prazo, rs.getObject("data_publicacao", LocalDateTime.class), status,
-                            "aberta".equals(status) && !prazo.isBefore(hoje), separarAreas(rs.getString("areas")),
+                    return new Vaga(rs.getInt("id_vaga"), rs.getInt("id_empregador"), rs.getString("titulo"),
+                            rs.getString("descricao"), rs.getString("requisitos"), rs.getString("tipo"), rs.getString("modalidade"),
+                            prazo, rs.getObject("data_publicacao", LocalDateTime.class), status, estaAberta(status, prazo),
+                            null, null, null, separarAreas(rs.getString("areas")),
                             rs.getInt("total_candidaturas"), rs.getInt("em_analise"));
                 },
                 idEmpregador);
     }
 
+    // total de vagas abertas no site (página inicial)
     public int contarAbertas() {
-        Integer total = jdbc.queryForObject("SELECT COUNT(*) FROM vaga WHERE status = 'aberta' AND prazo_inscricao >= ?",
-                Integer.class, Date.valueOf(LocalDate.now()));
-        return total == null ? 0 : total;
+        return contarAbertas(null, null, null, null);
+    }
+
+    // monta o WHERE da busca de vagas e coloca os valores em "args"
+    private String filtros(String busca, String tipo, String modalidade, Integer area, List<Object> args) {
+        String where = " WHERE v.status = 'aberta' AND v.prazo_inscricao >= ?";
+        args.add(Date.valueOf(LocalDate.now()));
+
+        if (busca != null) {
+            where += " AND (v.titulo LIKE ? OR v.descricao LIKE ? OR v.requisitos LIKE ? OR e.razao_social LIKE ?)";
+            String padrao = Textos.paraLike(busca);
+            args.add(padrao);
+            args.add(padrao);
+            args.add(padrao);
+            args.add(padrao);
+        }
+        if (tipo != null) {
+            where += " AND v.tipo = ?";
+            args.add(tipo);
+        }
+        if (modalidade != null) {
+            where += " AND v.modalidade = ?";
+            args.add(modalidade);
+        }
+        if (area != null) {
+            where += " AND v.id_vaga IN (SELECT id_vaga FROM vaga_area WHERE id_area = ?)";
+            args.add(area);
+        }
+        return where;
+    }
+
+    // a vaga aceita inscrições se está "aberta" e o prazo ainda não passou
+    private static boolean estaAberta(String status, LocalDate prazo) {
+        return "aberta".equals(status) && !prazo.isBefore(LocalDate.now());
     }
 
     private static List<String> separarAreas(String areas) {
-        return areas == null || areas.isBlank() ? List.of() : List.of(areas.split("\\|"));
+        if (areas == null || areas.isBlank()) return List.of();
+        return List.of(areas.split("\\|"));
     }
 }

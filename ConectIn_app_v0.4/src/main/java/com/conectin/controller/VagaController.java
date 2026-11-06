@@ -1,6 +1,7 @@
 package com.conectin.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -11,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.conectin.model.AreaAtuacao;
-import com.conectin.model.Estatisticas;
-import com.conectin.model.Pagina;
 import com.conectin.model.VagaDetalhe;
-import com.conectin.model.VagaResumo;
 import com.conectin.repository.AreaRepository;
 import com.conectin.seguranca.UsuarioLogado;
 import com.conectin.service.VagaService;
@@ -32,7 +30,7 @@ public class VagaController {
     }
 
     @GetMapping("/vagas")
-    public Pagina<VagaResumo> listar(@RequestParam(required = false) String busca, @RequestParam(required = false) String tipo,
+    public Map<String, Object> listar(@RequestParam(required = false) String busca, @RequestParam(required = false) String tipo,
             @RequestParam(required = false) String modalidade, @RequestParam(required = false) Integer area,
             @RequestParam(required = false) String ordem, @RequestParam(required = false) Integer pagina,
             @RequestParam(required = false) Integer tamanho) {
@@ -50,7 +48,7 @@ public class VagaController {
     }
 
     @GetMapping("/estatisticas")
-    public Estatisticas estatisticas() {
+    public Map<String, Object> estatisticas() {
         return vagas.estatisticas();
     }
 }

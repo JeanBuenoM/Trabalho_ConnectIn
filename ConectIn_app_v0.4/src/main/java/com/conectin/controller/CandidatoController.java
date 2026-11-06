@@ -20,53 +20,53 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.conectin.model.CandidaturaDoCandidato;
 import com.conectin.model.CandidaturaRequest;
-import com.conectin.model.CurriculoInfo;
-import com.conectin.model.PerfilCandidato;
+import com.conectin.model.Candidato;
+import com.conectin.model.Curriculo;
 import com.conectin.model.PerfilCandidatoRequest;
-import com.conectin.model.VagaResumo;
+import com.conectin.model.Vaga;
 import com.conectin.seguranca.UsuarioLogado;
 import com.conectin.service.CandidaturaService;
-import com.conectin.service.PerfilCandidatoService;
+import com.conectin.service.UsuarioService;
 import com.conectin.service.VagaService;
 
 @RestController
 @RequestMapping("/api/candidato")
 public class CandidatoController {
 
-    private final PerfilCandidatoService perfis;
+    private final UsuarioService usuarioService;
     private final CandidaturaService candidaturas;
     private final VagaService vagas;
 
-    public CandidatoController(PerfilCandidatoService perfis, CandidaturaService candidaturas, VagaService vagas) {
-        this.perfis = perfis;
+    public CandidatoController(UsuarioService usuarioService, CandidaturaService candidaturas, VagaService vagas) {
+        this.usuarioService = usuarioService;
         this.candidaturas = candidaturas;
         this.vagas = vagas;
     }
 
     @GetMapping("/perfil")
-    public PerfilCandidato perfil(@AuthenticationPrincipal Jwt jwt) {
-        return perfis.perfil(UsuarioLogado.id(jwt));
+    public Candidato perfil(@AuthenticationPrincipal Jwt jwt) {
+        return usuarioService.perfilCandidato(UsuarioLogado.id(jwt));
     }
 
     @PutMapping("/perfil")
-    public PerfilCandidato atualizar(@AuthenticationPrincipal Jwt jwt, @RequestBody(required = false) PerfilCandidatoRequest pedido) {
-        return perfis.atualizar(UsuarioLogado.id(jwt), pedido);
+    public Candidato atualizar(@AuthenticationPrincipal Jwt jwt, @RequestBody(required = false) PerfilCandidatoRequest pedido) {
+        return usuarioService.atualizarCandidato(UsuarioLogado.id(jwt), pedido);
     }
 
     @PostMapping("/curriculo")
-    public CurriculoInfo enviarCurriculo(@AuthenticationPrincipal Jwt jwt, @RequestParam("arquivo") MultipartFile arquivo) {
-        return perfis.enviarCurriculo(UsuarioLogado.id(jwt), arquivo);
+    public Curriculo enviarCurriculo(@AuthenticationPrincipal Jwt jwt, @RequestParam("arquivo") MultipartFile arquivo) {
+        return usuarioService.enviarCurriculo(UsuarioLogado.id(jwt), arquivo);
     }
 
     @GetMapping("/curriculo")
     public ResponseEntity<Resource> curriculo(@AuthenticationPrincipal Jwt jwt) {
-        return Arquivos.resposta(perfis.curriculo(UsuarioLogado.id(jwt)));
+        return Arquivos.resposta(usuarioService.curriculo(UsuarioLogado.id(jwt)));
     }
 
     @DeleteMapping("/curriculo")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removerCurriculo(@AuthenticationPrincipal Jwt jwt) {
-        perfis.removerCurriculo(UsuarioLogado.id(jwt));
+        usuarioService.removerCurriculo(UsuarioLogado.id(jwt));
     }
 
     @GetMapping("/candidaturas")
@@ -81,7 +81,7 @@ public class CandidatoController {
     }
 
     @GetMapping("/vagas-recomendadas")
-    public List<VagaResumo> recomendadas(@AuthenticationPrincipal Jwt jwt, @RequestParam(defaultValue = "3") int limite) {
+    public List<Vaga> recomendadas(@AuthenticationPrincipal Jwt jwt, @RequestParam(defaultValue = "3") int limite) {
         return vagas.recomendadas(UsuarioLogado.id(jwt), limite);
     }
 }

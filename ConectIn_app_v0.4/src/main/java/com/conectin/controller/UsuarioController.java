@@ -22,18 +22,18 @@ import com.conectin.erro.ErroApi;
 import com.conectin.model.Notificacao;
 import com.conectin.repository.NotificacaoRepository;
 import com.conectin.seguranca.UsuarioLogado;
-import com.conectin.service.FotoService;
+import com.conectin.service.UsuarioService;
 
 @RestController
 @RequestMapping("/api")
 public class UsuarioController {
 
     private final NotificacaoRepository notificacoes;
-    private final FotoService fotos;
+    private final UsuarioService usuarioService;
 
-    public UsuarioController(NotificacaoRepository notificacoes, FotoService fotos) {
+    public UsuarioController(NotificacaoRepository notificacoes, UsuarioService usuarioService) {
         this.notificacoes = notificacoes;
-        this.fotos = fotos;
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping("/notificacoes")
@@ -61,17 +61,17 @@ public class UsuarioController {
     @PostMapping("/usuario/foto")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void enviarFoto(@AuthenticationPrincipal Jwt jwt, @RequestParam("arquivo") MultipartFile arquivo) {
-        fotos.enviar(UsuarioLogado.id(jwt), arquivo);
+        usuarioService.enviarFoto(UsuarioLogado.id(jwt), arquivo);
     }
 
     @DeleteMapping("/usuario/foto")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removerFoto(@AuthenticationPrincipal Jwt jwt) {
-        fotos.remover(UsuarioLogado.id(jwt));
+        usuarioService.removerFoto(UsuarioLogado.id(jwt));
     }
 
     @GetMapping("/usuarios/{id}/foto")
     public ResponseEntity<Resource> foto(@AuthenticationPrincipal Jwt jwt, @PathVariable("id") int id) {
-        return Arquivos.resposta(fotos.foto(UsuarioLogado.id(jwt), id));
+        return Arquivos.resposta(usuarioService.foto(id));
     }
 }
