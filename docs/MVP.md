@@ -1,103 +1,101 @@
-# MVP e Fluxo Completo — ConectIn
+# MVP e Escopo Funcional
 
-## O que é o MVP
+## 1. Objetivo
 
-O MVP do ConectIn cobre o ciclo essencial: cadastro, publicação de vaga, busca, candidatura e acompanhamento de status. O que não é indispensável para esse ciclo funcionar fica para versões futuras. A classificação abaixo foi cruzada com o backlog da equipe (`Backlog.md`).
+O MVP do ConectIn oferece um ambiente único para que candidatos encontrem oportunidades acadêmicas e profissionais e para que empresas e instituições de ensino publiquem vagas e acompanhem as inscrições recebidas.
 
-## Funcionalidades e classificação
+O sistema contempla três tipos de oportunidade: emprego, estágio e projeto acadêmico.
 
-| Funcionalidade | Requisito | Classificação | Faz parte do MVP? | Situação (20/10/2026) |
-|---|---|---|---|---|
-| Cadastro de candidato/estudante | RF01 | Indispensável | Sim | Finalizado (T01) |
-| Cadastro de empregador/empresa | RF02 | Indispensável | Sim | Finalizado (T01) |
-| Publicar vaga | RF03 | Indispensável | Sim | Em Andamento |
-| Pesquisar/filtrar vagas | RF04 | Indispensável | Sim | Finalizado |
-| Cadastrar currículo | RF05 | Indispensável | Sim | Em Andamento |
-| Candidatar-se a vaga | RF06 | Indispensável | Sim | Em Andamento |
-| Avaliar candidaturas | RF07 | Indispensável | Sim | Não iniciado |
-| Acompanhar status de candidatura | RF08 | Indispensável | Sim | Em Andamento |
-| Editar perfil/currículo | RF09 | Desejável | Não | Em Andamento |
-| Notificações | RF10 | Desejável | Não | Finalizado |
-| Indicar sem experiência profissional | RF11 | Indispensável | Sim | Não iniciado |
+## 2. Perfis de usuário
 
-Todas as telas já têm esboço em `prototipos/`. O código existe apenas para o recorte de 20/10 (publicar e listar vagas); o restante ainda não foi iniciado.
+### Candidato
 
-## Fluxo completo selecionado
+Pessoa que utiliza a plataforma para construir seu perfil, consultar oportunidades, registrar currículo e acompanhar suas candidaturas. O perfil contempla estudantes e profissionais.
 
-**Candidato se cadastra → pesquisa vaga → candidata-se → Empregador avalia → Candidato acompanha o status**
+### Empregador
 
-1. Candidato se cadastra (RF01).
-2. Candidato pesquisa e filtra vagas (RF04).
-3. Candidato se candidata a uma vaga (RF06), aplicando a regra RN04 (currículo obrigatório ou "sem experiência", conforme o tipo de vaga).
-4. Sistema registra a candidatura com status "análise" (RF08).
-5. Empregador avalia a candidatura e define o status (RF07).
-6. Candidato acompanha e visualiza o status atualizado (RF08).
+Empresa ou instituição de ensino que utiliza a plataforma para manter seus dados institucionais, publicar oportunidades e administrar candidaturas.
 
-Esse é o fluxo que será demonstrado na apresentação final de 27/11. Ele depende de vagas publicadas, por isso a construção começa pela publicação e pela consulta de vagas.
+## 3. Funcionalidades do MVP
 
-### Requisitos, telas e entidades envolvidos no fluxo
+### 3.1 Conta e autenticação
 
-| Requisito | Caso de uso | Entidades | Tela | No MVP? |
-|---|---|---|---|---|
-| RF01 | UC01 — Cadastrar-se | usuario, candidato | Cadastro de estudante | Sim |
-| RF04 | UC05 — Pesquisar vagas | vaga, area_atuacao, vaga_area | Busca e listagem de vagas | Sim |
-| RF06 | UC06 — Candidatar-se a vaga | candidatura, candidato, vaga | Detalhes da vaga e candidatura | Sim |
-| RF11 | UC09b — Indicar sem experiência | candidato | Perfil e currículo | Sim |
-| RF08 | UC07 — Acompanhar candidaturas | candidatura, vaga | Minhas candidaturas | Sim |
-| RF07 | UC08 — Avaliar inscrições | candidatura, candidato, curriculo | Candidatos inscritos | Sim |
+- Cadastro de conta como candidato ou empregador.
+- Login com e-mail e senha.
+- Emissão e validação de JWT.
+- Consulta dos dados da conta autenticada.
+- Autorização das áreas de candidato e empregador conforme o papel da conta.
 
-## Fora do MVP (funcionalidades futuras)
+### 3.2 Consulta de oportunidades
 
-- Edição completa de perfil e currículo a qualquer momento (RF09)
-- Notificações automáticas (RF10)
-- Requisitos não funcionais amplos (LGPD, responsividade e otimização — T11 a T13), que seguem em paralelo
-- Verificação/validação de empresas
-- Busca por localização
+- Listagem pública de vagas com inscrições abertas.
+- Busca textual.
+- Filtros por tipo, modalidade e área de atuação.
+- Ordenação e paginação dos resultados.
+- Consulta dos detalhes de uma vaga.
+- Consulta das áreas de atuação e de estatísticas públicas.
 
-## Prioridades do 2º bimestre
+### 3.3 Área do candidato
 
-Essenciais (sem elas o fluxo não funciona):
-- Publicar vaga e consultar vagas (RF03, RF04)
-- Cadastro de candidato e de empregador, com login (RF01, RF02)
-- Currículo e "sem experiência" (RF05, RF11)
-- Candidatura (RF06)
-- Avaliação pela empresa e acompanhamento do status (RF07, RF08)
+- Consulta e atualização do perfil.
+- Registro de telefone, curso, instituição, situação da formação, ano de conclusão, área de interesse e descrição pessoal.
+- Cadastro de habilidades.
+- Indicação de ausência de experiência profissional.
+- Envio, consulta e remoção de currículo em PDF.
+- Candidatura a oportunidades.
+- Consulta das próprias candidaturas e dos respectivos status.
+- Consulta de vagas recomendadas a partir da área de interesse e das habilidades cadastradas.
 
-Importantes (entram se o tempo permitir antes de 27/11):
-- Edição de perfil e currículo (RF09)
-- Notificações (RF10)
-- Proteção dos dados e interface responsiva (RNF01, RNF02)
+### 3.4 Área do empregador
 
-Complementares (ficam para depois do bimestre):
-- Otimização de desempenho, disponibilidade e compatibilidade (RNF03 a RNF05)
-- Verificação de empresas, busca por localização, chat
+- Consulta e atualização do perfil institucional.
+- Painel com indicadores de vagas e candidaturas.
+- Listagem das próprias vagas.
+- Publicação e edição de vagas.
+- Encerramento e reabertura de inscrições.
+- Remoção de vagas.
+- Consulta das candidaturas recebidas.
+- Filtros de candidaturas por vaga, status e texto.
+- Consulta dos detalhes da candidatura e do currículo associado.
+- Atualização do status de uma candidatura.
 
-### Dependências que definem a ordem
+### 3.5 Notificações internas
 
-- Uma vaga só existe se houver um empregador cadastrado.
-- Uma candidatura só existe se houver uma vaga publicada e um candidato cadastrado.
-- A avaliação só existe se houver candidatura.
-- O login serve de base para RF01, RF02 e RN05. Não tem requisito próprio (ver `Historico_de_Alteracoes.md`).
+O backend registra notificações relacionadas à publicação de vagas compatíveis, ao recebimento de candidaturas, à alteração de status e à remoção de oportunidades. A API dos controllers consultados não expõe uma rota dedicada para listar ou administrar uma caixa de entrada de notificações.
 
-Ordem de construção prevista: base do projeto e banco, depois empregador e vagas (20/10), depois candidato, login, busca e candidatura (até 06/11), depois avaliação, status e acabamento (até 27/11).
+## 4. Fluxo principal do candidato
 
-## Recorte da entrega de 20/10
+1. Criar uma conta do tipo candidato.
+2. Entrar na plataforma.
+3. Completar o perfil e cadastrar habilidades.
+4. Enviar um currículo quando necessário.
+5. Consultar e filtrar as oportunidades disponíveis.
+6. Abrir os detalhes de uma vaga e realizar a candidatura.
+7. Acompanhar o status da inscrição na área do candidato.
 
-Recorte escolhido: **publicar vagas e consultar vagas** (RF03 e a parte inicial do RF04).
+## 5. Fluxo principal do empregador
 
-O que deve funcionar no dia da entrega:
-- Uma tela HTML de publicação de vaga com título, descrição, requisitos, tipo, modalidade, prazo de inscrição e área de atuação.
-- A vaga publicada é gravada no MySQL.
-- Regras aplicadas: prazo de inscrição obrigatório (RN01), pelo menos uma área de atuação (RN03), título e descrição obrigatórios.
-- Se algum campo obrigatório faltar, a vaga não é salva e a tela informa qual campo falta.
-- Uma tela de listagem mostra as vagas abertas, e a vaga recém-publicada aparece nela.
-- Depois de fechar e abrir a aplicação de novo, as vagas continuam lá.
-- Filtro da listagem por tipo, área e modalidade, e mensagem "nenhuma vaga encontrada" quando o filtro não retorna nada (entrou no recorte).
+1. Criar uma conta do tipo empregador, informando os dados institucionais.
+2. Entrar na plataforma.
+3. Completar o perfil da empresa ou instituição.
+4. Publicar uma vaga com tipo, modalidade, prazo e áreas de atuação.
+5. Consultar as candidaturas recebidas.
+6. Analisar o perfil e o currículo dos candidatos.
+7. Atualizar o status das candidaturas.
 
-Como ainda não há login, a publicação usa um empregador fictício já cadastrado no banco, com dados de teste.
+## 6. Regras centrais do escopo
 
-O que fica para as próximas entregas:
-- 06/11: cadastro de candidato e de empregador com login, currículo, candidatura, filtros completos e começo da avaliação.
-- 27/11: avaliação, acompanhamento de status, edição de perfil, notificações, responsividade e proteção dos dados, mais a apresentação final.
+- As vagas possuem tipo, modalidade, prazo de inscrição e pelo menos uma área de atuação.
+- As candidaturas só podem ser feitas enquanto as inscrições estiverem abertas.
+- Um candidato não pode se candidatar duas vezes à mesma vaga.
+- O currículo em PDF é obrigatório para oportunidades do tipo `emprego`.
+- O empregador só administra vagas e candidaturas vinculadas à própria conta.
+- Os status disponíveis para uma candidatura são `analise`, `aprovado` e `reprovado`.
 
-Recursos incompletos serão apresentados como "em desenvolvimento".
+As validações e os valores aceitos estão descritos em [Regras de Negócio](Regras_de_Negocio.md).
+
+## 7. Escopo técnico
+
+O backend é disponibilizado como API REST em Spring Boot. O frontend é desenvolvido em React e pode ser compilado para ser servido pela própria aplicação. Os dados são persistidos em MySQL e as alterações do esquema são controladas pelo Flyway.
+
+A configuração de execução descrita no projeto é local. O armazenamento de arquivos utiliza o sistema de arquivos do servidor.
