@@ -1,5 +1,3 @@
--- ConectIn — V1: tabelas iniciais (igual a banco-de-dados/schema.sql, sem CREATE DATABASE/USE).
--- Quem já criou o banco rodando o schema.sql à mão não roda isto de novo: o Flyway marca esta versão como base.
 
 CREATE TABLE usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
