@@ -36,10 +36,10 @@
 
 | Tarefa | Descrição | Requisito | Responsável | Prioridade | Prazo | Situação |
 |---|---|---|---|---|---|---|
-| T01 | Criar cadastro e login de estudante e de empresa | RF01, RF02, RN05 | Kauã Morais | Alta | 06/11 | Não iniciado |
-| T04 | Criar cadastro e anexo de currículo | RF05 | Jean Bueno | Alta | 06/11 | Não iniciado |
-| T05 | Implementar candidatura às vagas, com a regra do currículo e o "sem experiência" | RF06, RF11, RN02, RN04 | Jean Bueno | Alta | 06/11 | Não iniciado |
-| T06 | Criar área para empresas visualizarem as inscrições | RF07 | Jean Bueno | Alta | 06/11 | Não iniciado |
+| T01 | Criar cadastro e login de estudante e de empresa | RF01, RF02, RN05 | Kauã Morais | Alta | 06/11 | Completo |
+| T04 | Criar cadastro e anexo de currículo | RF05 | Jean Bueno | Alta | 06/11 | Completo |
+| T05 | Implementar candidatura às vagas, com a regra do currículo e o "sem experiência" | RF06, RF11, RN02, RN04 | Jean Bueno | Alta | 06/11 | Completo |
+| T06 | Criar área para empresas visualizarem as inscrições | RF07 | Jean Bueno | Alta | 06/11 | Completo |
 
 ## Entrega de 27/11: conclusão e apresentação final
 
