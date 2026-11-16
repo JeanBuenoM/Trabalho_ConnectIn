@@ -334,5 +334,6 @@ public class UsuarioService {
             Files.deleteIfExists(pastaUploads.resolve(caminho));
         } catch (IOException e) {
 
+        }
     }
 }
